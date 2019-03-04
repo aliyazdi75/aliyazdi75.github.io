@@ -8,11 +8,11 @@
 # Site Settings
 github                   : [metadata]
 locale                   : "en-US"
-title                    : "      Home Pages"
+title                    : "Home Pages"
 title_separator          : "-"
 name                     : &name "Ali Yazdi"
-description              : &description "Student at Amirkabir University Technology"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : &description "Student at Amirkabir University of Technology"
+url                      : https://aliyazdi75.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "aliyazdi75/aliyazdi75.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -81,35 +81,35 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Sidebar Name"
-  avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
+  name             : "Ali Yazdi"
+  avatar           : "profile.jpg"
+  bio              : "Student at Amirkabir University of Technology"
+  location         : "Tehran"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
+  pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  googlescholar    : # "http://yourfullgooglescholarurl.com"
   email            :
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "aliyazdi75"
   foursquare       :
-  github           : "academicpages"
+  github           : "aliyazdi75"
   google_plus      :
   keybase          :
-  instagram        :
+  instagram        : "aliyazdi75"
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  linkedin         : "aliyazdi75"
+  orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
-  soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            :
+  soundcloud       : "aliyazdi75"
+  stackoverflow    : # "aliyazdi75"
+  steam            : "aliyazdi75"
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : "aliyazdi75"
   vine             :
   weibo            :
   xing             :
