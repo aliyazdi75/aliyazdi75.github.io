@@ -5,6 +5,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
+# To Run locally: bundle exec jekyll liveserve
 # Site Settings
 github                   : [metadata]
 locale                   : "en-US"
@@ -106,7 +107,7 @@ author:
   orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       : "aliyazdi75"
-  stackoverflow    : # "aliyazdi75"
+  stackoverflow    : "aliyazdi75"
   steam            : "aliyazdi75"
   tumblr           :
   twitter          : "aliyazdi75"
