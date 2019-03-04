@@ -8,7 +8,7 @@
 # Site Settings
 github                   : [metadata]
 locale                   : "en-US"
-title                    : "Home Pages"
+title                    : "Ali Yazdi Home Pages"
 title_separator          : "-"
 name                     : &name "Ali Yazdi"
 description              : &description "Student at Amirkabir University of Technology"
@@ -175,16 +175,16 @@ kramdown:
 # Collections
 collections:
   teaching:
-    output: false
+    output: true
     permalink: /:collection/:path/
   publications:
-    output: false
+    output: true
     permalink: /:collection/:path/
   portfolio:
-    output: false
+    output: true
     permalink: /:collection/:path/
   talks:
-    output: false
+    output: true
     permalink: /:collection/:path/
 
 

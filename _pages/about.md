@@ -18,4 +18,4 @@ I can point to my some benefit features like: <br>
 <li>Skill in fast learning and eliminate the shortage of skill in the short time.</li>
 </ul>
 I do not have work experience so I am looking for a workplace to learn 
-from my coworker and quickly improve my skills.
+from my coworkers and quickly improve my skills.
