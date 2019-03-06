@@ -90,7 +90,11 @@ tree, balance-TST, trie-tree and hash<br>
 oriented programming<br>
 </li>
 </ul>
-
+<style>
+a:link {
+   text-decoration: none;
+}
+</style>
 <!----------------------------------------->
 <!-- 
 Publications
