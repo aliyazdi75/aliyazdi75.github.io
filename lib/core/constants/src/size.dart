@@ -15,3 +15,8 @@ const splashPageAnimationDurationInMilliseconds = 300;
 
 // The desktop top padding for a page's first header (e.g. Gallery, Settings)
 const firstHeaderDesktopTopPadding = 5.0;
+
+const desktopBreakpoint = 700.0;
+
+const smallDesktopMaxWidth = 1000.0;
+const smallMobileMaxWidth = 800.0;

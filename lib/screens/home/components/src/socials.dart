@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_site/core/urls.dart';
-import 'package:my_site/layout/responsive_widget.dart';
+import 'package:my_site/core/constants/src/urls.dart';
+import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'nav_button.dart';
@@ -69,7 +69,7 @@ class Socials extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget(
+    return AdaptiveSize(
       largeScreen: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

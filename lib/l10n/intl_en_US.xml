@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  This file was automatically generated.
+  Please do not edit it manually.
+  It was based on gallery/lib/src/l10n/intl_en_US.arb.
+-->
+<resources>
+  <string
+    name="aboutFlutterSamplesRepo"
+    description="Represents a link to the Flutter samples github repository."
+    >Flutter samples Github repo</string>
+  <string
+    name="aboutDialogDescription"
+    description="A description about how to view the source code for this app."
+    >To see the source code for this app, please visit the {value}.</string>
+  <string
+    name="signIn"
+    description="Sign in label to sign into website."
+    >SIGN IN</string>
+  <string
+    name="rallyBudgetAmount"
+    description="Semantics label for row with a budget (housing budget for example), with how much is used of the budget (for example $5), the total budget (for example $100) and the amount left in the budget (for example $95)."
+    >{budgetName} budget with {amountUsed} used of {amountTotal}, {amountLeft} left</string>
+  <string
+    name="craneHours"
+    description="Generic text for an amount of hours, abbreviated to the shortest form. For example 1h. {hours} should remain untranslated."
+    >{hours, plural, =1{1h} other{{hours}h}}</string>
+  <string
+    name="craneMinutes"
+    description="Generic text for an amount of minutes, abbreviated to the shortest form. For example 15m. {minutes} should remain untranslated."
+    >{minutes, plural, =1{1m} other{{minutes}m}}</string>
+  <string
+    name="mySiteTitle"
+    description="Title for app."
+    >Ali Yazdi&apos;s Profile</string>
+</resources>

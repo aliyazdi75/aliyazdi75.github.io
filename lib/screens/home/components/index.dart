@@ -1,4 +1,3 @@
-export '../../../layout/responsive_widget.dart';
 export 'src/nav_button.dart';
 export 'src/nav_header.dart';
 export 'src/pk_dot.dart';

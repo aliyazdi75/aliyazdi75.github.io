@@ -2,7 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:my_site/core/constants.dart';
+import 'package:my_site/core/constants/src/size.dart';
 
 const List<String> rtlLanguages = <String>[
   'fa',

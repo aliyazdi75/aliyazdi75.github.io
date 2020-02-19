@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:my_site/core/paths.dart';
-import 'package:my_site/core/urls.dart';
-import 'package:my_site/layout/responsive_widget.dart';
+import 'package:my_site/core/constants/index.dart';
+import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfileInfo extends StatelessWidget {
   profileImage(context) => Container(
-        height: ResponsiveWidget.isSmallScreen(context)
+        height: isSmallDisplay(context)
             ? MediaQuery.of(context).size.height * 0.25
             : MediaQuery.of(context).size.width * 0.25,
-        width: ResponsiveWidget.isSmallScreen(context)
+        width: isSmallDisplay(context)
             ? MediaQuery.of(context).size.height * 0.25
             : MediaQuery.of(context).size.width * 0.25,
         decoration: BoxDecoration(
@@ -99,7 +98,7 @@ class ProfileInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget(
+    return AdaptiveSize(
       largeScreen: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
