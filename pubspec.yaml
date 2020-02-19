@@ -29,5 +29,6 @@ flutter:
   uses-material-design: true
 
   assets:
+    - fonts/google_fonts/
     - assets/images/avatar.jpg
 

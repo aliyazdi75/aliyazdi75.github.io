@@ -41,7 +41,9 @@ class MySite extends StatelessWidget {
         builder: (context) {
           return AdaptiveDesign(
             materialTheme: MaterialApp(
-              title: MySiteLocalizations.of(context).mySiteTitle,
+              title: 'Ali Yazdi\'s Profile',
+              onGenerateTitle: (context) =>
+                  MySiteLocalizations.of(context).mySiteTitle,
               debugShowCheckedModeBanner: false,
               themeMode: MySiteOptions.of(context).themeMode,
               theme: MySiteThemeData.lightThemeData
@@ -63,7 +65,9 @@ class MySite extends StatelessWidget {
               ),
             ),
             cupertinoTheme: CupertinoApp(
-              title: MySiteLocalizations.of(context).mySiteTitle,
+              title: 'Ali Yazdi\'s Profile',
+              onGenerateTitle: (context) =>
+                  MySiteLocalizations.of(context).mySiteTitle,
               debugShowCheckedModeBanner: false,
               theme: MaterialBasedCupertinoThemeData(
                 materialTheme: MySiteOptions.of(context).themeData(context),
