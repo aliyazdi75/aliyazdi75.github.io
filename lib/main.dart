@@ -1,12 +1,13 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:my_site/core/constants/src/size.dart';
+import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/data/my_site_options.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
+import 'package:my_site/layout/adaptive.dart';
 import 'package:my_site/screens/home/home.dart';
 import 'package:my_site/themes/my_site_theme_data.dart';
 
@@ -24,7 +25,6 @@ void setOverrideForDesktop() {
 
 main() {
   setOverrideForDesktop();
-  GoogleFonts.config.allowHttp = false;
   runApp(MySite());
 }
 
@@ -35,33 +35,52 @@ class MySite extends StatelessWidget {
       initialModel: MySiteOptions(
         themeMode: ThemeMode.system,
         textScaleFactor: systemTextScaleFactorOption,
-        locale: null,
         platform: defaultTargetPlatform,
       ),
       child: Builder(
         builder: (context) {
-          return MaterialApp(
-            title: 'Ali Yazdi\'s profile',
-            debugShowCheckedModeBanner: false,
-            themeMode: MySiteOptions.of(context).themeMode,
-            theme: MySiteThemeData.lightThemeData.copyWith(
-              platform: MySiteOptions.of(context).platform,
+          return AdaptiveDesign(
+            materialTheme: MaterialApp(
+              title: MySiteLocalizations.of(context).mySiteTitle,
+              debugShowCheckedModeBanner: false,
+              themeMode: MySiteOptions.of(context).themeMode,
+              theme: MySiteThemeData.lightThemeData
+                  .copyWith(platform: MySiteOptions.of(context).platform),
+              darkTheme: MySiteThemeData.darkThemeData
+                  .copyWith(platform: MySiteOptions.of(context).platform),
+              localizationsDelegates: [
+                ...MySiteLocalizations.localizationsDelegates,
+                LocaleNamesLocalizationsDelegate()
+              ],
+              supportedLocales: MySiteLocalizations.supportedLocales,
+              locale: MySiteOptions.of(context).locale,
+              localeResolutionCallback: (locale, supportedLocales) {
+                deviceLocale = locale;
+                return locale;
+              },
+              home: ApplyTextOptions(
+                child: HomePage(),
+              ),
             ),
-            darkTheme: MySiteThemeData.darkThemeData.copyWith(
-              platform: MySiteOptions.of(context).platform,
-            ),
-            localizationsDelegates: [
-              ...MySiteLocalizations.localizationsDelegates,
-              LocaleNamesLocalizationsDelegate()
-            ],
-            supportedLocales: MySiteLocalizations.supportedLocales,
-            locale: MySiteOptions.of(context).locale,
-            localeResolutionCallback: (locale, supportedLocales) {
-              deviceLocale = locale;
-              return locale;
-            },
-            home: ApplyTextOptions(
-              child: HomePage(),
+            cupertinoTheme: CupertinoApp(
+              title: MySiteLocalizations.of(context).mySiteTitle,
+              debugShowCheckedModeBanner: false,
+              theme: MaterialBasedCupertinoThemeData(
+                materialTheme: MySiteOptions.of(context).themeData(context),
+              ),
+              localizationsDelegates: [
+                ...MySiteLocalizations.localizationsDelegates,
+                LocaleNamesLocalizationsDelegate()
+              ],
+              supportedLocales: MySiteLocalizations.supportedLocales,
+              locale: MySiteOptions.of(context).locale,
+              localeResolutionCallback: (locale, supportedLocales) {
+                deviceLocale = locale;
+                return locale;
+              },
+              home: ApplyTextOptions(
+                child: HomePage(),
+              ),
             ),
           );
         },

@@ -30,15 +30,4 @@ flutter:
 
   assets:
     - assets/images/avatar.jpg
-    - assets/splash_effects/
-
-  fonts:
-    - family: Shabnam-FD
-      fonts:
-        - asset: fonts/Shabnam-FD.ttf
-          style: normal
-    - family: Shabnam-Light-FD
-      fonts:
-        - asset: fonts/Shabnam-Light-FD.ttf
-          style: normal
 

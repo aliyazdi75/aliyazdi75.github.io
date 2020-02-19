@@ -3,15 +3,12 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/src/size.dart';
-
-const List<String> rtlLanguages = <String>[
-  'fa',
-];
-
-const systemLocaleOption = Locale('system');
+import 'package:my_site/themes/my_site_theme_data.dart';
 
 Locale _deviceLocale;
+
 Locale get deviceLocale => _deviceLocale;
+
 set deviceLocale(Locale locale) {
   if (_deviceLocale == null) {
     _deviceLocale = locale;
@@ -39,6 +36,22 @@ class MySiteOptions {
           : MediaQuery.of(context).textScaleFactor;
     } else {
       return _textScaleFactor;
+    }
+  }
+
+  ThemeData themeData(BuildContext context) {
+    if (themeMode == ThemeMode.system) {
+      return MediaQuery.platformBrightnessOf(context) == Brightness.light
+          ? MySiteThemeData.lightThemeData
+          .copyWith(platform: MySiteOptions.of(context).platform)
+          : MySiteThemeData.darkThemeData
+          .copyWith(platform: MySiteOptions.of(context).platform);
+    } else {
+      return themeMode == ThemeMode.light
+          ? MySiteThemeData.lightThemeData
+          .copyWith(platform: MySiteOptions.of(context).platform)
+          : MySiteThemeData.darkThemeData
+          .copyWith(platform: MySiteOptions.of(context).platform);
     }
   }
 
