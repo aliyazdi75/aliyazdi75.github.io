@@ -1,31 +1,53 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 enum DisplayType {
-  desktop,
-  mobile,
+  material,
+  cupertino,
+}
+
+enum SizeType {
+  small,
+  medium,
+  large,
+}
+
+enum OrientationType {
+  landscape,
+  portrait,
 }
 
 const _desktopBreakpoint = 700.0;
 const _smallDesktopMaxWidth = 1000.0;
 
-/// Returns the [DisplayType] for the current screen. This app only supports
-/// mobile and desktop layouts, and as such we only have one breakpoint.
 DisplayType displayTypeOf(BuildContext context) {
-  if (MediaQuery.of(context).size.shortestSide > _desktopBreakpoint) {
-    return DisplayType.desktop;
+  if (kIsWeb) {
+    return DisplayType.material;
+  } else if (Platform.isMacOS || Platform.isIOS) {
+    return DisplayType.cupertino;
   } else {
-    return DisplayType.mobile;
+    return DisplayType.material;
   }
 }
 
-/// Returns a boolean if we are in a display of [DisplayType.desktop]. Used to
-/// build adaptive and responsive layouts.
-bool isDisplayDesktop(BuildContext context) {
-  return displayTypeOf(context) == DisplayType.desktop;
+SizeType sizeTypeOf(BuildContext context) {
+  if (MediaQuery.of(context).size.shortestSide > _desktopBreakpoint) {
+    return DeviceType.desktop;
+  } else {
+    return DeviceType.mobile;
+  }
 }
 
-/// Returns a boolean if we are in a display of [DisplayType.desktop] but less
-/// than 1000 width. Used to build adaptive and responsive layouts.
+OrientationType orientationTypeOf(BuildContext context) {
+  if (MediaQuery.of(context).size.shortestSide > _desktopBreakpoint) {
+    return DeviceType.desktop;
+  } else {
+    return DeviceType.mobile;
+  }
+}
+
 bool isDisplaySmallDesktop(BuildContext context) {
   return isDisplayDesktop(context) &&
       MediaQuery.of(context).size.width < _smallDesktopMaxWidth;

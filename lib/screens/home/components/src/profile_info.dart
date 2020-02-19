@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_site/core/paths.dart';
 import 'package:my_site/core/urls.dart';
-import 'package:my_site/screens/home/components/src/responsive_widget.dart';
+import 'package:my_site/layout/responsive_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfileInfo extends StatelessWidget {
