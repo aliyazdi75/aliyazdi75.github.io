@@ -22,12 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
   static m0(value) =>
       "To see the source code for this app, please visit the ${value}.";
 
-  static m1(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m1(value) =>
+      "I am graduated software engineering from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.";
 
-  static m2(minutes) =>
+  static m2(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m3(minutes) =>
       "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
 
-  static m3(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m4(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} budget with ${amountUsed} used of ${amountTotal}, ${amountLeft} left";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -35,11 +38,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("Flutter samples Github repo"),
-        "craneHours": m1,
-        "craneMinutes": m2,
+        "aboutMe": m1,
+        "aboutUniversityRank": MessageLookupByLibrary.simpleMessage(
+            "is the second technical university in Iran"),
+        "craneHours": m2,
+        "craneMinutes": m3,
+        "myName": MessageLookupByLibrary.simpleMessage("ALI YAZDI"),
         "mySiteTitle":
             MessageLookupByLibrary.simpleMessage("Ali Yazdi\'s Profile"),
-        "rallyBudgetAmount": m3,
-        "signIn": MessageLookupByLibrary.simpleMessage("SIGN IN")
+        "myTitle": MessageLookupByLibrary.simpleMessage(
+            "CS GRADUATE @ TEHRAN POLYTECHNIC"),
+        "rallyBudgetAmount": m4,
+        "resume": MessageLookupByLibrary.simpleMessage("Resume"),
+        "signIn": MessageLookupByLibrary.simpleMessage("SIGN IN"),
+        "welcomeTitle":
+            MessageLookupByLibrary.simpleMessage("Hi there, welcome to my page")
       };
 }

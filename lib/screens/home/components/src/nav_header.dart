@@ -10,14 +10,14 @@ class NavHeader extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: isSmallDisplay(context)
+      mainAxisAlignment: isMediumDisplay(context)
           ? MainAxisAlignment.center
           : MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         PKDot(),
 //          Spacer(),
-        if (!isSmallDisplay(context))
+        if (!isMediumDisplay(context))
           Row(
             children: navButtons,
           )

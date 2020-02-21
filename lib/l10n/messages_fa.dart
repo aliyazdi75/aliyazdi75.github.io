@@ -22,12 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
   static m0(value) =>
       "برای دیدن کد منبع این برنامه ، لطفاً ${value} را ببینید.";
 
-  static m1(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m2(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
 
-  static m2(minutes) =>
+  static m3(minutes) =>
       "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
 
-  static m3(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m4(budgetName, amountUsed, amountTotal, amountLeft) =>
       "بودجه ${budgetName} با مبلغ کلی ${amountTotal} که ${amountUsed} از آن مصرف‌شده و ${amountLeft} باقی‌مانده است";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -35,10 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("مخزن جی‌تاب نمونه‌های فلاتر"),
-        "craneHours": m1,
-        "craneMinutes": m2,
+        "craneHours": m2,
+        "craneMinutes": m3,
         "mySiteTitle": MessageLookupByLibrary.simpleMessage("پروفایل علی یزدی"),
-        "rallyBudgetAmount": m3,
+        "rallyBudgetAmount": m4,
         "signIn": MessageLookupByLibrary.simpleMessage("ورود به سیستم")
       };
 }

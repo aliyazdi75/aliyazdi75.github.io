@@ -21,6 +21,7 @@ enum OrientationType {
 
 enum SizeType {
   large,
+  medium,
   small,
 }
 
@@ -51,19 +52,28 @@ OrientationType orientationTypeOf(BuildContext context) {
 }
 
 SizeType sizeTypeOf(BuildContext context) {
+  final platformWidth =MediaQuery.of(context).size.width;
   if (displayTypeOf(context) == DisplayType.desktop) {
-    if (MediaQuery.of(context).size.width > smallDesktopMaxWidth) {
+    if (platformWidth > mediumDesktopMaxWidth) {
       return SizeType.large;
-    } else {
+    } else if(platformWidth > smallDesktopMaxWidth){
+      return SizeType.medium;
+    }else{
       return SizeType.small;
     }
   } else {
-    if (MediaQuery.of(context).size.width > smallMobileMaxWidth) {
+    if (platformWidth > mediumMobileMaxWidth) {
       return SizeType.large;
-    } else {
+    } else if(platformWidth > smallMobileMaxWidth){
+      return SizeType.medium;
+    }else{
       return SizeType.small;
     }
   }
+}
+
+bool isMediumDisplay(BuildContext context) {
+  return sizeTypeOf(context) == SizeType.medium;
 }
 
 bool isSmallDisplay(BuildContext context) {
@@ -73,33 +83,33 @@ bool isSmallDisplay(BuildContext context) {
 class AdaptiveSize extends StatelessWidget {
   const AdaptiveSize({
     Key key,
-    @required this.largeScreen,
-    @required this.smallScreen,
+    @required this.large,
+    @required this.small,
   }) : super(key: key);
 
-  final Widget largeScreen;
-  final Widget smallScreen;
+  final Widget large;
+  final Widget small;
 
   @override
   Widget build(BuildContext context) {
-    final bool isSmall = isSmallDisplay(context);
-    return isSmall ? smallScreen : largeScreen;
+    final bool isSmall = isMediumDisplay(context);
+    return isSmall ? small : large;
   }
 }
 
 class AdaptiveDesign extends StatelessWidget {
   const AdaptiveDesign({
     Key key,
-    @required this.materialTheme,
-    @required this.cupertinoTheme,
+    @required this.material,
+    @required this.cupertino,
   }) : super(key: key);
 
-  final Widget materialTheme;
-  final Widget cupertinoTheme;
+  final Widget material;
+  final Widget cupertino;
 
   @override
   Widget build(BuildContext context) {
     final bool materialDesign = designTypeOf(context) == DesignType.material;
-    return materialDesign ? materialTheme : cupertinoTheme;
+    return materialDesign ? material : cupertino;
   }
 }

@@ -119,6 +119,22 @@ class MySiteLocalizations {
         desc: 'Represents a link to the Flutter samples github repository.');
   }
 
+  String aboutMe(Object value) {
+    return Intl.message(
+        'I am graduated software engineering from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.',
+        locale: _localeName,
+        name: 'aboutMe',
+        desc: 'About me.',
+        args: <Object>[value]);
+  }
+
+  String get aboutUniversityRank {
+    return Intl.message('is the second technical university in Iran',
+        locale: _localeName,
+        name: 'aboutUniversityRank',
+        desc: 'University rank in Iran.');
+  }
+
   String craneHours(int hours) {
     return Intl.plural(hours,
         locale: _localeName,
@@ -141,9 +157,19 @@ class MySiteLocalizations {
         other: '${minutes}m');
   }
 
+  String get myName {
+    return Intl.message('ALI YAZDI',
+        locale: _localeName, name: 'myName', desc: 'My name.');
+  }
+
   String get mySiteTitle {
     return Intl.message("Ali Yazdi's Profile",
         locale: _localeName, name: 'mySiteTitle', desc: 'Title for app.');
+  }
+
+  String get myTitle {
+    return Intl.message('CS GRADUATE @ TEHRAN POLYTECHNIC',
+        locale: _localeName, name: 'myTitle', desc: 'My title.');
   }
 
   String rallyBudgetAmount(Object budgetName, Object amountUsed,
@@ -156,11 +182,21 @@ class MySiteLocalizations {
         args: <Object>[budgetName, amountUsed, amountTotal, amountLeft]);
   }
 
+  String get resume {
+    return Intl.message('Resume',
+        locale: _localeName, name: 'resume', desc: 'Resume.');
+  }
+
   String get signIn {
     return Intl.message('SIGN IN',
         locale: _localeName,
         name: 'signIn',
         desc: 'Sign in label to sign into website.');
+  }
+
+  String get welcomeTitle {
+    return Intl.message('Hi there, welcome to my page',
+        locale: _localeName, name: 'welcomeTitle', desc: 'Welcome title.');
   }
 }
 

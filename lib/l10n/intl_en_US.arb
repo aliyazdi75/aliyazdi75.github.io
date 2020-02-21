@@ -55,5 +55,34 @@
   "mySiteTitle": "Ali Yazdi's Profile",
   "@mySiteTitle": {
     "description": "Title for app."
+  },
+  "myName": "ALI YAZDI",
+  "@myName": {
+    "description": "My name."
+  },
+  "myTitle": "CS GRADUATE @ TEHRAN POLYTECHNIC",
+  "@myTitle": {
+    "description": "My title."
+  },
+  "welcomeTitle": "Hi there, welcome to my page",
+  "@welcomeTitle": {
+    "description": "Welcome title."
+  },
+  "aboutMe": "I am graduated software engineering from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.",
+  "@aboutMe": {
+    "description": "About me.",
+    "placeholders": {
+      "value": {
+        "example": "University rank in Iran link"
+      }
+    }
+  },
+  "aboutUniversityRank": "is the second technical university in Iran",
+  "@aboutUniversityRank": {
+    "description": "University rank in Iran."
+  },
+  "resume": "Resume",
+  "@resume": {
+    "description": "Resume."
   }
 }

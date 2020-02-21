@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/data/my_site_options.dart';
@@ -33,15 +34,15 @@ class MySite extends StatelessWidget {
   Widget build(BuildContext context) {
     return ModelBinding(
       initialModel: MySiteOptions(
-        themeMode: ThemeMode.system,
+        themeMode: kIsWeb ? ThemeMode.dark : ThemeMode.system,
         textScaleFactor: systemTextScaleFactorOption,
         platform: defaultTargetPlatform,
       ),
       child: Builder(
         builder: (context) {
           return AdaptiveDesign(
-            materialTheme: MaterialApp(
-              title: 'Ali Yazdi\'s Profile',
+            material: MaterialApp(
+              title: MySiteTitle,
               onGenerateTitle: (context) =>
                   MySiteLocalizations.of(context).mySiteTitle,
               debugShowCheckedModeBanner: false,
@@ -60,12 +61,24 @@ class MySite extends StatelessWidget {
                 deviceLocale = locale;
                 return locale;
               },
-              home: ApplyTextOptions(
-                child: HomePage(),
-              ),
+              builder: (BuildContext context, Widget route) {
+                return ApplyTextOptions(
+                  child: AnnotatedRegion<SystemUiOverlayStyle>(
+                    value: SystemUiOverlayStyle(
+                      systemNavigationBarColor:
+                          Theme.of(context).scaffoldBackgroundColor,
+                      systemNavigationBarIconBrightness:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Brightness.dark
+                              : Brightness.light,
+                    ),
+                    child: HomePage(),
+                  ),
+                );
+              },
             ),
-            cupertinoTheme: CupertinoApp(
-              title: 'Ali Yazdi\'s Profile',
+            cupertino: CupertinoApp(
+              title: MySiteTitle,
               onGenerateTitle: (context) =>
                   MySiteLocalizations.of(context).mySiteTitle,
               debugShowCheckedModeBanner: false,
@@ -82,9 +95,21 @@ class MySite extends StatelessWidget {
                 deviceLocale = locale;
                 return locale;
               },
-              home: ApplyTextOptions(
-                child: HomePage(),
-              ),
+              builder: (BuildContext context, Widget route) {
+                return ApplyTextOptions(
+                  child: AnnotatedRegion<SystemUiOverlayStyle>(
+                    value: SystemUiOverlayStyle(
+                      systemNavigationBarColor:
+                          Theme.of(context).scaffoldBackgroundColor,
+                      systemNavigationBarIconBrightness:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Brightness.dark
+                              : Brightness.light,
+                    ),
+                    child: HomePage(),
+                  ),
+                );
+              },
             ),
           );
         },

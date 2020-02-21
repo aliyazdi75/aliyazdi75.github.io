@@ -33,4 +33,28 @@
     name="mySiteTitle"
     description="Title for app."
     >Ali Yazdi&apos;s Profile</string>
+  <string
+    name="myName"
+    description="My name."
+    >ALI YAZDI</string>
+  <string
+    name="myTitle"
+    description="My title."
+    >CS GRADUATE @ TEHRAN POLYTECHNIC</string>
+  <string
+    name="welcomeTitle"
+    description="Welcome title."
+    >Hi there, welcome to my page</string>
+  <string
+    name="aboutMe"
+    description="About me."
+    >I am graduated software engineering from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.</string>
+  <string
+    name="aboutUniversityRank"
+    description="University rank in Iran."
+    >is the second technical university in Iran</string>
+  <string
+    name="resume"
+    description="Resume."
+    >Resume</string>
 </resources>
