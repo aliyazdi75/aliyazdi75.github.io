@@ -52,21 +52,21 @@ OrientationType orientationTypeOf(BuildContext context) {
 }
 
 SizeType sizeTypeOf(BuildContext context) {
-  final platformWidth =MediaQuery.of(context).size.width;
+  final platformWidth = MediaQuery.of(context).size.width;
   if (displayTypeOf(context) == DisplayType.desktop) {
     if (platformWidth > mediumDesktopMaxWidth) {
       return SizeType.large;
-    } else if(platformWidth > smallDesktopMaxWidth){
+    } else if (platformWidth > smallDesktopMaxWidth) {
       return SizeType.medium;
-    }else{
+    } else {
       return SizeType.small;
     }
   } else {
     if (platformWidth > mediumMobileMaxWidth) {
       return SizeType.large;
-    } else if(platformWidth > smallMobileMaxWidth){
+    } else if (platformWidth > smallMobileMaxWidth) {
       return SizeType.medium;
-    }else{
+    } else {
       return SizeType.small;
     }
   }
