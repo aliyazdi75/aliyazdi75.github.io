@@ -84,16 +84,21 @@ class AdaptiveSize extends StatelessWidget {
   const AdaptiveSize({
     Key key,
     @required this.large,
-    @required this.small,
-  }) : super(key: key);
+    this.medium,
+    this.small,
+  })  : assert(medium != null || small != null,
+            'Both medium and small widgets must not be null.'),
+        super(key: key);
 
   final Widget large;
+  final Widget medium;
   final Widget small;
 
   @override
   Widget build(BuildContext context) {
-    final bool isSmall = isMediumDisplay(context);
-    return isSmall ? small : large;
+    final isMedium = isMediumDisplay(context);
+    final isSmall = isSmallDisplay(context);
+    return isSmall ? small ?? large : isMedium ? medium ?? large : large;
   }
 }
 

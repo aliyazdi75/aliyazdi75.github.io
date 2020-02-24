@@ -7,7 +7,7 @@ class Avatar extends StatelessWidget {
     final shortestSide = MediaQuery.of(context).size.shortestSide;
 
     return CircleAvatar(
-      radius: shortestSide / 5.0,
+      radius: shortestSide / 5.5,
       backgroundImage: AssetImage(avatarPath),
     );
   }

@@ -27,10 +27,10 @@ class MySiteThemeData {
       ThemeData themeData, ColorScheme colorScheme, Color focusColor) {
     return themeData.copyWith(
       colorScheme: colorScheme,
-      textTheme: _textTheme(themeData.textTheme),
+      textTheme: _textTheme(themeData.textTheme, colorScheme.onPrimary),
+      primaryTextTheme: themeData.textTheme,
       appBarTheme: AppBarTheme(
-        textTheme: _textTheme(themeData.textTheme)
-            .apply(bodyColor: colorScheme.onPrimary),
+        textTheme: _textTheme(themeData.textTheme, colorScheme.onPrimary),
         color: colorScheme.background,
         elevation: 0,
         iconTheme: IconThemeData(color: colorScheme.primary),
@@ -59,7 +59,7 @@ class MySiteThemeData {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: _textTheme(themeData.textTheme)
+        contentTextStyle: _textTheme(themeData.textTheme, colorScheme.onPrimary)
             .subtitle1
             .apply(color: _darkFillColor),
       ),
@@ -120,18 +120,24 @@ class MySiteThemeData {
   static const _semiBold = FontWeight.w600;
   static const _bold = FontWeight.w700;
 
-  static TextTheme _textTheme(TextTheme textTheme) {
-    return textTheme.copyWith(
-      bodyText1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
-      bodyText2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
-      headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
-      headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
-      headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
-      subtitle1: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
-      subtitle2: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
-      caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
-      overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
-      button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
-    );
+  static TextTheme _textTheme(TextTheme textTheme, Color color) {
+    return textTheme
+        .copyWith(
+          bodyText1:
+              GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
+          bodyText2:
+              GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
+          headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
+          headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
+          headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
+          subtitle1:
+              GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
+          subtitle2:
+              GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
+          caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
+          overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
+          button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
+        )
+        .apply(bodyColor: color);
   }
 }
