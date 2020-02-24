@@ -10,8 +10,8 @@ class Info extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
+    final themeContext = Theme.of(context);
+    final textTheme = themeContext.textTheme;
 
     final aboutUniversityRank =
         MySiteLocalizations.of(context).aboutUniversityRank;
@@ -31,12 +31,12 @@ class Info extends StatelessWidget {
           TextSpan(
             text: MySiteLocalizations.of(context).welcomeTitle,
             style: textTheme.caption.copyWith(
-              color: colorScheme.primary,
+              color: themeContext.primaryColor,
             ),
           ),
           textScaleFactor: 4.0,
         ),
-        SizedBox(height: 10),
+        Divider(color: Theme.of(context).primaryColor),
         Text.rich(
           TextSpan(
             children: [
@@ -45,7 +45,8 @@ class Info extends StatelessWidget {
                 text: aboutMeFirst,
               ),
               TextSpan(
-                style: textTheme.bodyText2.copyWith(color: colorScheme.primary),
+                style: textTheme.bodyText2
+                    .copyWith(color: themeContext.primaryColor),
                 text: aboutUniversityRank,
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {

@@ -121,7 +121,7 @@ class MySiteLocalizations {
 
   String aboutMe(Object value) {
     return Intl.message(
-        'I am graduated software engineering from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.',
+        'I am Software Engineering graduated from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.',
         locale: _localeName,
         name: 'aboutMe',
         desc: 'About me.',
@@ -168,7 +168,7 @@ class MySiteLocalizations {
   }
 
   String get myTitle {
-    return Intl.message('CS GRADUATE @ TEHRAN POLYTECHNIC',
+    return Intl.message('CS GRADUATED @ TEHRAN POLYTECHNIC',
         locale: _localeName, name: 'myTitle', desc: 'My title.');
   }
 

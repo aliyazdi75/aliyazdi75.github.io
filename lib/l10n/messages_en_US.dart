@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "To see the source code for this app, please visit the ${value}.";
 
   static m1(value) =>
-      "I am graduated software engineering from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.";
+      "I am Software Engineering graduated from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.";
 
   static m2(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
 
@@ -47,7 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "mySiteTitle":
             MessageLookupByLibrary.simpleMessage("Ali Yazdi\'s Profile"),
         "myTitle": MessageLookupByLibrary.simpleMessage(
-            "CS GRADUATE @ TEHRAN POLYTECHNIC"),
+            "CS GRADUATED @ TEHRAN POLYTECHNIC"),
         "rallyBudgetAmount": m4,
         "resume": MessageLookupByLibrary.simpleMessage("Resume"),
         "signIn": MessageLookupByLibrary.simpleMessage("SIGN IN"),

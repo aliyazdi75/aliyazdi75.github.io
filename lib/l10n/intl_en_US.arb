@@ -60,7 +60,7 @@
   "@myName": {
     "description": "My name."
   },
-  "myTitle": "CS GRADUATE @ TEHRAN POLYTECHNIC",
+  "myTitle": "CS GRADUATED @ TEHRAN POLYTECHNIC",
   "@myTitle": {
     "description": "My title."
   },
@@ -68,7 +68,7 @@
   "@welcomeTitle": {
     "description": "Welcome title."
   },
-  "aboutMe": "I am graduated software engineering from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.",
+  "aboutMe": "I am Software Engineering graduated from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.",
   "@aboutMe": {
     "description": "About me.",
     "placeholders": {

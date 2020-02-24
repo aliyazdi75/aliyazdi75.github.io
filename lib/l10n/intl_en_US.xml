@@ -40,7 +40,7 @@
   <string
     name="myTitle"
     description="My title."
-    >CS GRADUATE @ TEHRAN POLYTECHNIC</string>
+    >CS GRADUATED @ TEHRAN POLYTECHNIC</string>
   <string
     name="welcomeTitle"
     description="Welcome title."
@@ -48,7 +48,7 @@
   <string
     name="aboutMe"
     description="About me."
-    >I am graduated software engineering from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.</string>
+    >I am Software Engineering graduated from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.</string>
   <string
     name="aboutUniversityRank"
     description="University rank in Iran."
