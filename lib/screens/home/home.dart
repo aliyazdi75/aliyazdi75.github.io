@@ -19,13 +19,35 @@ class HomePage extends StatelessWidget {
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: IntrinsicHeight(
-                child: AdaptiveSize(
-                  large: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                child: SafeArea(
+                  child: AnimatedPadding(
+                    duration: Duration(milliseconds: 750),
+                    padding: isMediumDisplay(context)
+                        ? EdgeInsets.all(shortestSide * 0.05)
+                        : isSmallDisplay(context)
+                            ? EdgeInsets.all(0)
+                            : EdgeInsets.all(shortestSide * 0.1),
+                    child: AdaptiveSize(
+                      large: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Avatar(),
+                              SizedBox(height: 15.0),
+                              Name(),
+                              SizedBox(height: 15.0),
+                              Socials(),
+                            ],
+                          ),
+                          Container(height: 200, child: VerticalDivider()),
+                          Info(),
+                        ],
+                      ),
+                      medium: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Avatar(),
@@ -33,29 +55,17 @@ class HomePage extends StatelessWidget {
                           Name(),
                           SizedBox(height: 15.0),
                           Socials(),
+                          SizedBox(height: 15.0),
+                          Info(),
                         ],
                       ),
-                      Container(height: 200, child: VerticalDivider()),
-                      Info(),
-                    ],
-                  ),
-                  medium: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Avatar(),
-                      SizedBox(height: 15.0),
-                      Name(),
-                      SizedBox(height: 15.0),
-                      Socials(),
-                      SizedBox(height: 15.0),
-                      Info(),
-                    ],
-                  ),
-                  small: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Avatar(),
-                    ],
+                      small: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Avatar(),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -65,15 +75,11 @@ class HomePage extends StatelessWidget {
       ),
     );
 
-    final bodyWidget = AnimatedPadding(
-      duration: Duration(milliseconds: 750),
-      padding: EdgeInsets.all(shortestSide * 0.1),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          adaptiveBody,
-        ],
-      ),
+    final bodyWidget = Stack(
+      fit: StackFit.expand,
+      children: [
+        adaptiveBody,
+      ],
     );
 
     return AdaptiveDesign(

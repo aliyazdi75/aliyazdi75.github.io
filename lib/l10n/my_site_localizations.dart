@@ -163,7 +163,7 @@ class MySiteLocalizations {
   }
 
   String get mySiteTitle {
-    return Intl.message("Ali Yazdi's Profile",
+    return Intl.message('Ali Yazdi',
         locale: _localeName, name: 'mySiteTitle', desc: 'Title for app.');
   }
 

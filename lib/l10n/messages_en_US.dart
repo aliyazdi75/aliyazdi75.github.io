@@ -44,8 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneHours": m2,
         "craneMinutes": m3,
         "myName": MessageLookupByLibrary.simpleMessage("ALI YAZDI"),
-        "mySiteTitle":
-            MessageLookupByLibrary.simpleMessage("Ali Yazdi\'s Profile"),
+        "mySiteTitle": MessageLookupByLibrary.simpleMessage("Ali Yazdi"),
         "myTitle": MessageLookupByLibrary.simpleMessage(
             "CS GRADUATED @ TEHRAN POLYTECHNIC"),
         "rallyBudgetAmount": m4,
