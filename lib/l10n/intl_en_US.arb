@@ -52,7 +52,7 @@
       }
     }
   },
-  "mySiteTitle": "Ali Yazdi",
+  "mySiteTitle": "Ali Yazdi Homepage",
   "@mySiteTitle": {
     "description": "Title for app."
   },
@@ -77,7 +77,7 @@
       }
     }
   },
-  "aboutUniversityRank": "is the second technical university in Iran",
+  "aboutUniversityRank": "the second technical university in Iran",
   "@aboutUniversityRank": {
     "description": "University rank in Iran."
   },

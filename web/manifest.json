@@ -1,11 +1,11 @@
 {
-    "name": "Ali Yazdi",
-    "short_name": "Ali Yazdi",
+    "name": "Ali Yazdi Homepage",
+    "short_name": "Ali Yazdi Homepage",
     "start_url": ".",
     "display": "minimal-ui",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Ali Yazdi's Profile Application.",
+    "description": "Ali Yazdi Homepage Application.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

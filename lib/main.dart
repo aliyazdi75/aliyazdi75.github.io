@@ -42,7 +42,7 @@ class MySite extends StatelessWidget {
         builder: (context) {
           return AdaptiveDesign(
             material: MaterialApp(
-              title: MySiteTitle,
+              title: mySiteTitle,
               onGenerateTitle: (context) =>
                   MySiteLocalizations.of(context).mySiteTitle,
               debugShowCheckedModeBanner: false,
@@ -78,7 +78,7 @@ class MySite extends StatelessWidget {
               },
             ),
             cupertino: CupertinoApp(
-              title: MySiteTitle,
+              title: mySiteTitle,
               onGenerateTitle: (context) =>
                   MySiteLocalizations.of(context).mySiteTitle,
               debugShowCheckedModeBanner: false,

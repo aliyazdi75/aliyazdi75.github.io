@@ -32,7 +32,7 @@
   <string
     name="mySiteTitle"
     description="Title for app."
-    >Ali Yazdi</string>
+    >Ali Yazdi Homepage</string>
   <string
     name="myName"
     description="My name."
@@ -52,7 +52,7 @@
   <string
     name="aboutUniversityRank"
     description="University rank in Iran."
-    >is the second technical university in Iran</string>
+    >the second technical university in Iran</string>
   <string
     name="resume"
     description="Resume."

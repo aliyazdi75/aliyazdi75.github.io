@@ -2,14 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
-import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Info extends StatelessWidget {
+class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
     final themeContext = Theme.of(context);
     final textTheme = themeContext.textTheme;
 
@@ -23,9 +20,8 @@ class Info extends StatelessWidget {
     final aboutMeFirst = aboutMe.substring(0, aboutUniversityRankIndex);
     final aboutMeSecond = aboutMe.substring(samplesRepoIndexEnd);
 
-    final info = Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Text.rich(
           TextSpan(
@@ -81,14 +77,6 @@ class Info extends StatelessWidget {
           },
         ),
       ],
-    );
-
-    return AdaptiveSize(
-      large: Container(
-        constraints: BoxConstraints(maxWidth: screenWidth / 3),
-        child: info,
-      ),
-      medium: info,
     );
   }
 }

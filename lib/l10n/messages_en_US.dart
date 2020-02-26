@@ -40,11 +40,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Flutter samples Github repo"),
         "aboutMe": m1,
         "aboutUniversityRank": MessageLookupByLibrary.simpleMessage(
-            "is the second technical university in Iran"),
+            "the second technical university in Iran"),
         "craneHours": m2,
         "craneMinutes": m3,
         "myName": MessageLookupByLibrary.simpleMessage("ALI YAZDI"),
-        "mySiteTitle": MessageLookupByLibrary.simpleMessage("Ali Yazdi"),
+        "mySiteTitle":
+            MessageLookupByLibrary.simpleMessage("Ali Yazdi Homepage"),
         "myTitle": MessageLookupByLibrary.simpleMessage(
             "CS GRADUATED @ TEHRAN POLYTECHNIC"),
         "rallyBudgetAmount": m4,

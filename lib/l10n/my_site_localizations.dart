@@ -129,7 +129,7 @@ class MySiteLocalizations {
   }
 
   String get aboutUniversityRank {
-    return Intl.message('is the second technical university in Iran',
+    return Intl.message('the second technical university in Iran',
         locale: _localeName,
         name: 'aboutUniversityRank',
         desc: 'University rank in Iran.');
@@ -163,7 +163,7 @@ class MySiteLocalizations {
   }
 
   String get mySiteTitle {
-    return Intl.message('Ali Yazdi',
+    return Intl.message('Ali Yazdi Homepage',
         locale: _localeName, name: 'mySiteTitle', desc: 'Title for app.');
   }
 

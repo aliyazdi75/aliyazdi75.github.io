@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-const MySiteTitle = 'Ali Yazdi\'s Profile';
+const mySiteTitle = 'Ali Yazdi Homepage';
 const systemLocaleOption = Locale('system');
 
-const MySiteIconsFont = 'MySiteIcons';
+const mySiteIconsFont = 'MySiteIcons';

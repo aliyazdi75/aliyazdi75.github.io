@@ -71,7 +71,7 @@ dependencies:
       }
     }
   },
-  "mySiteTitle": "Ali Yazdi",
+  "mySiteTitle": "Ali Yazdi Homepage",
   "@mySiteTitle": {
     "description": "Title for app."
   }
