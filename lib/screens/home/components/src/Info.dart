@@ -6,7 +6,7 @@ import 'education.dart';
 import 'experience.dart';
 
 const kInfoLargeScreenHeightFactor = 900000;
-const kInfoMediumScreenHeightFactor = 300000;
+const kInfoMediumScreenHeightFactor = 350000;
 
 class Info extends StatelessWidget {
   final PageController pageController = PageController(initialPage: 0);
