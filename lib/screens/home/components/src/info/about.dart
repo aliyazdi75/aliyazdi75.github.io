@@ -1,19 +1,27 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
+import 'package:my_site/core/cursor_hover/cursor_hover_interface.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class About extends StatelessWidget {
+class About extends StatefulWidget {
+  @override
+  _AboutState createState() => _AboutState();
+}
+
+class _AboutState extends State<About> {
+  bool _onMouseHover = false;
+
+  void _onHovered(bool value) => setState(() => _onMouseHover = value);
+
   @override
   Widget build(BuildContext context) {
-    final themeContext = Theme.of(context);
-    final textTheme = themeContext.textTheme;
+    final theme = Theme.of(context);
+    final localizations = MySiteLocalizations.of(context);
 
-    final aboutUniversityRank =
-        MySiteLocalizations.of(context).aboutUniversityRank;
-    final aboutMe =
-        MySiteLocalizations.of(context).aboutMe(aboutUniversityRank);
+    final aboutUniversityRank = localizations.aboutUniversityRank;
+    final aboutMe = localizations.aboutMe(aboutUniversityRank);
     final aboutUniversityRankIndex = aboutMe.indexOf(aboutUniversityRank);
     final samplesRepoIndexEnd =
         aboutUniversityRankIndex + aboutUniversityRank.length;
@@ -23,26 +31,30 @@ class About extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text.rich(
-          TextSpan(
-            text: MySiteLocalizations.of(context).welcomeTitle,
-            style: textTheme.caption.copyWith(
-              color: themeContext.primaryColor,
+        CursorHover(
+          onHovered: _onHovered,
+          child: Text(
+            MySiteLocalizations.of(context).welcomeTitle,
+            style: theme.textTheme.caption.copyWith(
+              color: theme.primaryColor,
+              decoration: _onMouseHover ? TextDecoration.underline : null,
             ),
+            textScaleFactor: 4.0,
           ),
-          textScaleFactor: 4.0,
         ),
         Divider(color: Theme.of(context).primaryColor),
         Text.rich(
           TextSpan(
             children: [
               TextSpan(
-                style: textTheme.bodyText2,
+                style: theme.textTheme.bodyText2,
                 text: aboutMeFirst,
               ),
               TextSpan(
-                style: textTheme.bodyText2
-                    .copyWith(color: themeContext.primaryColor),
+                style: theme.textTheme.bodyText2.copyWith(
+                  color: theme.primaryColor,
+                  decoration: TextDecoration.underline,
+                ),
                 text: aboutUniversityRank,
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
@@ -55,7 +67,7 @@ class About extends StatelessWidget {
                   },
               ),
               TextSpan(
-                style: textTheme.bodyText2,
+                style: theme.textTheme.bodyText2,
                 text: aboutMeSecond,
               ),
             ],

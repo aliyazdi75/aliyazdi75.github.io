@@ -14,10 +14,15 @@ dependencies:
   flutter_localized_locales: any
 ```
 
-2. Create `lib/l10n/intl_en_US.dart` with following content:
+2. Create `lib/l10n/intl_en.dart` with following content:
+
+```dart
+flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/main.dart
+```
 
 ```dart
 {
+  "@@last_modified": "2020-03-01T22:10:12.322932"
   "aboutFlutterSamplesRepo": "Flutter samples Github repo",
   "@aboutFlutterSamplesRepo": {
     "description": "Represents a link to the Flutter samples github repository."
@@ -115,7 +120,7 @@ MaterialApp(
 
 ## Creating New Locale Messages
 
-When adding new strings to be localized, update `intl_en_US.arb`, which
+When adding new strings to be localized, update `intl_en.arb`, which
 is used by this project as the template. When creating new entries, they
 have to be in the following format:
 
@@ -129,7 +134,7 @@ have to be in the following format:
 In this example, `dartGetterVariableName` should be the Dart method/property
 name that you will be using in your localizations delegate.
 
-After adding the new message in `intl_en_US.arb`, it can be used in the app by
+After adding the new message in `intl_en.arb`, it can be used in the app by
 regenerating the Localizations delegate and the `messages_*.dart` files.
 This allows use of the English message through your localizations delegate in
 the application code immediately without having to wait for the translations
@@ -147,7 +152,7 @@ running `flutter pub get`.
 For more details on what `flutter pub run grinder l10n` runs, you can read below
 under *How to Generate Localizations with l10n scripts*. The current
 supported locales list is sorted alphabetically. This means that after running
-the script, you have to update `[name]_localizations.dart` and move the `en_US`
+the script, you have to update `[name]_localizations.dart` and move the `en`
 locale to the top of the list.
 
 ## How to Generate Localizations with l10n scripts
@@ -155,13 +160,13 @@ To generate GalleryLocalizations, from app directory run:
 
 ```dart
 dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
-    --template-arb-file=intl_en_US.arb \
+    --template-arb-file=intl_en.arb \
     --output-localization-file=[name]_localizations.dart \
     --output-class=GalleryLocalizations
 ```
 
 From `samples/gallery/`, run `dart tool/l10n_cli/main.dart`, which
-will generate `intl_en_US.xml`. This will be used by the internal translation
+will generate `intl_en.xml`. This will be used by the internal translation
 console to generate messages in the different locales.
 
 Run the formatter to make the Flutter analyzer happy:
@@ -188,7 +193,7 @@ which is equal to
 
 ```dart
 dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
-    --template-arb-file=intl_en_US.arb \
+    --template-arb-file=intl_en.arb \
     --output-localization-file=gallery_localizations.dart \
     --output-class=GalleryLocalizations
 

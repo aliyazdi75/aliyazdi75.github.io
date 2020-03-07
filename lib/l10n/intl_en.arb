@@ -1,0 +1,116 @@
+{
+  "@@last_modified": "2020-03-01T22:10:12.322932",
+  "mySiteTitle": "Ali Yazdi Homepage",
+  "@mySiteTitle": {
+    "description": "Title for app."
+  },
+  "myName": "ALI YAZDI",
+  "@myName": {
+    "description": "My name."
+  },
+  "myTitle": "CS GRADUATED @ TEHRAN POLYTECHNIC",
+  "@myTitle": {
+    "description": "My title."
+  },
+  "welcomeTitle": "Hi there, welcome to my page",
+  "@welcomeTitle": {
+    "description": "Welcome title."
+  },
+  "aboutMe": "I am Software Engineering graduated from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am also interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.",
+  "@aboutMe": {
+    "description": "About me.",
+    "placeholders": {
+      "value": {
+        "example": "University rank in Iran link"
+      }
+    }
+  },
+  "aboutUniversityRank": "the second technical university in Iran",
+  "@aboutUniversityRank": {
+    "description": "University rank in Iran."
+  },
+  "resume": "Resume",
+  "@resume": {
+    "description": "Resume."
+  },
+  "aboutTitle": "ABOUT",
+  "@aboutTitle": {
+    "description": "About Title."
+  },
+  "educationTitle": "EDUCATION",
+  "@educationTitle": {
+    "description": "Education Title."
+  },
+  "experienceTitle": "EXPERIENCE",
+  "@experienceTitle": {
+    "description": "Experience Title."
+  },
+  "amirkabirTitle": "Amirkabir University of Technology",
+  "@amirkabirTitle": {
+    "description": "Amirkabir University of Technology Title."
+  },
+  "polytechnicTitle": "(Tehran Polytechnic)",
+  "@polytechnicTitle": {
+    "description": "Tehran Polytechnic Title."
+  },
+  "amirkabirCity": ", Tehran, Iran",
+  "@amirkabirCity": {
+    "description": "Amirkabir City."
+  },
+  "amirkabirStudyFieldTitle": "B.Sc., Computer Engineering, Software",
+  "@amirkabirStudyFieldTitle": {
+    "description": "Study Field Title."
+  },
+  "amirkabirStudyDuration": "September 2015 - January 2020",
+  "@amirkabirStudyDuration": {
+    "description": "Study Duration."
+  },
+  "schoolTitle": "Adab High School",
+  "@schoolTitle": {
+    "description": "Adab High School Title."
+  },
+  "schoolCity": ", Tehran, Iran",
+  "@schoolCity": {
+    "description": "School City."
+  },
+  "schoolStudyDuration": "September 2011 - June 2014",
+  "@schoolStudyDuration": {
+    "description": "Study Duration."
+  },
+  "schoolStudyFieldTitle": "Diploma in Physics and Mathematics",
+  "@schoolStudyFieldTitle": {
+    "description": "Study Field Title."
+  },
+  "tarafdariTitle": "Tarafdari",
+  "@tarafdariTitle": {
+    "description": "Tarafdari Title."
+  },
+  "tarafdariCity": ", Tehran, Iran",
+  "@tarafdariCity": {
+    "description": "School City."
+  },
+  "tarafdariWorkDuration": "June 2019 - Present",
+  "@tarafdariWorkDuration": {
+    "description": "Work Duration."
+  },
+  "tarafdariTechnologies": "Flutter, Drupal, Laravel, MySQL",
+  "@tarafdariTechnologies": {
+    "description": "Tarafdari Technologies."
+  },
+  "tarafdariDescription": "Tarafdari is the first and most popular sport social media network in Iran, that provides official sport news and live score matches.",
+  "@tarafdariDescription": {
+    "description": "Tarafdari Description."
+  },
+  "tarafdariDuty1": "Studying Researching about Flutter framework",
+  "@tarafdariDuty1": {
+    "description": "Tarafdari Duty."
+  },
+  "tarafdariDuty2": "Developing requirement APIs",
+  "@tarafdariDuty2": {
+    "description": "Tarafdari Duty."
+  },
+  "tarafdariDuty3": "Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket. Android application is available on the link below.",
+  "@tarafdariDuty3": {
+    "description": "Tarafdari Duty."
+  }
+}

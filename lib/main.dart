@@ -24,7 +24,7 @@ void setOverrideForDesktop() {
   }
 }
 
-main() {
+void main() {
   setOverrideForDesktop();
   runApp(MySite());
 }
@@ -36,6 +36,7 @@ class MySite extends StatelessWidget {
       initialModel: MySiteOptions(
         themeMode: kIsWeb ? ThemeMode.dark : ThemeMode.system,
         textScaleFactor: systemTextScaleFactorOption,
+//        locale: Locale('fa'),
         platform: defaultTargetPlatform,
       ),
       child: Builder(
@@ -61,7 +62,7 @@ class MySite extends StatelessWidget {
                 deviceLocale = locale;
                 return locale;
               },
-              builder: (BuildContext context, Widget route) {
+              builder: (context, route) {
                 return ApplyTextOptions(
                   child: AnnotatedRegion<SystemUiOverlayStyle>(
                     value: SystemUiOverlayStyle(
@@ -95,7 +96,7 @@ class MySite extends StatelessWidget {
                 deviceLocale = locale;
                 return locale;
               },
-              builder: (BuildContext context, Widget route) {
+              builder: (context, route) {
                 return ApplyTextOptions(
                   child: AnnotatedRegion<SystemUiOverlayStyle>(
                     value: SystemUiOverlayStyle(

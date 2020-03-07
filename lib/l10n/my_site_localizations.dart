@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 
-import 'messages_all.dart';
+// ignore_for_file: unnecessary_brace_in_string_interps
 
 /// Callers can lookup localized strings with an instance of MySiteLocalizations returned
 /// by `MySiteLocalizations.of(context)`.
@@ -58,19 +60,13 @@ import 'messages_all.dart';
 /// you wish to add from the pop-up menu in the Value field. This list should
 /// be consistent with the languages listed in the MySiteLocalizations.supportedLocales
 /// property.
+abstract class MySiteLocalizations {
+  MySiteLocalizations(String locale)
+      : assert(locale != null),
+        _localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
-// ignore_for_file: unnecessary_brace_in_string_interps
-
-class MySiteLocalizations {
-  MySiteLocalizations(Locale locale)
-      : _localeName = Intl.canonicalizedLocale(locale.toString());
-
+  // ignore: unused_field
   final String _localeName;
-
-  static Future<MySiteLocalizations> load(Locale locale) {
-    return initializeMessages(locale.toString())
-        .then<MySiteLocalizations>((_) => MySiteLocalizations(locale));
-  }
 
   static MySiteLocalizations of(BuildContext context) {
     return Localizations.of<MySiteLocalizations>(context, MySiteLocalizations);
@@ -99,105 +95,90 @@ class MySiteLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en', 'US'),
-    Locale('fa'),
+    Locale('en'),
+    Locale('fa')
   ];
 
-  String aboutDialogDescription(Object value) {
-    return Intl.message(
-        'To see the source code for this app, please visit the ${value}.',
-        locale: _localeName,
-        name: 'aboutDialogDescription',
-        desc: 'A description about how to view the source code for this app.',
-        args: <Object>[value]);
-  }
+  // Title for app.
+  String get mySiteTitle;
 
-  String get aboutFlutterSamplesRepo {
-    return Intl.message('Flutter samples Github repo',
-        locale: _localeName,
-        name: 'aboutFlutterSamplesRepo',
-        desc: 'Represents a link to the Flutter samples github repository.');
-  }
+  // My name.
+  String get myName;
 
-  String aboutMe(Object value) {
-    return Intl.message(
-        'I am Software Engineering graduated from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.',
-        locale: _localeName,
-        name: 'aboutMe',
-        desc: 'About me.',
-        args: <Object>[value]);
-  }
+  // My title.
+  String get myTitle;
 
-  String get aboutUniversityRank {
-    return Intl.message('the second technical university in Iran',
-        locale: _localeName,
-        name: 'aboutUniversityRank',
-        desc: 'University rank in Iran.');
-  }
+  // Welcome title.
+  String get welcomeTitle;
 
-  String craneHours(int hours) {
-    return Intl.plural(hours,
-        locale: _localeName,
-        name: 'craneHours',
-        desc:
-            'Generic text for an amount of hours, abbreviated to the shortest form. For example 1h. {hours} should remain untranslated.',
-        args: <Object>[hours],
-        one: '1h',
-        other: '${hours}h');
-  }
+  // About me.
+  String aboutMe(Object value);
 
-  String craneMinutes(int minutes) {
-    return Intl.plural(minutes,
-        locale: _localeName,
-        name: 'craneMinutes',
-        desc:
-            'Generic text for an amount of minutes, abbreviated to the shortest form. For example 15m. {minutes} should remain untranslated.',
-        args: <Object>[minutes],
-        one: '1m',
-        other: '${minutes}m');
-  }
+  // University rank in Iran.
+  String get aboutUniversityRank;
 
-  String get myName {
-    return Intl.message('ALI YAZDI',
-        locale: _localeName, name: 'myName', desc: 'My name.');
-  }
+  // Resume.
+  String get resume;
 
-  String get mySiteTitle {
-    return Intl.message('Ali Yazdi Homepage',
-        locale: _localeName, name: 'mySiteTitle', desc: 'Title for app.');
-  }
+  // About Title.
+  String get aboutTitle;
 
-  String get myTitle {
-    return Intl.message('CS GRADUATED @ TEHRAN POLYTECHNIC',
-        locale: _localeName, name: 'myTitle', desc: 'My title.');
-  }
+  // Education Title.
+  String get educationTitle;
 
-  String rallyBudgetAmount(Object budgetName, Object amountUsed,
-      Object amountTotal, Object amountLeft) {
-    return Intl.message(
-        '${budgetName} budget with ${amountUsed} used of ${amountTotal}, ${amountLeft} left',
-        locale: _localeName,
-        name: 'rallyBudgetAmount',
-        desc: r'Semantics label for row with a budget (housing budget for example), with how much is used of the budget (for example $5), the total budget (for example $100) and the amount left in the budget (for example $95).',
-        args: <Object>[budgetName, amountUsed, amountTotal, amountLeft]);
-  }
+  // Experience Title.
+  String get experienceTitle;
 
-  String get resume {
-    return Intl.message('Resume',
-        locale: _localeName, name: 'resume', desc: 'Resume.');
-  }
+  // Amirkabir University of Technology Title.
+  String get amirkabirTitle;
 
-  String get signIn {
-    return Intl.message('SIGN IN',
-        locale: _localeName,
-        name: 'signIn',
-        desc: 'Sign in label to sign into website.');
-  }
+  // Tehran Polytechnic Title.
+  String get polytechnicTitle;
 
-  String get welcomeTitle {
-    return Intl.message('Hi there, welcome to my page',
-        locale: _localeName, name: 'welcomeTitle', desc: 'Welcome title.');
-  }
+  // Amirkabir City.
+  String get amirkabirCity;
+
+  // Study Field Title.
+  String get amirkabirStudyFieldTitle;
+
+  // Study Duration.
+  String get amirkabirStudyDuration;
+
+  // Adab High School Title.
+  String get schoolTitle;
+
+  // School City.
+  String get schoolCity;
+
+  // Study Duration.
+  String get schoolStudyDuration;
+
+  // Study Field Title.
+  String get schoolStudyFieldTitle;
+
+  // Tarafdari Title.
+  String get tarafdariTitle;
+
+  // School City.
+  String get tarafdariCity;
+
+  // Work Duration.
+  String get tarafdariWorkDuration;
+
+  // Tarafdari Technologies.
+  String get tarafdariTechnologies;
+
+  // Tarafdari Description.
+  String get tarafdariDescription;
+
+  // Tarafdari Duty.
+  String get tarafdariDuty1;
+
+  // Tarafdari Duty.
+  String get tarafdariDuty2;
+
+  // Tarafdari Duty.
+  String get tarafdariDuty3;
 }
 
 class _MySiteLocalizationsDelegate
@@ -205,8 +186,10 @@ class _MySiteLocalizationsDelegate
   const _MySiteLocalizationsDelegate();
 
   @override
-  Future<MySiteLocalizations> load(Locale locale) =>
-      MySiteLocalizations.load(locale);
+  Future<MySiteLocalizations> load(Locale locale) {
+    return SynchronousFuture<MySiteLocalizations>(
+        _lookupMySiteLocalizations(locale));
+  }
 
   @override
   bool isSupported(Locale locale) =>
@@ -214,4 +197,198 @@ class _MySiteLocalizationsDelegate
 
   @override
   bool shouldReload(_MySiteLocalizationsDelegate old) => false;
+}
+
+/// The translations for English (`en`).
+class MySiteLocalizationsEn extends MySiteLocalizations {
+  MySiteLocalizationsEn([String locale = 'en']) : super(locale);
+
+  @override
+  String get mySiteTitle => 'Ali Yazdi Homepage';
+
+  @override
+  String get myName => 'ALI YAZDI';
+
+  @override
+  String get myTitle => 'CS GRADUATED @ TEHRAN POLYTECHNIC';
+
+  @override
+  String get welcomeTitle => 'Hi there, welcome to my page';
+
+  @override
+  String aboutMe(Object value) {
+    return 'I am Software Engineering graduated from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am also interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.';
+  }
+
+  @override
+  String get aboutUniversityRank => 'the second technical university in Iran';
+
+  @override
+  String get resume => 'Resume';
+
+  @override
+  String get aboutTitle => 'ABOUT';
+
+  @override
+  String get educationTitle => 'EDUCATION';
+
+  @override
+  String get experienceTitle => 'EXPERIENCE';
+
+  @override
+  String get amirkabirTitle => 'Amirkabir University of Technology';
+
+  @override
+  String get polytechnicTitle => '(Tehran Polytechnic)';
+
+  @override
+  String get amirkabirCity => ', Tehran, Iran';
+
+  @override
+  String get amirkabirStudyFieldTitle =>
+      'B.Sc., Computer Engineering, Software';
+
+  @override
+  String get amirkabirStudyDuration => 'September 2015 - January 2020';
+
+  @override
+  String get schoolTitle => 'Adab High School';
+
+  @override
+  String get schoolCity => ', Tehran, Iran';
+
+  @override
+  String get schoolStudyDuration => 'September 2011 - June 2014';
+
+  @override
+  String get schoolStudyFieldTitle => 'Diploma in Physics and Mathematics';
+
+  @override
+  String get tarafdariTitle => 'Tarafdari';
+
+  @override
+  String get tarafdariCity => ', Tehran, Iran';
+
+  @override
+  String get tarafdariWorkDuration => 'June 2019 - Present';
+
+  @override
+  String get tarafdariTechnologies => 'Flutter, Drupal, Laravel, MySQL';
+
+  @override
+  String get tarafdariDescription =>
+      'Tarafdari is the first and most popular sport social media network in Iran, that provides official sport news and live score matches.';
+
+  @override
+  String get tarafdariDuty1 => 'Studying Researching about Flutter framework';
+
+  @override
+  String get tarafdariDuty2 => 'Developing requirement APIs';
+
+  @override
+  String get tarafdariDuty3 =>
+      'Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket. Android application is available on the link below.';
+}
+
+/// The translations for Persian (`fa`).
+class MySiteLocalizationsFa extends MySiteLocalizations {
+  MySiteLocalizationsFa([String locale = 'fa']) : super(locale);
+
+  @override
+  String get mySiteTitle => 'صفحه شخصی علی یزدی';
+
+  @override
+  String get myName => 'علی یزدی';
+
+  @override
+  String get myTitle => 'فارغ التحصیل مهندسی کامپیوتر @ پلی‌تکنیک تهران';
+
+  @override
+  String get welcomeTitle => 'سلام، به صفحه شخصی من خوش آمدید';
+
+  @override
+  String aboutMe(Object value) {
+    return 'من فارغ التحصیل مهندسی نرم افزار از دانشگاه صنعتی امیرکبیر هستم، که این دانشگاه ${value} است. من یک برنامه‌نویس فلاتر هستم که عاشق برنامه‌نویسی با فلاتر هستم. همچنین من به هوش مصنوعی، یادگیری ماشین، زبان طبیعی و مهندسی نرم‌افزار علاقه‌مند هستم.';
+  }
+
+  @override
+  String get aboutUniversityRank => 'رتبه دوم بهترین دانشگاه ایران';
+
+  @override
+  String get resume => 'رزومه';
+
+  @override
+  String get aboutTitle => 'درباره';
+
+  @override
+  String get educationTitle => 'تحصیلات';
+
+  @override
+  String get experienceTitle => 'تجربه کاری';
+
+  @override
+  String get amirkabirTitle => 'دانشگاه صنعتی امیرکبیر';
+
+  @override
+  String get polytechnicTitle => '(پلی‌تکنیک تهران)';
+
+  @override
+  String get amirkabirCity => '، ایران، تهران';
+
+  @override
+  String get amirkabirStudyFieldTitle =>
+      'کارشناسی مهندسی کامپیوتر، گرایش نرم‌افزار';
+
+  @override
+  String get amirkabirStudyDuration => 'مهر ۱۳۹۴ - دی ۱۳۹۸';
+
+  @override
+  String get schoolTitle => 'دبیرستان ادب';
+
+  @override
+  String get schoolCity => '، ایران، تهران';
+
+  @override
+  String get schoolStudyDuration => 'مهر ۱۳۹۰ - خرداد ۱۳۹۳';
+
+  @override
+  String get schoolStudyFieldTitle => 'دیپلم ریاضی و فیزیک';
+
+  @override
+  String get tarafdariTitle => 'طرفداری';
+
+  @override
+  String get tarafdariCity => '، ایران، تهران';
+
+  @override
+  String get tarafdariWorkDuration => 'خرداد ۱۳۹۸ - اکنون';
+
+  @override
+  String get tarafdariTechnologies => 'فلاتر، دروپال، لاراول، مای‌اس‌کیو‌ال';
+
+  @override
+  String get tarafdariDescription =>
+      'طرفداری اولین و محبوب‌ترین رسانه و شبکه اجتماعی ورزشی در ایران است، که اخبار رسمی ورزشی و نتایج زنده بازی‌های ورزشی را برای کاربران فراهم می‌کند.';
+
+  @override
+  String get tarafdariDuty1 => 'مطالعه و تحقیق در مورد فریم‌ورک فلاتر';
+
+  @override
+  String get tarafdariDuty2 => 'توسعه API های مورد نیاز اپلیکیشن';
+
+  @override
+  String get tarafdariDuty3 =>
+      'توسعه اپلیکیشن فلاتر طرفداری و پلاگین‌های موردنیاز، که ایین برنامه شامل محتوای چند رسانه‌ای، نتایج زنده بازی‌های ورزشی، استریمینگ پخش زنده بازی‌های ورزشی روی سوکت. اپلیکیشن اندروید در لینک زیر در دسترس قرار دارد.';
+}
+
+MySiteLocalizations _lookupMySiteLocalizations(Locale locale) {
+  switch (locale.languageCode) {
+    case 'en':
+      return MySiteLocalizationsEn();
+    case 'fa':
+      return MySiteLocalizationsFa();
+  }
+  assert(false,
+      'MySiteLocalizations.delegate failed to load unsupported locale "$locale"');
+  return null;
 }

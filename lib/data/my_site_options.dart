@@ -58,7 +58,7 @@ class MySiteOptions {
   Locale get locale =>
       _locale ??
       deviceLocale ??
-      (!kIsWeb && Platform.isMacOS ? Locale('en', 'US') : null);
+      (!kIsWeb && Platform.isMacOS ? Locale('en') : null);
 
   MySiteOptions copyWith({
     ThemeMode themeMode,

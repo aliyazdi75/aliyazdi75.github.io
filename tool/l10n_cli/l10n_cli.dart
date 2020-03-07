@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:meta/meta.dart';
 
 const _l10nDir = '../my_site/lib/l10n';
@@ -9,7 +10,7 @@ const _intlHeader = '''
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It was based on gallery/lib/src/l10n/intl_en_US.arb.
+  It was based on my_site/lib/src/l10n/intl_en.arb.
 -->
 <resources>
 ''';
@@ -34,10 +35,9 @@ String _escapeXml(String xml) {
 
 /// Processes the XML files.
 Future<void> englishArbsToXmls({bool isDryRun = false}) async {
-  IOSink output =
-      isDryRun ? stdout : File('$_l10nDir/intl_en_US.xml').openWrite();
+  IOSink output = isDryRun ? stdout : File('$_l10nDir/intl_en.xml').openWrite();
   await generateXmlFromArb(
-    inputArb: File('$_l10nDir/intl_en_US.arb'),
+    inputArb: File('$_l10nDir/intl_en.arb'),
     outputXml: output,
     xmlHeader: _intlHeader,
   );

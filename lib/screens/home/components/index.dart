@@ -1,7 +1,7 @@
-export 'src/Info.dart';
-export 'src/about.dart';
-export 'src/avatar.dart';
-export 'src/education.dart';
-export 'src/experience.dart';
-export 'src/name.dart';
-export 'src/socials.dart';
+export 'src/info/Info.dart';
+export 'src/info/about.dart';
+export 'src/info/education.dart';
+export 'src/info/experience.dart';
+export 'src/name/avatar.dart';
+export 'src/name/name.dart';
+export 'src/name/socials.dart';
