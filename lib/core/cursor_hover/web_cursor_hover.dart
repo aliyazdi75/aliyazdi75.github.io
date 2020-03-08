@@ -4,7 +4,7 @@ import 'package:my_site/core/constants/index.dart';
 
 import 'cursor_hover_interface.dart';
 
-class WebHover implements Cursor {
+class WebHover implements CursorHover {
   WebHover() {
     appContainer = html.window.document.getElementById(mySiteWebBodyId);
   }
@@ -18,4 +18,4 @@ class WebHover implements Cursor {
   void onExit() => appContainer.style.cursor = 'default';
 }
 
-Cursor getCursorHover() => WebHover();
+CursorHover getCursorHover() => WebHover();

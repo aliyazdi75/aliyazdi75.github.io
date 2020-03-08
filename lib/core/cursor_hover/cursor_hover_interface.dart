@@ -4,34 +4,26 @@ import 'cursor_hover_stub.dart'
     if (dart.library.html) 'web_cursor_hover.dart'
     if (dart.library.io) 'desktop_cursor_hover.dart';
 
-class CursorHover extends StatelessWidget {
-  const CursorHover({
-    this.child,
-    this.onHovered,
-  });
-
-  final Widget child;
-  final Function onHovered;
-
-  @override
-  Widget build(BuildContext context) {
+extension CursorHoverExtension on Widget {
+  Widget showCursorOnHover({Function onHovered}) {
     return MouseRegion(
-      child: child,
+      child: this,
       onHover: (event) {
-        onHovered(true);
-        Cursor().onHover();
+        if (onHovered != null) onHovered(true);
+        CursorHover().onHover();
       },
       onExit: (event) {
-        onHovered(false);
-        Cursor().onExit();
+        if (onHovered != null) onHovered(false);
+        CursorHover().onExit();
       },
     );
   }
 }
 
-abstract class Cursor {
+abstract class CursorHover {
   void onHover();
+
   void onExit();
 
-  factory Cursor() => getCursorHover();
+  factory CursorHover() => getCursorHover();
 }

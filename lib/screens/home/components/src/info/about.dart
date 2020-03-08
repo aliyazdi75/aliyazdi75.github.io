@@ -31,18 +31,15 @@ class _AboutState extends State<About> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        CursorHover(
-          onHovered: _onHovered,
-          child: Text(
-            MySiteLocalizations.of(context).welcomeTitle,
-            style: theme.textTheme.caption.copyWith(
-              color: theme.primaryColor,
-              decoration: _onMouseHover ? TextDecoration.underline : null,
-            ),
-            textScaleFactor: 4.0,
+        Text(
+          localizations.welcomeTitle,
+          textScaleFactor: 4.0,
+          style: theme.textTheme.caption.copyWith(
+            color: theme.primaryColor,
+            decoration: _onMouseHover ? TextDecoration.underline : null,
           ),
-        ),
-        Divider(color: Theme.of(context).primaryColor),
+        ).showCursorOnHover(onHovered: _onHovered),
+        Divider(color: theme.primaryColor),
         Text.rich(
           TextSpan(
             children: [
@@ -53,7 +50,6 @@ class _AboutState extends State<About> {
               TextSpan(
                 style: theme.textTheme.bodyText2.copyWith(
                   color: theme.primaryColor,
-                  decoration: TextDecoration.underline,
                 ),
                 text: aboutUniversityRank,
                 recognizer: TapGestureRecognizer()
@@ -78,7 +74,7 @@ class _AboutState extends State<About> {
         SizedBox(height: 20),
         RaisedButton(
           shape: StadiumBorder(),
-          child: Text(MySiteLocalizations.of(context).resume),
+          child: Text(localizations.resume),
           onPressed: () async {
             if (await canLaunch(cvUrl)) {
               await launch(
@@ -87,7 +83,7 @@ class _AboutState extends State<About> {
               );
             }
           },
-        ),
+        ).showCursorOnHover(),
       ],
     );
   }

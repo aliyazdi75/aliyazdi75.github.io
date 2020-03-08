@@ -6,7 +6,7 @@ class SharedPrefKeyFinder implements KeyFinder {
   SharedPreferences _instance;
 
   SharedPrefKeyFinder() {
-    SharedPreferences.getInstance().then((SharedPreferences instance) {
+    SharedPreferences.getInstance().then((instance) {
       _instance = instance;
       // Just initializing something so that it can be fetched.
       _instance.setString("MyKey", "I am from Shared Preference");

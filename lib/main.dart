@@ -36,7 +36,7 @@ class MySite extends StatelessWidget {
       initialModel: MySiteOptions(
         themeMode: kIsWeb ? ThemeMode.dark : ThemeMode.system,
         textScaleFactor: systemTextScaleFactorOption,
-//        locale: Locale('fa'),
+        locale: Locale('fa'),
         platform: defaultTargetPlatform,
       ),
       child: Builder(
@@ -48,9 +48,11 @@ class MySite extends StatelessWidget {
                   MySiteLocalizations.of(context).mySiteTitle,
               debugShowCheckedModeBanner: false,
               themeMode: MySiteOptions.of(context).themeMode,
-              theme: MySiteThemeData.lightThemeData
+              theme: MySiteThemeData.lightThemeData(
+                      MySiteOptions.of(context).locale)
                   .copyWith(platform: MySiteOptions.of(context).platform),
-              darkTheme: MySiteThemeData.darkThemeData
+              darkTheme: MySiteThemeData.darkThemeData(
+                      MySiteOptions.of(context).locale)
                   .copyWith(platform: MySiteOptions.of(context).platform),
               localizationsDelegates: [
                 ...MySiteLocalizations.localizationsDelegates,

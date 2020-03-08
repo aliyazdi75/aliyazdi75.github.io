@@ -1,35 +1,10 @@
-# Copyright 2018 Google LLC
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# Executable name.
-BINARY_NAME=flutter_desktop_example
-# Any extra source files to build.
-EXTRA_SOURCES=
-# Paths of any additional libraries to be bundled in the output directory.
-EXTRA_BUNDLED_LIBRARIES=
-# Extra flags (e.g., for library dependencies).
-SYSTEM_LIBRARIES=
-EXTRA_CXXFLAGS=
-EXTRA_CPPFLAGS=
-EXTRA_LDFLAGS=
-# Plugins to include in the build.
-PLUGINS=
+include app_configuration.mk
 
 # Default build type.
 BUILD=debug
 
-FLUTTER_EPHEMERAL_DIR=flutter/ephemeral
+FLUTTER_MANAGED_DIR=flutter
+FLUTTER_EPHEMERAL_DIR=$(FLUTTER_MANAGED_DIR)/ephemeral
 
 # Configuration provided via flutter tool.
 FLUTTER_CONFIG_FILE=$(FLUTTER_EPHEMERAL_DIR)/generated_config.mk
@@ -38,7 +13,6 @@ include $(FLUTTER_CONFIG_FILE)
 # Dependency locations
 FLUTTER_APP_DIR=$(CURDIR)/..
 FLUTTER_APP_BUILD_DIR=$(FLUTTER_APP_DIR)/build
-PLUGINS_DIR=$(FLUTTER_EPHEMERAL_DIR)/.plugin_symlinks
 
 OUT_DIR=$(FLUTTER_APP_BUILD_DIR)/linux
 OBJ_DIR=$(OUT_DIR)/obj/$(BUILD)
@@ -56,15 +30,6 @@ ICU_DATA_NAME=icudtl.dat
 ICU_DATA_SOURCE=$(FLUTTER_EPHEMERAL_DIR)/$(ICU_DATA_NAME)
 FLUTTER_ASSETS_NAME=flutter_assets
 FLUTTER_ASSETS_SOURCE=$(FLUTTER_APP_BUILD_DIR)/$(FLUTTER_ASSETS_NAME)
-
-# The name of each plugin library is the name of the plugin with _plugin
-# appended.
-PLUGIN_LIB_NAMES=$(foreach plugin,$(PLUGINS),$(plugin)_plugin)
-PLUGIN_LIBS=$(foreach plugin,$(PLUGIN_LIB_NAMES),$(OUT_DIR)/lib$(plugin).so)
-EXTRA_BUNDLED_LIBRARIES+=$(PLUGIN_LIBS)
-EXTRA_LDFLAGS+=$(patsubst %,-l%,$(PLUGIN_LIB_NAMES))
-# The plugin builds place all published headers in a top-level include/.
-EXTRA_CPPFLAGS+=-I$(OUT_DIR)/include
 
 # Bundle structure
 BUNDLE_OUT_DIR=$(OUT_DIR)/$(BUILD)
@@ -90,8 +55,9 @@ WRAPPER_SOURCES= \
 
 # Use abspath for extra sources, which may also contain relative paths (see
 # note above about WRAPPER_ROOT).
-SOURCES=main.cc flutter/generated_plugin_registrant.cc $(WRAPPER_SOURCES) \
-	$(abspath $(EXTRA_SOURCES))
+SOURCES=main.cc window_configuration.cc \
+	flutter/generated_plugin_registrant.cc \
+	$(WRAPPER_SOURCES) $(abspath $(EXTRA_SOURCES))
 
 # Headers
 WRAPPER_INCLUDE_DIR=$(WRAPPER_ROOT)/include
@@ -102,10 +68,14 @@ ifneq ($(strip $(SYSTEM_LIBRARIES)),)
 EXTRA_CPPFLAGS+=$(patsubst -I%,-isystem%,$(shell pkg-config --cflags $(SYSTEM_LIBRARIES)))
 EXTRA_LDFLAGS+=$(shell pkg-config --libs $(SYSTEM_LIBRARIES))
 endif
-CXX=clang++ $(EXTRA_CXXFLAGS)
-CXXFLAGS.release=-DNDEBUG
-CXXFLAGS=-std=c++14 -Wall -Werror $(CXXFLAGS.$(BUILD))
-CPPFLAGS=$(patsubst %,-I%,$(INCLUDE_DIRS)) $(EXTRA_CPPFLAGS)
+CXX=clang++
+CPPFLAGS.release=-DNDEBUG
+CPPFLAGS.profile=$(CPPFLAGS.release)
+CXXFLAGS.release=-O2
+CXXFLAGS.profile=$(CXXFLAGS.release)
+CXXFLAGS=-std=c++14 -Wall -Werror $(CXXFLAGS.$(BUILD)) $(EXTRA_CXXFLAGS)
+CPPFLAGS=$(patsubst %,-I%,$(INCLUDE_DIRS)) \
+	$(CPPFLAGS.$(BUILD)) $(EXTRA_CPPFLAGS)
 LDFLAGS=-L$(BUNDLE_LIB_DIR) \
 	-l$(FLUTTER_LIB_NAME) \
 	$(EXTRA_LDFLAGS) \
@@ -119,6 +89,12 @@ DEPENDENCY_FILES=$(OBJ_FILES:%.o=%.d)
 
 .PHONY: all
 all: $(BIN_OUT) bundle
+
+# Add the plugin targets, and their associated settings.
+include $(FLUTTER_MANAGED_DIR)/generated_plugins.mk
+EXTRA_BUNDLED_LIBRARIES+=$(PLUGIN_LIBRARIES)
+EXTRA_LDFLAGS+=$(PLUGIN_LDFLAGS)
+EXTRA_CPPFLAGS+=$(PLUGIN_CPPFLAGS)
 
 # This is a phony target because the flutter tool cannot describe
 # its inputs and outputs yet.
@@ -134,18 +110,7 @@ $(BIN_OUT): $(OBJ_FILES) $(ALL_LIBS_OUT)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OBJ_FILES) $(LDFLAGS) -o $@
 
 $(WRAPPER_SOURCES) $(FLUTTER_LIB) $(ICU_DATA_SOURCE) $(FLUTTER_ASSETS_SOURCE) \
-	$(PLUGINS): | sync
-
-# Compilation depends on plugin headers that are copied as part of the
-# plugin builds, so ensure those happen first.
-# TODO: Restructure to avoid the need for this.
-$(OBJ_FILES): | $(EXTRA_BUNDLED_LIBRARIES)
-
-.PHONY: $(PLUGINS)
-$(PLUGINS):
-	make -C $(PLUGINS_DIR)/$@/linux \
-		OUT_DIR=$(OUT_DIR) \
-		FLUTTER_EPHEMERAL_DIR="$(abspath $(FLUTTER_EPHEMERAL_DIR))"
+	$(PLUGIN_TARGETS): | sync
 
 # Plugin library bundling pattern.
 $(BUNDLE_LIB_DIR)/%: $(OUT_DIR)/%
@@ -168,8 +133,7 @@ $(OBJ_DIR)/%.o : %.cc | sync
 
 # Fully re-copy the assets directory on each build to avoid having to keep a
 # comprehensive list of all asset files here, which would be fragile to changes
-# in the Flutter example (e.g., adding a new font to pubspec.yaml would require
-# changes here).
+# in other files (e.g., adding a new font to pubspec.yaml).
 .PHONY: bundleflutterassets
 bundleflutterassets: $(FLUTTER_ASSETS_SOURCE)
 	mkdir -p $(BUNDLE_DATA_DIR)

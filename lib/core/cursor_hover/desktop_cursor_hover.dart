@@ -1,6 +1,6 @@
 import 'cursor_hover_interface.dart';
 
-class DesktopHover implements Cursor {
+class DesktopHover implements CursorHover {
   DesktopHover();
 
   @override
@@ -10,4 +10,4 @@ class DesktopHover implements Cursor {
   void onExit() => null;
 }
 
-Cursor getCursorHover() => DesktopHover();
+CursorHover getCursorHover() => DesktopHover();

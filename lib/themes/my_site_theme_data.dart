@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,24 +12,29 @@ class MySiteThemeData {
   static ThemeData _lightThemeData = ThemeData.light();
   static ThemeData _darkThemeData = ThemeData.dark();
 
-  static ThemeData lightThemeData =
-      themeData(_lightThemeData, lightColorScheme, _lightFocusColor);
-  static ThemeData darkThemeData =
-      themeData(_darkThemeData, darkColorScheme, _darkFocusColor);
+  static ThemeData lightThemeData(Locale locale) =>
+      themeData(_lightThemeData, locale, lightColorScheme, _lightFocusColor);
+
+  static ThemeData darkThemeData(Locale locale) =>
+      themeData(_darkThemeData, locale, darkColorScheme, _darkFocusColor);
 
   static CupertinoThemeData cupertinoLightThemeData =
       cupertinoThemeData(Brightness.light, lightColorScheme, _lightFocusColor);
   static CupertinoThemeData cupertinoDarkThemeData =
       cupertinoThemeData(Brightness.dark, darkColorScheme, _darkFocusColor);
 
-  static ThemeData themeData(
-      ThemeData themeData, ColorScheme colorScheme, Color focusColor) {
+  static ThemeData themeData(ThemeData themeData, Locale locale,
+      ColorScheme colorScheme, Color focusColor) {
     return themeData.copyWith(
       colorScheme: colorScheme,
-      textTheme: _textTheme(themeData.textTheme, colorScheme.onPrimary),
+      textTheme: locale.languageCode == 'fa'
+          ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
+          : _textTheme(themeData.textTheme, colorScheme.onPrimary),
       primaryTextTheme: themeData.textTheme,
       appBarTheme: AppBarTheme(
-        textTheme: _textTheme(themeData.textTheme, colorScheme.onPrimary),
+        textTheme: locale.languageCode == 'fa'
+            ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
+            : _textTheme(themeData.textTheme, colorScheme.onPrimary),
         color: colorScheme.background,
         elevation: 0,
         iconTheme: IconThemeData(color: colorScheme.primary),
@@ -59,16 +63,20 @@ class MySiteThemeData {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: _textTheme(themeData.textTheme, colorScheme.onPrimary)
-            .subtitle1
-            .apply(color: _darkFillColor),
+        contentTextStyle: locale.languageCode == 'fa'
+            ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
+                .subtitle1
+                .apply(color: _darkFillColor)
+            : _textTheme(themeData.textTheme, colorScheme.onPrimary)
+                .subtitle1
+                .apply(color: _darkFillColor),
       ),
-      typography: Typography.material2018(
-        platform: defaultTargetPlatform,
-        englishLike: Typography.englishLike2018,
-        dense: Typography.dense2018,
-        tall: Typography.tall2018,
-      ),
+//      typography: Typography.material2018(
+//        platform: defaultTargetPlatform,
+//        englishLike: Typography.englishLike2018,
+//        dense: Typography.dense2018,
+//        tall: Typography.tall2018,
+//      ),
     );
   }
 
@@ -123,20 +131,113 @@ class MySiteThemeData {
   static TextTheme _textTheme(TextTheme textTheme, Color color) {
     return textTheme
         .copyWith(
-          bodyText1:
-              GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
-          bodyText2:
-              GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
-          headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
-          headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
-          headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
-          subtitle1:
-              GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
-          subtitle2:
-              GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
-          caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
-          overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
-          button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
+          bodyText1: GoogleFonts.montserrat(
+            fontWeight: _regular,
+            fontSize: 14.0,
+            textStyle: textTheme.bodyText1,
+          ),
+          bodyText2: GoogleFonts.montserrat(
+            fontWeight: _regular,
+            fontSize: 16.0,
+            textStyle: textTheme.bodyText2,
+          ),
+          headline4: GoogleFonts.montserrat(
+            fontWeight: _bold,
+            fontSize: 20.0,
+            textStyle: textTheme.headline4,
+          ),
+          headline5: GoogleFonts.oswald(
+            fontWeight: _medium,
+            fontSize: 16.0,
+            textStyle: textTheme.headline5,
+          ),
+          headline6: GoogleFonts.montserrat(
+            fontWeight: _bold,
+            fontSize: 16.0,
+            textStyle: textTheme.headline6,
+          ),
+          subtitle1: GoogleFonts.montserrat(
+            fontWeight: _medium,
+            fontSize: 16.0,
+            textStyle: textTheme.subtitle1,
+          ),
+          subtitle2: GoogleFonts.montserrat(
+            fontWeight: _medium,
+            fontSize: 14.0,
+            textStyle: textTheme.subtitle2,
+          ),
+          caption: GoogleFonts.oswald(
+            fontWeight: _semiBold,
+            fontSize: 16.0,
+            textStyle: textTheme.caption,
+          ),
+          overline: GoogleFonts.montserrat(
+            fontWeight: _medium,
+            fontSize: 12.0,
+            textStyle: textTheme.overline,
+          ),
+          button: GoogleFonts.montserrat(
+            fontWeight: _semiBold,
+            fontSize: 14.0,
+            textStyle: textTheme.button,
+          ),
+        )
+        .apply(bodyColor: color);
+  }
+
+  static TextTheme _faTextTheme(TextTheme textTheme, Color color) {
+    return textTheme
+        .copyWith(
+          bodyText1: textTheme.bodyText1.copyWith(
+            fontWeight: _regular,
+            fontSize: 14.0,
+            fontFamily: 'IRANSans-Regular',
+          ),
+          bodyText2: textTheme.bodyText2.copyWith(
+            fontWeight: _regular,
+            fontSize: 15.0,
+            fontFamily: 'IRANSans-Regular',
+          ),
+          headline4: textTheme.headline4.copyWith(
+            fontWeight: _bold,
+            fontSize: 20.0,
+            fontFamily: 'IRANSans-Bold',
+          ),
+          headline5: textTheme.headline5.copyWith(
+            fontWeight: _medium,
+            fontSize: 16.0,
+            fontFamily: 'IRANSans-Medium',
+          ),
+          headline6: textTheme.headline6.copyWith(
+            fontWeight: _bold,
+            fontSize: 16.0,
+            fontFamily: 'IRANSans-Bold',
+          ),
+          subtitle1: textTheme.subtitle1.copyWith(
+            fontWeight: _medium,
+            fontSize: 16.0,
+            fontFamily: 'IRANSans-Medium',
+          ),
+          subtitle2: textTheme.subtitle2.copyWith(
+            fontWeight: _medium,
+            fontSize: 14.0,
+            fontFamily: 'IRANSans-Medium',
+          ),
+          caption: textTheme.caption.copyWith(
+            fontWeight: _semiBold,
+            fontSize: 16.0,
+            fontFamily: 'IRANSans-SemiBold',
+          ),
+          overline: textTheme.overline.copyWith(
+            fontWeight: _medium,
+            fontSize: 12.0,
+            fontFamily: 'IRANSans-Medium',
+          ),
+          button: textTheme.button.copyWith(
+            fontWeight: _semiBold,
+            fontSize: 14.0,
+            fontFamily: 'IRANSans-Medium',
+          ),
         )
         .apply(bodyColor: color);
   }
