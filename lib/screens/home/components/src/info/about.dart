@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/cursor_hover_interface.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
+import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
@@ -69,12 +70,15 @@ class _AboutState extends State<About> {
             ],
           ),
           textAlign: TextAlign.justify,
-          textScaleFactor: 1.5,
+          textScaleFactor: isFarsiLocale(context) ? 2.0 : 1.5,
         ),
         SizedBox(height: 20),
         RaisedButton(
           shape: StadiumBorder(),
-          child: Text(localizations.resume),
+          child: Text(
+            localizations.resume,
+            textScaleFactor: isFarsiLocale(context) ? 1.5 : 1.0,
+          ),
           onPressed: () async {
             if (await canLaunch(cvUrl)) {
               await launch(

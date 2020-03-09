@@ -66,7 +66,7 @@ class Socials extends StatelessWidget {
                     );
                   }
                 },
-              ),
+              ).showCursorOnHover(),
             );
           }),
         ),

@@ -21,7 +21,6 @@ class HomePage extends StatelessWidget {
                     : EdgeInsets.all(shortestSide * 0.1),
             child: AdaptiveSize(
               large: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Name(),
@@ -30,7 +29,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               medium: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Name(),
                   Info(),

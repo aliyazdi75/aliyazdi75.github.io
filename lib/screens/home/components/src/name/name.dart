@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
 
@@ -9,25 +10,33 @@ class Name extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme.caption;
+    final screenWidth = MediaQuery.of(context).size.width;
 
+    final name = Column(
+      children: <Widget>[
+        Text(
+          MySiteLocalizations.of(context).myName,
+          style: textTheme,
+          textAlign: TextAlign.center,
+          textScaleFactor: isFarsiLocale(context) ? 2.0 : 1.5,
+        ),
+        Text(
+          MySiteLocalizations.of(context).myTitle,
+          style: textTheme,
+          textAlign: TextAlign.center,
+          textScaleFactor: isFarsiLocale(context) ? 2.0 : 1.5,
+        ),
+      ],
+    );
     return AdaptiveSize(
       large: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Avatar(),
           SizedBox(height: 15.0),
-          Text(
-            MySiteLocalizations.of(context).myName,
-            style: textTheme,
-            textAlign: TextAlign.center,
-            textScaleFactor: 1.5,
-          ),
-          Text(
-            MySiteLocalizations.of(context).myTitle,
-            style: textTheme,
-            textAlign: TextAlign.center,
-            textScaleFactor: 1.5,
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: screenWidth / 3),
+            child: name,
           ),
           SizedBox(height: 15.0),
           Socials(),
@@ -35,7 +44,6 @@ class Name extends StatelessWidget {
       ),
       medium: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -49,18 +57,7 @@ class Name extends StatelessWidget {
             ),
           ),
           SizedBox(height: 15.0),
-          Text(
-            MySiteLocalizations.of(context).myName,
-            style: textTheme,
-            textAlign: TextAlign.center,
-            textScaleFactor: 1.5,
-          ),
-          Text(
-            MySiteLocalizations.of(context).myTitle,
-            style: textTheme,
-            textAlign: TextAlign.center,
-            textScaleFactor: 1.5,
-          ),
+          name,
         ],
       ),
     );

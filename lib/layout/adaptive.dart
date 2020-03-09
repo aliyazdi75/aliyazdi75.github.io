@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
+import 'package:my_site/data/my_site_options.dart';
 
 enum DesignType {
   material,
@@ -78,6 +79,10 @@ bool isMediumDisplay(BuildContext context) {
 
 bool isSmallDisplay(BuildContext context) {
   return sizeTypeOf(context) == SizeType.small;
+}
+
+bool isFarsiLocale(BuildContext context) {
+  return MySiteOptions.of(context).locale.languageCode == 'fa';
 }
 
 class AdaptiveSize extends StatelessWidget {

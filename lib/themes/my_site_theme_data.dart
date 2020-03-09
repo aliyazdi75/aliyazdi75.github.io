@@ -30,7 +30,9 @@ class MySiteThemeData {
       textTheme: locale.languageCode == 'fa'
           ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
           : _textTheme(themeData.textTheme, colorScheme.onPrimary),
-      primaryTextTheme: themeData.textTheme,
+      primaryTextTheme: locale.languageCode == 'fa'
+          ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
+          : _textTheme(themeData.textTheme, colorScheme.onPrimary),
       appBarTheme: AppBarTheme(
         textTheme: locale.languageCode == 'fa'
             ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)

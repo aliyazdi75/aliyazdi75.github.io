@@ -45,7 +45,7 @@ flutter:
     - family: IRANSans-Medium
       fonts:
         - asset: fonts/IRANSans-Medium.ttf
-    - family: IRANSans-Reguar
+    - family: IRANSans-Regular
       fonts:
         - asset: fonts/IRANSans-Regular.ttf
     - family: IRANSans-SemiBold
