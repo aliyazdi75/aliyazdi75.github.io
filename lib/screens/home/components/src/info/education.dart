@@ -22,7 +22,9 @@ class _EducationState extends State<Education> {
     final localizations = MySiteLocalizations.of(context);
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: isMediumDisplay(context)
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

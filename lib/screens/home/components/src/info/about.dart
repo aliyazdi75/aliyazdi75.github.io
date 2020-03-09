@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
+import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
@@ -29,7 +30,9 @@ class _AboutState extends State<About> {
     final aboutMeSecond = aboutMe.substring(samplesRepoIndexEnd);
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: isMediumDisplay(context)
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(

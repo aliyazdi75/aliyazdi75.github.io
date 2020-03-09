@@ -143,10 +143,7 @@ class _InfoState extends State<Info> {
               child: TabBarView(
                 physics: BouncingScrollPhysics(),
                 children: infoItems.map<Widget>((item) {
-                  return SingleChildScrollView(
-                    physics: NeverScrollableScrollPhysics(),
-                    child: item.info,
-                  );
+                  return item.info;
                 }).toList(),
               ),
             ),
