@@ -36,6 +36,7 @@ class MySite extends StatelessWidget {
       initialModel: MySiteOptions(
         themeMode: ThemeMode.system,
         textScaleFactor: systemTextScaleFactorOption,
+//        locale: Locale('fa'),
         platform: defaultTargetPlatform,
       ),
       child: Builder(

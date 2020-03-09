@@ -61,20 +61,28 @@
   "@amirkabirStudyFieldTitle": {
     "description": "Study Field Title."
   },
-  "amirkabirStudyDuration": "September 2015 - January 2020",
-  "@amirkabirStudyDuration": {
+  "amirkabirStudyStart": "September 2015",
+  "@amirkabirStudyStart": {
+    "description": "Study Duration."
+  },
+  "amirkabirStudyEnd": "January 2020",
+  "@amirkabirStudyEnd": {
     "description": "Study Duration."
   },
   "schoolTitle": "Adab High School",
   "@schoolTitle": {
     "description": "Adab High School Title."
   },
-  "schoolCity": ", Tehran, Iran",
+  "schoolCity": "Tehran, Iran",
   "@schoolCity": {
     "description": "School City."
   },
-  "schoolStudyDuration": "September 2011 - June 2014",
-  "@schoolStudyDuration": {
+  "schoolStudyStart": "September 2011",
+  "@schoolStudyStart": {
+    "description": "Study Duration."
+  },
+  "schoolStudyEnd": "June 2014",
+  "@schoolStudyEnd": {
     "description": "Study Duration."
   },
   "schoolStudyFieldTitle": "Diploma in Physics and Mathematics",
@@ -89,8 +97,12 @@
   "@tarafdariCity": {
     "description": "School City."
   },
-  "tarafdariWorkDuration": "June 2019 - Present",
-  "@tarafdariWorkDuration": {
+  "tarafdariWorkStart": "June 2019",
+  "@tarafdariWorkStart": {
+    "description": "Work Duration."
+  },
+  "tarafdariWorkEnd": "Present",
+  "@tarafdariWorkEnd": {
     "description": "Work Duration."
   },
   "tarafdariTechnologies": "Flutter, Drupal, Laravel, MySQL",

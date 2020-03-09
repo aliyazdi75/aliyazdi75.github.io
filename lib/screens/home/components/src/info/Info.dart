@@ -78,10 +78,7 @@ class _InfoState extends State<Info> {
                 });
               },
               children: List.generate(infoItems.length, (index) {
-                return SingleChildScrollView(
-                  physics: NeverScrollableScrollPhysics(),
-                  child: infoItems[index].info,
-                );
+                return infoItems[index].info;
               }),
             ),
           ),
@@ -123,7 +120,7 @@ class _InfoState extends State<Info> {
                       );
                     });
                   },
-                ),
+                ).showCursorOnHover(),
               ),
             ),
           ),

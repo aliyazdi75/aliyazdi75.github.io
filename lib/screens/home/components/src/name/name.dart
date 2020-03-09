@@ -18,13 +18,13 @@ class Name extends StatelessWidget {
           MySiteLocalizations.of(context).myName,
           style: textTheme,
           textAlign: TextAlign.center,
-          textScaleFactor: isFarsiLocale(context) ? 2.0 : 1.5,
+          textScaleFactor: 1.5,
         ),
         Text(
           MySiteLocalizations.of(context).myTitle,
           style: textTheme,
           textAlign: TextAlign.center,
-          textScaleFactor: isFarsiLocale(context) ? 2.0 : 1.5,
+          textScaleFactor: 1.5,
         ),
       ],
     );

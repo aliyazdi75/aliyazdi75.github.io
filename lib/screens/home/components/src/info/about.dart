@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/cursor_hover_interface.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
-import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
@@ -30,6 +29,7 @@ class _AboutState extends State<About> {
     final aboutMeSecond = aboutMe.substring(samplesRepoIndexEnd);
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
@@ -49,9 +49,8 @@ class _AboutState extends State<About> {
                 text: aboutMeFirst,
               ),
               TextSpan(
-                style: theme.textTheme.bodyText2.copyWith(
-                  color: theme.primaryColor,
-                ),
+                style: theme.textTheme.bodyText2
+                    .copyWith(color: theme.primaryColor),
                 text: aboutUniversityRank,
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
@@ -70,14 +69,13 @@ class _AboutState extends State<About> {
             ],
           ),
           textAlign: TextAlign.justify,
-          textScaleFactor: isFarsiLocale(context) ? 2.0 : 1.5,
+          textScaleFactor: 1.5,
         ),
         SizedBox(height: 20),
         RaisedButton(
           shape: StadiumBorder(),
           child: Text(
             localizations.resume,
-            textScaleFactor: isFarsiLocale(context) ? 1.5 : 1.0,
           ),
           onPressed: () async {
             if (await canLaunch(cvUrl)) {
