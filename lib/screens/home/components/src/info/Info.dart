@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_site/core/cursor_hover/cursor_hover_interface.dart';
+import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
 
@@ -80,7 +80,7 @@ class _InfoState extends State<Info> {
               children: List.generate(infoItems.length, (index) {
                 return infoItems[index].info;
               }),
-            ),
+            ).showCursorOnHover(CursorType.grab),
           ),
           Container(
             constraints: BoxConstraints(
@@ -120,7 +120,7 @@ class _InfoState extends State<Info> {
                       );
                     });
                   },
-                ).showCursorOnHover(),
+                ).showCursorOnHover(CursorType.grab),
               ),
             ),
           ),
@@ -136,7 +136,7 @@ class _InfoState extends State<Info> {
               tabs: infoItems.map<Tab>((item) {
                 return Tab(text: item.title, icon: Icon(item.icon, size: 30.0));
               }).toList(),
-            ).showCursorOnHover(),
+            ).showCursorOnHover(CursorType.pointer),
             Container(
               constraints: BoxConstraints(
                   maxHeight: kInfoMediumScreenHeightFactor / screenWidth),

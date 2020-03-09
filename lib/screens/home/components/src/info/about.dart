@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
-import 'package:my_site/core/cursor_hover/cursor_hover_interface.dart';
+import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -39,7 +39,7 @@ class _AboutState extends State<About> {
             color: theme.primaryColor,
             decoration: _onMouseHover ? TextDecoration.underline : null,
           ),
-        ).showCursorOnHover(onHovered: _onHovered),
+        ).showCursorOnHover(CursorType.pointer, onHovered: _onHovered),
         Divider(color: theme.primaryColor),
         Text.rich(
           TextSpan(
@@ -85,7 +85,7 @@ class _AboutState extends State<About> {
               );
             }
           },
-        ).showCursorOnHover(),
+        ).showCursorOnHover(CursorType.pointer),
       ],
     );
   }

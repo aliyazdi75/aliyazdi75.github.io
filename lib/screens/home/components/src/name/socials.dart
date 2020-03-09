@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_site/core/constants/index.dart';
-import 'package:my_site/core/cursor_hover/cursor_hover_interface.dart';
+import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/data/icons.dart';
 import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -41,7 +41,7 @@ class Socials extends StatelessWidget {
                   );
                 }
               },
-            ).showCursorOnHover();
+            ).showCursorOnHover(CursorType.pointer);
           }),
         ),
         medium: Column(
@@ -66,7 +66,7 @@ class Socials extends StatelessWidget {
                     );
                   }
                 },
-              ).showCursorOnHover(),
+              ).showCursorOnHover(CursorType.pointer),
             );
           }),
         ),

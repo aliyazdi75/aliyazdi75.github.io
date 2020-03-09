@@ -5,12 +5,12 @@ import 'cursor_hover_stub.dart'
     if (dart.library.io) 'desktop_cursor_hover.dart';
 
 extension CursorHoverExtension on Widget {
-  Widget showCursorOnHover({Function onHovered}) {
+  Widget showCursorOnHover(String cursorType, {Function onHovered}) {
     return MouseRegion(
       child: this,
       onHover: (event) {
         if (onHovered != null) onHovered(true);
-        CursorHover().onHover();
+        CursorHover().onHover(cursorType);
       },
       onExit: (event) {
         if (onHovered != null) onHovered(false);
@@ -21,7 +21,7 @@ extension CursorHoverExtension on Widget {
 }
 
 abstract class CursorHover {
-  void onHover();
+  void onHover(String cursorType);
 
   void onExit();
 

@@ -4,7 +4,7 @@ class DesktopHover implements CursorHover {
   DesktopHover();
 
   @override
-  void onHover() => null;
+  void onHover(String cursorType) => null;
 
   @override
   void onExit() => null;
