@@ -42,15 +42,15 @@ class MySiteOptions {
   ThemeData themeData(BuildContext context) {
     if (themeMode == ThemeMode.system) {
       return MediaQuery.platformBrightnessOf(context) == Brightness.light
-          ? MySiteThemeData.lightThemeData(MySiteOptions.of(context).locale)
+          ? MySiteThemeData.lightThemeData(context)
               .copyWith(platform: MySiteOptions.of(context).platform)
-          : MySiteThemeData.darkThemeData(MySiteOptions.of(context).locale)
+          : MySiteThemeData.darkThemeData(context)
               .copyWith(platform: MySiteOptions.of(context).platform);
     } else {
       return themeMode == ThemeMode.light
-          ? MySiteThemeData.lightThemeData(MySiteOptions.of(context).locale)
+          ? MySiteThemeData.lightThemeData(context)
               .copyWith(platform: MySiteOptions.of(context).platform)
-          : MySiteThemeData.darkThemeData(MySiteOptions.of(context).locale)
+          : MySiteThemeData.darkThemeData(context)
               .copyWith(platform: MySiteOptions.of(context).platform);
     }
   }

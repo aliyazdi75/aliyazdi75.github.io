@@ -82,7 +82,7 @@ bool isSmallDisplay(BuildContext context) {
 }
 
 bool isFarsiLocale(BuildContext context) {
-  return MySiteOptions.of(context).locale.languageCode == 'fa';
+  return MySiteOptions.of(context).locale?.languageCode == 'fa' ?? false;
 }
 
 class AdaptiveSize extends StatelessWidget {

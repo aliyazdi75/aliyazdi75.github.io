@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_site/layout/adaptive.dart';
 
 class MySiteThemeData {
   static const _lightFillColor = Colors.black;
@@ -12,29 +13,29 @@ class MySiteThemeData {
   static ThemeData _lightThemeData = ThemeData.light();
   static ThemeData _darkThemeData = ThemeData.dark();
 
-  static ThemeData lightThemeData(Locale locale) =>
-      themeData(_lightThemeData, locale, lightColorScheme, _lightFocusColor);
+  static ThemeData lightThemeData(BuildContext context) =>
+      themeData(_lightThemeData, context, lightColorScheme, _lightFocusColor);
 
-  static ThemeData darkThemeData(Locale locale) =>
-      themeData(_darkThemeData, locale, darkColorScheme, _darkFocusColor);
+  static ThemeData darkThemeData(BuildContext context) =>
+      themeData(_darkThemeData, context, darkColorScheme, _darkFocusColor);
 
   static CupertinoThemeData cupertinoLightThemeData =
       cupertinoThemeData(Brightness.light, lightColorScheme, _lightFocusColor);
   static CupertinoThemeData cupertinoDarkThemeData =
       cupertinoThemeData(Brightness.dark, darkColorScheme, _darkFocusColor);
 
-  static ThemeData themeData(ThemeData themeData, Locale locale,
+  static ThemeData themeData(ThemeData themeData, BuildContext context,
       ColorScheme colorScheme, Color focusColor) {
     return themeData.copyWith(
       colorScheme: colorScheme,
-      textTheme: locale.languageCode == 'fa'
+      textTheme: isFarsiLocale(context)
           ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
           : _textTheme(themeData.textTheme, colorScheme.onPrimary),
-      primaryTextTheme: locale.languageCode == 'fa'
+      primaryTextTheme: isFarsiLocale(context)
           ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
           : _textTheme(themeData.textTheme, colorScheme.onPrimary),
       appBarTheme: AppBarTheme(
-        textTheme: locale.languageCode == 'fa'
+        textTheme: isFarsiLocale(context)
             ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
             : _textTheme(themeData.textTheme, colorScheme.onPrimary),
         color: colorScheme.background,
@@ -65,7 +66,7 @@ class MySiteThemeData {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: locale.languageCode == 'fa'
+        contentTextStyle: isFarsiLocale(context)
             ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
                 .subtitle1
                 .apply(color: _darkFillColor)
