@@ -93,14 +93,14 @@ class _ExperienceState extends State<Experience> {
                           padding: EdgeInsets.only(bottom: 5.0),
                           child: Text(
                             localizations.tarafdariCity,
-                            style: theme.textTheme.bodyText2,
+                            style: theme.textTheme.bodyText1,
                           ),
                         ),
                       ],
                     ),
                     Text(
                       localizations.tarafdariTechnologies,
-                      style: theme.textTheme.bodyText2,
+                      style: theme.textTheme.bodyText1,
                     ),
                     Text(
                       localizations.tarafdariDescription,
