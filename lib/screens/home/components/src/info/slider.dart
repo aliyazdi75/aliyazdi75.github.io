@@ -122,7 +122,7 @@ class CustomValueIndicatorShape extends SliderComponentShape {
       canvas,
       thumbCenter +
           slideUpOffset +
-          Offset(-labelPainter.width / 2.1, -labelPainter.height - 4.0),
+          Offset(-labelPainter.width / 2.0, -labelPainter.height - 4.0),
     );
   }
 }
