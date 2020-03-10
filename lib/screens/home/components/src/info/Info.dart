@@ -10,7 +10,7 @@ import 'slider.dart';
 
 const kInfoLargeScreenHeightFactor = 1e6;
 const kInfoSliderHeightFactor = 85e4;
-const kInfoMediumScreenHeightFactor = 37e4;
+const kInfoMediumScreenHeightFactor = 39e4;
 const kPageAnimationDuration = Duration(milliseconds: 200);
 
 class _InfoItem {
@@ -34,18 +34,18 @@ class _InfoState extends State<Info> {
     _InfoItem(icon: Icons.work, info: Experience()),
   ];
 
-  PageController pageController;
+  PageController _pageController;
   double _discreteSliderValue = 0;
 
   @override
   void initState() {
-    pageController = PageController(initialPage: 0);
+    _pageController = PageController(initialPage: 0);
     super.initState();
   }
 
   @override
   void dispose() {
-    pageController.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -68,7 +68,7 @@ class _InfoState extends State<Info> {
               maxWidth: screenWidth / 3,
             ),
             child: PageView(
-              controller: pageController,
+              controller: _pageController,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               allowImplicitScrolling: true,
@@ -113,7 +113,7 @@ class _InfoState extends State<Info> {
                   onChanged: (value) {
                     setState(() {
                       _discreteSliderValue = value;
-                      pageController.animateToPage(
+                      _pageController.animateToPage(
                         value.round(),
                         duration: kPageAnimationDuration,
                         curve: Curves.easeInOut,

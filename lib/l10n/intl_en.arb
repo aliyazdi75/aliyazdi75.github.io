@@ -93,9 +93,9 @@
   "@tarafdariTitle": {
     "description": "Tarafdari Title."
   },
-  "tarafdariCity": ", Tehran, Iran",
+  "tarafdariCity": "Tehran, Iran",
   "@tarafdariCity": {
-    "description": "School City."
+    "description": "Work City."
   },
   "tarafdariWorkStart": "June 2019",
   "@tarafdariWorkStart": {
@@ -113,7 +113,7 @@
   "@tarafdariDescription": {
     "description": "Tarafdari Description."
   },
-  "tarafdariDuty1": "Studying Researching about Flutter framework",
+  "tarafdariDuty1": "Studying and Researching about Flutter framework",
   "@tarafdariDuty1": {
     "description": "Tarafdari Duty."
   },
@@ -121,8 +121,12 @@
   "@tarafdariDuty2": {
     "description": "Tarafdari Duty."
   },
-  "tarafdariDuty3": "Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket. Android application is available on the link below.",
+  "tarafdariDuty3": "Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket.",
   "@tarafdariDuty3": {
     "description": "Tarafdari Duty."
+  },
+  "downloadApplication": "Download Application",
+  "@downloadApplication": {
+    "description": "Download Application Title."
   }
 }

@@ -95,8 +95,8 @@
     >Tarafdari</string>
   <string
     name="tarafdariCity"
-    description="School City."
-    >, Tehran, Iran</string>
+    description="Work City."
+    >Tehran, Iran</string>
   <string
     name="tarafdariWorkStart"
     description="Work Duration."
@@ -116,7 +116,7 @@
   <string
     name="tarafdariDuty1"
     description="Tarafdari Duty."
-    >Studying Researching about Flutter framework</string>
+    >Studying and Researching about Flutter framework</string>
   <string
     name="tarafdariDuty2"
     description="Tarafdari Duty."
@@ -124,5 +124,9 @@
   <string
     name="tarafdariDuty3"
     description="Tarafdari Duty."
-    >Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket. Android application is available on the link below.</string>
+    >Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket.</string>
+  <string
+    name="downloadApplication"
+    description="Download Application Title."
+    >Download Application</string>
 </resources>

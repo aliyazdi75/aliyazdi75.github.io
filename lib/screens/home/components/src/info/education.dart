@@ -12,12 +12,17 @@ class Education extends StatefulWidget {
 
 class _EducationState extends State<Education> {
   bool _onAmirkabirTitleHover = false;
+  bool _onSchoolTitleHover = false;
 
   void _onAmirkabirTitleHovered(bool value) =>
       setState(() => _onAmirkabirTitleHover = value);
 
+  void _onSchoolTitleHovered(bool value) =>
+      setState(() => _onSchoolTitleHover = value);
+
   @override
   Widget build(BuildContext context) {
+    final itemPadding = 20.0;
     final theme = Theme.of(context);
     final localizations = MySiteLocalizations.of(context);
 
@@ -37,7 +42,8 @@ class _EducationState extends State<Education> {
               ),
             ),
             Expanded(
-              child: Center(
+              child: Padding(
+                padding: EdgeInsets.all(itemPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -106,16 +112,31 @@ class _EducationState extends State<Education> {
               ),
             ),
             Expanded(
-              child: Center(
+              child: Padding(
+                padding: EdgeInsets.all(itemPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      localizations.schoolTitle,
-                      textScaleFactor: 2.0,
-                      style: theme.textTheme.caption.copyWith(
-                        color: theme.primaryColor,
-                      ),
+                    GestureDetector(
+                      child: Text(
+                        localizations.schoolTitle,
+                        textScaleFactor: 2.0,
+                        style: theme.textTheme.caption.copyWith(
+                          color: theme.primaryColor,
+                          decoration: _onSchoolTitleHover
+                              ? TextDecoration.underline
+                              : null,
+                        ),
+                      ).showCursorOnHover(CursorType.pointer,
+                          onHovered: _onSchoolTitleHovered),
+                      onTap: () async {
+                        if (await canLaunch(schoolWebsite)) {
+                          await launch(
+                            schoolWebsite,
+                            forceWebView: true,
+                          );
+                        }
+                      },
                     ),
                     Text(
                       localizations.schoolCity,

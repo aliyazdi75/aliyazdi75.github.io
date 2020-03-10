@@ -165,7 +165,7 @@ abstract class MySiteLocalizations {
   // Tarafdari Title.
   String get tarafdariTitle;
 
-  // School City.
+  // Work City.
   String get tarafdariCity;
 
   // Work Duration.
@@ -188,6 +188,9 @@ abstract class MySiteLocalizations {
 
   // Tarafdari Duty.
   String get tarafdariDuty3;
+
+  // Download Application Title.
+  String get downloadApplication;
 }
 
 class _MySiteLocalizationsDelegate
@@ -282,7 +285,7 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
   String get tarafdariTitle => 'Tarafdari';
 
   @override
-  String get tarafdariCity => ', Tehran, Iran';
+  String get tarafdariCity => 'Tehran, Iran';
 
   @override
   String get tarafdariWorkStart => 'June 2019';
@@ -298,14 +301,18 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
       'Tarafdari is the first and most popular sport social media network in Iran, that provides official sport news and live score matches.';
 
   @override
-  String get tarafdariDuty1 => 'Studying Researching about Flutter framework';
+  String get tarafdariDuty1 =>
+      'Studying and Researching about Flutter framework';
 
   @override
   String get tarafdariDuty2 => 'Developing requirement APIs';
 
   @override
   String get tarafdariDuty3 =>
-      'Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket. Android application is available on the link below.';
+      'Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket.';
+
+  @override
+  String get downloadApplication => 'Download Application';
 }
 
 /// The translations for Persian (`fa`).
@@ -382,7 +389,7 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
   String get tarafdariTitle => 'طرفداری';
 
   @override
-  String get tarafdariCity => '، ایران، تهران';
+  String get tarafdariCity => 'ایران، تهران';
 
   @override
   String get tarafdariWorkStart => 'خرداد ۱۳۹۸';
@@ -405,7 +412,10 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
 
   @override
   String get tarafdariDuty3 =>
-      'توسعه اپلیکیشن فلاتر طرفداری و پلاگین‌های موردنیاز، که ایین برنامه شامل محتوای چند رسانه‌ای، نتایج زنده بازی‌های ورزشی، استریمینگ پخش زنده بازی‌های ورزشی روی سوکت. اپلیکیشن اندروید در لینک زیر در دسترس قرار دارد.';
+      'توسعه اپلیکیشن فلاتر طرفداری و پلاگین‌های موردنیاز، که ایین برنامه شامل محتوای چند رسانه‌ای، نتایج زنده بازی‌های ورزشی، استریمینگ پخش زنده بازی‌های ورزشی روی سوکت.';
+
+  @override
+  String get downloadApplication => 'دانلود برنامه';
 }
 
 MySiteLocalizations _lookupMySiteLocalizations(Locale locale) {

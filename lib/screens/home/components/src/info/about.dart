@@ -74,12 +74,10 @@ class _AboutState extends State<About> {
           textAlign: TextAlign.justify,
           textScaleFactor: 1.5,
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 20.0),
         RaisedButton(
           shape: StadiumBorder(),
-          child: Text(
-            localizations.resume,
-          ),
+          child: Text(localizations.resume),
           onPressed: () async {
             if (await canLaunch(cvUrl)) {
               await launch(
