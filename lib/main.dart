@@ -59,14 +59,16 @@ class MySite extends StatelessWidget {
               supportedLocales: MySiteLocalizations.supportedLocales,
               locale: MySiteOptions.of(context).locale,
               localeResolutionCallback: (locale, supportedLocales) {
-                if (supportedLocales.contains(locale)) {
+                final isSupported = supportedLocales.contains(
+                  supportedLocales.singleWhere(
+                      (element) => element.languageCode == locale.languageCode),
+                );
+                if (isSupported) {
                   deviceLocale = locale;
                 } else {
                   deviceLocale = supportedLocales.first;
                 }
-                return supportedLocales.contains(locale)
-                    ? locale
-                    : supportedLocales.first;
+                return isSupported ? locale : supportedLocales.first;
               },
               builder: (context, route) {
                 return ApplyTextOptions(
