@@ -191,6 +191,12 @@ abstract class MySiteLocalizations {
 
   // Download Application Title.
   String get downloadApplication;
+
+  // Made With Title.
+  String get madeWith;
+
+  // By Flutter Title.
+  String get byFlutter;
 }
 
 class _MySiteLocalizationsDelegate
@@ -309,10 +315,16 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
 
   @override
   String get tarafdariDuty3 =>
-      'Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket.';
+      'Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.';
 
   @override
   String get downloadApplication => 'Download Application';
+
+  @override
+  String get madeWith => 'Made with';
+
+  @override
+  String get byFlutter => 'by Flutter';
 }
 
 /// The translations for Persian (`fa`).
@@ -416,6 +428,12 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
 
   @override
   String get downloadApplication => 'دانلود برنامه';
+
+  @override
+  String get madeWith => 'ساخته شده با';
+
+  @override
+  String get byFlutter => 'توسط فلاتر';
 }
 
 MySiteLocalizations _lookupMySiteLocalizations(Locale locale) {

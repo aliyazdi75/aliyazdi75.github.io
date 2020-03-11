@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_site/layout/adaptive.dart';
+import 'package:my_site/screens/home/components/src/menu/menu.dart';
 
 import 'components/index.dart';
 
@@ -24,7 +25,16 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Name(),
-                  Container(height: 200, child: VerticalDivider()),
+                  Container(
+                      height: 200,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border(
+                            left: BorderSide(
+                                color: Theme.of(context).dividerColor),
+                          ),
+                        ),
+                      )),
                   Info(),
                 ],
               ),
@@ -49,6 +59,10 @@ class HomePage extends StatelessWidget {
     return AdaptiveDesign(
       material: Scaffold(
         body: adaptiveBody,
+        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomPadding: true,
+        floatingActionButton: isMediumDisplay(context) ? Menu() : null,
+        bottomNavigationBar: isLargeDisplay(context) ? Menu() : null,
       ),
       cupertino: CupertinoPageScaffold(
         child: adaptiveBody,

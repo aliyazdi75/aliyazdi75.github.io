@@ -73,6 +73,10 @@ SizeType sizeTypeOf(BuildContext context) {
   }
 }
 
+bool isLargeDisplay(BuildContext context) {
+  return sizeTypeOf(context) == SizeType.large;
+}
+
 bool isMediumDisplay(BuildContext context) {
   return sizeTypeOf(context) == SizeType.medium;
 }

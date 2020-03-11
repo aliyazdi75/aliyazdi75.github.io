@@ -12,10 +12,6 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
-  bool _onMouseHover = false;
-
-  void _onHovered(bool value) => setState(() => _onMouseHover = value);
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -38,11 +34,8 @@ class _AboutState extends State<About> {
         Text(
           localizations.welcomeTitle,
           textScaleFactor: 4.0,
-          style: theme.textTheme.caption.copyWith(
-            color: theme.primaryColor,
-            decoration: _onMouseHover ? TextDecoration.underline : null,
-          ),
-        ).showCursorOnHover(CursorType.pointer, onHovered: _onHovered),
+          style: theme.textTheme.caption.copyWith(color: theme.primaryColor),
+        ),
         Divider(color: theme.primaryColor),
         Text.rich(
           TextSpan(

@@ -121,12 +121,20 @@
   "@tarafdariDuty2": {
     "description": "Tarafdari Duty."
   },
-  "tarafdariDuty3": "Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, score live score matches, sport TV streaming with live chat on socket.",
+  "tarafdariDuty3": "Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.",
   "@tarafdariDuty3": {
     "description": "Tarafdari Duty."
   },
   "downloadApplication": "Download Application",
   "@downloadApplication": {
     "description": "Download Application Title."
+  },
+  "madeWith": "Made with",
+  "@madeWith": {
+    "description": "Made With Title."
+  },
+  "byFlutter": "by Flutter",
+  "@byFlutter": {
+    "description": "By Flutter Title."
   }
 }
