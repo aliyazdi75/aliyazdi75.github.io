@@ -5,7 +5,8 @@ const githubUrl = 'https://github.com/aliyazdi75';
 const twitterUrl = 'https://twitter.com/aliyazdi75';
 const cvUrl = 'https://github.com/aliyazdi75/Resume/raw/master/CV.pdf';
 
-const downloadPage = 'https://github.com/aliyazdi75/aliyazdi75.github.io';
+const downloadPage =
+    'https://github.com/aliyazdi75/aliyazdi75.github.io/releases';
 
 const topRankUniversity = 'https://ur.isc.gov.ir/#Technology';
 
