@@ -26,15 +26,16 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   Name(),
                   Container(
-                      height: 200,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            left: BorderSide(
-                                color: Theme.of(context).dividerColor),
-                          ),
+                    height: 200,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left:
+                              BorderSide(color: Theme.of(context).dividerColor),
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                   Info(),
                 ],
               ),
