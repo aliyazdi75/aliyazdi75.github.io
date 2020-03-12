@@ -228,18 +228,18 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
   String get myName => 'ALI YAZDI';
 
   @override
-  String get myTitle => 'CS GRADUATED @ TEHRAN POLYTECHNIC';
+  String get myTitle => 'CE GRADUATED @ TEHRAN POLYTECHNIC';
 
   @override
   String get welcomeTitle => 'Hi there, welcome to my page';
 
   @override
   String aboutMe(Object value) {
-    return 'I am Software Engineering graduated from Amirkabir University of Technology, which is ${value}. I am a Flutter Developer, who loves coding in Flutter. I am also interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.';
+    return 'I am a Software Engineering graduate from Amirkabir University of Technology, which is one of the most prestigious universities in Iran, ${value}. And a Developer, who loves programming in Flutter. I am also interested in Artificial Intelligence, Machine Learning and Software Engineering.';
   }
 
   @override
-  String get aboutUniversityRank => 'the second technical university in Iran';
+  String get aboutUniversityRank => 'ranked second in IT';
 
   @override
   String get resume => 'Resume';
@@ -304,7 +304,7 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
 
   @override
   String get tarafdariDescription =>
-      'Tarafdari is the first and most popular sport social media network in Iran, that provides official sport news and live score matches.';
+      'Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of the national and international matches.';
 
   @override
   String get tarafdariDuty1 =>
@@ -315,7 +315,7 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
 
   @override
   String get tarafdariDuty3 =>
-      'Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.';
+      'Developing Tarafdari\'s client application and requirement plugins in flutter, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.';
 
   @override
   String get downloadApplication => 'Download Application';
@@ -345,11 +345,11 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
 
   @override
   String aboutMe(Object value) {
-    return 'من فارغ التحصیل مهندسی نرم افزار از دانشگاه صنعتی امیرکبیر هستم، که این دانشگاه ${value} است. من یک برنامه‌نویس فلاتر هستم که عاشق برنامه‌نویسی با فلاتر است. همچنین من به هوش مصنوعی، یادگیری ماشین، زبان طبیعی و مهندسی نرم‌افزار علاقه‌مند هستم.';
+    return 'من فارغ التحصیل مهندسی نرم افزار از دانشگاه صنعتی امیرکبیر هستم، که این دانشگاه که یکی از معتبرترین دانشگاه‌ها در ایران و  ${value} است. یک برنامه‌نویس هستم که عاشق برنامه‌نویسی با فلاتر است. همچنین من به هوش مصنوعی، یادگیری ماشین و مهندسی نرم‌افزار علاقه‌مند هستم.';
   }
 
   @override
-  String get aboutUniversityRank => 'رتبه دوم بهترین دانشگاه ایران';
+  String get aboutUniversityRank => 'رتبه دوم دانشگاه صنعتی';
 
   @override
   String get resume => 'رزومه';
@@ -414,7 +414,7 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
 
   @override
   String get tarafdariDescription =>
-      'طرفداری اولین و محبوب‌ترین رسانه و شبکه اجتماعی ورزشی در ایران است، که اخبار رسمی ورزشی و نتایج زنده بازی‌های ورزشی را برای کاربران فراهم می‌کند.';
+      'طرفداری اولین و محبوب‌ترین رسانه و شبکه اجتماعی ورزشی در ایران است، که اخبار رسمی ورزشی و نتایج زنده بازی‌های داخلی و خارجی ورزشی را برای کاربران فراهم می‌کند.';
 
   @override
   String get tarafdariDuty1 => 'مطالعه و تحقیق در مورد فریم‌ورک فلاتر';
@@ -424,7 +424,7 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
 
   @override
   String get tarafdariDuty3 =>
-      'توسعه اپلیکیشن فلاتر طرفداری و پلاگین‌های موردنیاز، که ایین برنامه شامل محتوای چند رسانه‌ای، نتایج زنده بازی‌های ورزشی، استریمینگ پخش زنده بازی‌های ورزشی روی سوکت.';
+      'توسعه اپلیکیشن طرفداری و پلاگین‌های موردنیاز با فلاتر، که این برنامه شامل محتوای چند رسانه‌ای، نتایج زنده بازی‌های ورزشی، استریمینگ پخش زنده بازی‌های ورزشی روی سوکت است.';
 
   @override
   String get downloadApplication => 'دانلود برنامه';

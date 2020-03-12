@@ -8,7 +8,7 @@
   "@myName": {
     "description": "My name."
   },
-  "myTitle": "CS GRADUATED @ TEHRAN POLYTECHNIC",
+  "myTitle": "CE GRADUATED @ TEHRAN POLYTECHNIC",
   "@myTitle": {
     "description": "My title."
   },
@@ -16,7 +16,7 @@
   "@welcomeTitle": {
     "description": "Welcome title."
   },
-  "aboutMe": "I am Software Engineering graduated from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am also interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.",
+  "aboutMe": "I am a Software Engineering graduate from Amirkabir University of Technology, which is one of the most prestigious universities in Iran, {value}. And a Developer, who loves programming in Flutter. I am also interested in Artificial Intelligence, Machine Learning and Software Engineering.",
   "@aboutMe": {
     "description": "About me.",
     "placeholders": {
@@ -25,7 +25,7 @@
       }
     }
   },
-  "aboutUniversityRank": "the second technical university in Iran",
+  "aboutUniversityRank": "ranked second in IT",
   "@aboutUniversityRank": {
     "description": "University rank in Iran."
   },
@@ -109,7 +109,7 @@
   "@tarafdariTechnologies": {
     "description": "Tarafdari Technologies."
   },
-  "tarafdariDescription": "Tarafdari is the first and most popular sport social media network in Iran, that provides official sport news and live score matches.",
+  "tarafdariDescription": "Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of the national and international matches.",
   "@tarafdariDescription": {
     "description": "Tarafdari Description."
   },
@@ -121,7 +121,7 @@
   "@tarafdariDuty2": {
     "description": "Tarafdari Duty."
   },
-  "tarafdariDuty3": "Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.",
+  "tarafdariDuty3": "Developing Tarafdari's client application and requirement plugins in flutter, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.",
   "@tarafdariDuty3": {
     "description": "Tarafdari Duty."
   },

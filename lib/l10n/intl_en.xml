@@ -16,7 +16,7 @@
   <string
     name="myTitle"
     description="My title."
-    >CS GRADUATED @ TEHRAN POLYTECHNIC</string>
+    >CE GRADUATED @ TEHRAN POLYTECHNIC</string>
   <string
     name="welcomeTitle"
     description="Welcome title."
@@ -24,11 +24,11 @@
   <string
     name="aboutMe"
     description="About me."
-    >I am Software Engineering graduated from Amirkabir University of Technology, which is {value}. I am a Flutter Developer, who loves coding in Flutter. I am also interested in Artificial Intelligence, Machine Learning, Natural Language and Software Engineering.</string>
+    >I am a Software Engineering graduate from Amirkabir University of Technology, which is one of the most prestigious universities in Iran, {value}. And a Developer, who loves programming in Flutter. I am also interested in Artificial Intelligence, Machine Learning and Software Engineering.</string>
   <string
     name="aboutUniversityRank"
     description="University rank in Iran."
-    >the second technical university in Iran</string>
+    >ranked second in IT</string>
   <string
     name="resume"
     description="Resume."
@@ -112,7 +112,7 @@
   <string
     name="tarafdariDescription"
     description="Tarafdari Description."
-    >Tarafdari is the first and most popular sport social media network in Iran, that provides official sport news and live score matches.</string>
+    >Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of the national and international matches.</string>
   <string
     name="tarafdariDuty1"
     description="Tarafdari Duty."
@@ -124,7 +124,7 @@
   <string
     name="tarafdariDuty3"
     description="Tarafdari Duty."
-    >Developing Tarafdari flutter application and requirement plugins, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.</string>
+    >Developing Tarafdari&apos;s client application and requirement plugins in flutter, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.</string>
   <string
     name="downloadApplication"
     description="Download Application Title."

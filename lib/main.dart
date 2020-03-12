@@ -61,7 +61,9 @@ class MySite extends StatelessWidget {
               localeResolutionCallback: (locale, supportedLocales) {
                 final isSupported = supportedLocales.contains(
                   supportedLocales.singleWhere(
-                      (element) => element.languageCode == locale.languageCode),
+                    (element) => element.languageCode == locale?.languageCode,
+                    orElse: () => null,
+                  ),
                 );
                 if (isSupported) {
                   deviceLocale = locale;

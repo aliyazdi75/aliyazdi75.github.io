@@ -33,14 +33,7 @@ class Socials extends StatelessWidget {
           children: List.generate(socialItems.length, (index) {
             return OutlineButton(
               child: Icon(socialItems[index].icon),
-              onPressed: () async {
-                if (await canLaunch(socialItems[index].url)) {
-                  await launch(
-                    socialItems[index].url,
-                    forceWebView: true,
-                  );
-                }
-              },
+              onPressed: () async => _onPressed(socialItems[index].url),
             ).showCursorOnHover(CursorType.pointer);
           }),
         ),
@@ -58,19 +51,25 @@ class Socials extends StatelessWidget {
                 color: theme.brightness == Brightness.light
                     ? theme.primaryColor
                     : null,
-                onPressed: () async {
-                  if (await canLaunch(socialItems[index].url)) {
-                    await launch(
-                      socialItems[index].url,
-                      forceWebView: true,
-                    );
-                  }
-                },
+                onPressed: () async => _onPressed(socialItems[index].url),
               ).showCursorOnHover(CursorType.pointer),
             );
           }),
         ),
       ),
     );
+  }
+
+  Future<void> _onPressed(String url) async {
+    if (await canLaunch(url)) {
+      if (url.contains('mailto:')) {
+        await launch(url);
+      } else {
+        await launch(
+          url,
+          forceWebView: true,
+        );
+      }
+    }
   }
 }

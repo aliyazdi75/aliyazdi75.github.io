@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final shortestSide = MediaQuery.of(context).size.shortestSide;
+    final contentPadding = shortestSide * 0.05;
 
     final adaptiveBody = Center(
       child: SingleChildScrollView(
@@ -16,10 +17,9 @@ class HomePage extends StatelessWidget {
           child: AnimatedPadding(
             duration: Duration(milliseconds: 750),
             padding: isMediumDisplay(context)
-                ? EdgeInsets.all(shortestSide * 0.05)
-                : isSmallDisplay(context)
-                    ? EdgeInsets.all(0)
-                    : EdgeInsets.all(shortestSide * 0.1),
+                ? EdgeInsets.fromLTRB(
+                    contentPadding, contentPadding, contentPadding, 0)
+                : EdgeInsets.all(0),
             child: AdaptiveSize(
               large: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
