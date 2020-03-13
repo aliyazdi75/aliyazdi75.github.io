@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,20 +10,13 @@ import 'package:my_site/layout/adaptive.dart';
 import 'package:my_site/screens/home/home.dart';
 import 'package:my_site/themes/my_site_theme_data.dart';
 
-void setOverrideForDesktop() {
-  if (kIsWeb) return;
-
-  if (Platform.isMacOS) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-  } else if (Platform.isLinux || Platform.isWindows) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.android;
-  } else if (Platform.isFuchsia) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-  }
-}
-
 void main() {
-  setOverrideForDesktop();
+  // Do something when app faced an error on release
+  FlutterError.onError = (details) {
+    FlutterError.dumpErrorToConsole(details);
+    //if (kReleaseMode)
+    //  exit(1);
+  };
   runApp(MySite());
 }
 

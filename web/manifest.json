@@ -3,7 +3,7 @@
     "short_name": "Ali Yazdi Homepage",
     "start_url": ".",
     "display": "minimal-ui",
-    "background_color": "#0175C2",
+    "background_color": "#030303",
     "theme_color": "#0175C2",
     "description": "Ali Yazdi Homepage Application.",
     "orientation": "portrait-primary",

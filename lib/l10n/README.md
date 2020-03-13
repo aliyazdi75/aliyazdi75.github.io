@@ -22,63 +22,35 @@ flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/main.d
 
 ```dart
 {
-  "@@last_modified": "2020-03-01T22:10:12.322932"
-  "aboutFlutterSamplesRepo": "Flutter samples Github repo",
-  "@aboutFlutterSamplesRepo": {
-    "description": "Represents a link to the Flutter samples github repository."
-  },
-  "aboutDialogDescription": "To see the source code for this app, please visit the {value}.",
-  "@aboutDialogDescription": {
-    "description": "A description about how to view the source code for this app.",
-    "placeholders": {
-      "value": {
-        "example": "Flutter samples Github repo"
-      }
-    }
-  },
-  "signIn": "SIGN IN",
-  "@signIn": {
-    "description": "Sign in label to sign into website."
-  },
-  "rallyBudgetAmount": "{budgetName} budget with {amountUsed} used of {amountTotal}, {amountLeft} left",
-  "@rallyBudgetAmount": {
-    "description": "Semantics label for row with a budget (housing budget for example), with how much is used of the budget (for example $5), the total budget (for example $100) and the amount left in the budget (for example $95).",
-    "placeholders": {
-      "budgetName": {
-        "example": "Groceries"
-      },
-      "amountUsed": {
-        "example": "$5"
-      },
-      "amountTotal": {
-        "example": "$100"
-      },
-      "amountLeft": {
-        "example": "$95"
-      }
-    }
-  },
-  "craneHours": "{hours, plural, =1{1h} other{{hours}h}}",
-  "@craneHours": {
-    "description": "Generic text for an amount of hours, abbreviated to the shortest form. For example 1h. {hours} should remain untranslated.",
-    "placeholders": {
-      "hours": {
-        "example": "1"
-      }
-    }
-  },
-  "craneMinutes": "{minutes, plural, =1{1m} other{{minutes}m}}",
-  "@craneMinutes": {
-    "description": "Generic text for an amount of minutes, abbreviated to the shortest form. For example 15m. {minutes} should remain untranslated.",
-    "placeholders": {
-      "minutes": {
-        "example": "15"
-      }
-    }
-  },
+  "@@last_modified": "2020-03-01T22:10:12.322932",
   "mySiteTitle": "Ali Yazdi Homepage",
   "@mySiteTitle": {
     "description": "Title for app."
+  },
+  "myName": "ALI YAZDI",
+  "@myName": {
+    "description": "My name."
+  },
+  "myTitle": "CE GRADUATED @ TEHRAN POLYTECHNIC",
+  "@myTitle": {
+    "description": "My title."
+  },
+  "welcomeTitle": "Hi there, welcome to my page",
+  "@welcomeTitle": {
+    "description": "Welcome title."
+  },
+  "aboutMe": "I am a Software Engineering graduate from Amirkabir University of Technology, which is one of the most prestigious universities in Iran, {value}. And a Developer, who loves programming in Flutter. I am also interested in Artificial Intelligence, Machine Learning and Software Engineering.",
+  "@aboutMe": {
+    "description": "About me.",
+    "placeholders": {
+      "value": {
+        "example": "University rank in Iran link"
+      }
+    }
+  },
+  "aboutUniversityRank": "ranked second in IT",
+  "@aboutUniversityRank": {
+    "description": "University rank in Iran."
   }
 }
 ```
@@ -87,13 +59,12 @@ flutter pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/main.d
 
 ```dart
 {
-  "aboutFlutterSamplesRepo": "مخزن جی‌تاب نمونه‌های فلاتر",
-  "aboutDialogDescription": "برای دیدن کد منبع این برنامه ، لطفاً {value} را ببینید.",
-  "signIn": "ورود به سیستم",
-  "rallyBudgetAmount": "بودجه {budgetName} با مبلغ کلی {amountTotal} که {amountUsed} از آن مصرف‌شده و {amountLeft} باقی‌مانده است",
-  "craneHours": "{hours, plural, =1{1h} other{{hours}h}}",
-  "craneMinutes": "{minutes, plural, =1{1m} other{{minutes}m}}",
-  "mySiteTitle": "پروفایل علی یزدی"
+  "mySiteTitle": "صفحه شخصی علی یزدی",
+  "myName": "علی یزدی",
+  "myTitle": "فارغ التحصیل مهندسی کامپیوتر @ پلی‌تکنیک تهران",
+  "welcomeTitle": "سلام، به صفحه شخصی من خوش آمدید",
+  "aboutMe": "من فارغ التحصیل مهندسی نرم افزار از دانشگاه صنعتی امیرکبیر هستم، که این دانشگاه که یکی از معتبرترین دانشگاه‌ها در ایران و  {value} است. یک برنامه‌نویس هستم که عاشق برنامه‌نویسی با فلاتر است. همچنین من به هوش مصنوعی، یادگیری ماشین و مهندسی نرم‌افزار علاقه‌مند هستم.",
+  "aboutUniversityRank": "رتبه دوم دانشگاه صنعتی"
 }
 ```
 
@@ -112,8 +83,18 @@ MaterialApp(
     supportedLocales: MySiteLocalizations.supportedLocales,
     locale: MySiteOptions.of(context).locale,
     localeResolutionCallback: (locale, supportedLocales) {
-      deviceLocale = locale;
-      return locale;
+        final isSupported = supportedLocales.contains(
+          supportedLocales.singleWhere(
+            (element) => element.languageCode == locale?.languageCode,
+            orElse: () => null,
+          ),
+        );
+        if (isSupported) {
+          deviceLocale = locale;
+        } else {
+          deviceLocale = supportedLocales.first;
+        }
+        return isSupported ? locale : supportedLocales.first;
     },
 ),
 ```
@@ -135,7 +116,7 @@ In this example, `dartGetterVariableName` should be the Dart method/property
 name that you will be using in your localizations delegate.
 
 After adding the new message in `intl_en.arb`, it can be used in the app by
-regenerating the Localizations delegate and the `messages_*.dart` files.
+regenerating the GalleryLocalizations delegate and the `messages_*.dart` files.
 This allows use of the English message through your localizations delegate in
 the application code immediately without having to wait for the translations
 to be completed.
@@ -147,7 +128,8 @@ From the app directory:
 running `flutter pub get`.
 2. Copy tool directory to your app's directory.
 3. You have to customize `tool/grind.dart` to your `[name]Localizations`.
-4. Then run `flutter pub run grinder l10n` to generate `[name]Localizations`.
+4. From `{your_flutter_path}/packages/flutter` run `flutter update-packages`
+5. Then run `flutter pub run grinder l10n` to generate `[name]Localizations`.
 
 For more details on what `flutter pub run grinder l10n` runs, you can read below
 under *How to Generate Localizations with l10n scripts*. The current

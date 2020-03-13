@@ -48,11 +48,11 @@ int main(int argc, char **argv) {
 
   flutter::FlutterWindowController flutter_controller(icu_data_path);
   flutter::WindowProperties window_properties = {};
-  window_properties.title = kFlutterWindowTitle;
-  window_properties.width = kFlutterWindowWidth;
-  window_properties.height = kFlutterWindowHeight;
+  window_properties.title = "Ali Yazdi Homepage";
+  window_properties.width = 3000;
+  window_properties.height = 1500;
 
-  // Start the engine.
+  // Start the engine.`
   if (!flutter_controller.CreateWindow(window_properties, assets_path,
                                        arguments)) {
     return EXIT_FAILURE;
