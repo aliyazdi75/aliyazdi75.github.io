@@ -24,8 +24,4 @@ class MySiteIcons {
     0xe904,
     fontFamily: mySiteIconsFont,
   );
-  static const IconData heart = IconData(
-    0xe905,
-    fontFamily: mySiteIconsFont,
-  );
 }

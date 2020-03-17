@@ -20,10 +20,10 @@ class _AboutState extends State<About> {
     final aboutUniversityRank = localizations.aboutUniversityRank;
     final aboutMe = localizations.aboutMe(aboutUniversityRank);
     final aboutUniversityRankIndex = aboutMe.indexOf(aboutUniversityRank);
-    final samplesRepoIndexEnd =
+    final aboutUniversityRankIndexEnd =
         aboutUniversityRankIndex + aboutUniversityRank.length;
     final aboutMeFirst = aboutMe.substring(0, aboutUniversityRankIndex);
-    final aboutMeSecond = aboutMe.substring(samplesRepoIndexEnd);
+    final aboutMeSecond = aboutMe.substring(aboutUniversityRankIndexEnd);
 
     return Column(
       mainAxisAlignment: isMediumDisplay(context)

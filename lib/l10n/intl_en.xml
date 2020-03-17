@@ -46,6 +46,10 @@
     description="Experience Title."
     >EXPERIENCE</string>
   <string
+    name="awardsTitle"
+    description="Awards Title."
+    >AWARDS</string>
+  <string
     name="amirkabirTitle"
     description="Amirkabir University of Technology Title."
     >Amirkabir University of Technology</string>
@@ -126,15 +130,47 @@
     description="Tarafdari Duty."
     >Developing Tarafdari&apos;s client application and requirement plugins in flutter, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.</string>
   <string
-    name="downloadApplication"
-    description="Download Application Title."
-    >Download Application</string>
+    name="applicationPage"
+    description="Application Page Title."
+    >Application Page</string>
+  <string
+    name="olympiadDate"
+    description="olympiadDate."
+    >July 2013</string>
+  <string
+    name="olympiadDescription"
+    description="olympiadDescription."
+    >Qualified for the Second Round of the Iranian Physics Olympiad and Mathematical Olympiad</string>
+  <string
+    name="examDate"
+    description="examDate."
+    >July 2015</string>
+  <string
+    name="examDescription"
+    description="examDescription."
+    >Ranked in top 0.2% among more than 180K participants in Nation-Wide University Entrance Exam among all Iranian Student of Physics and Mathematics</string>
+  <string
+    name="bestAppDate"
+    description="bestAppDate."
+    >February 2020</string>
+  <string
+    name="bestAppDescription"
+    description="bestAppDescription."
+    >First Place in the 12th Iran Web and Mobile Festival({value}) for the best Sport Mobile Application among 7k applications</string>
+  <string
+    name="bestAppLink"
+    description="bestAppLink."
+    >IWMF</string>
   <string
     name="madeWith"
     description="Made With Title."
     >Made with</string>
   <string
-    name="byFlutter"
-    description="By Flutter Title."
-    >by Flutter</string>
+    name="byTitle"
+    description="By Title."
+    >by {value}</string>
+  <string
+    name="flutterTitle"
+    description="Flutter Title."
+    >Flutter</string>
 </resources>

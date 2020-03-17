@@ -4,6 +4,7 @@ import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
 
 import 'about.dart';
+import 'awards.dart';
 import 'education.dart';
 import 'experience.dart';
 import 'slider.dart';
@@ -28,10 +29,13 @@ class Info extends StatefulWidget {
 }
 
 class _InfoState extends State<Info> {
+  final materialFont = 'MaterialIcons';
   final List<_InfoItem> infoItems = <_InfoItem>[
     _InfoItem(icon: Icons.description, info: About()),
     _InfoItem(icon: Icons.school, info: Education()),
     _InfoItem(icon: Icons.work, info: Experience()),
+    // Should be Icons.emoji_events
+    _InfoItem(icon: Icons.star, info: Awards()),
   ];
 
   PageController _pageController;
@@ -58,6 +62,7 @@ class _InfoState extends State<Info> {
     infoItems[0].title = localizations.aboutTitle;
     infoItems[1].title = localizations.educationTitle;
     infoItems[2].title = localizations.experienceTitle;
+    infoItems[3].title = localizations.awardsTitle;
 
     return AdaptiveSize(
       large: Row(
@@ -96,8 +101,7 @@ class _InfoState extends State<Info> {
                   valueIndicatorTextStyle: theme.textTheme.headline6.copyWith(
                     fontSize: 30.0,
                     color: theme.primaryColor,
-                    fontFamily:
-                        infoItems[_discreteSliderValue.round()].icon.fontFamily,
+                    fontFamily: materialFont,
                   ),
                 ),
                 child: Slider.adaptive(

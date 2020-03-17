@@ -48,7 +48,7 @@ class _ExperienceState extends State<Experience> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 30.0),
+              padding: EdgeInsets.only(top: 50.0),
               child: RotatedBox(
                 quarterTurns: isFarsiLocale(context) ? 1 : 3,
                 child: Text(
@@ -117,7 +117,7 @@ class _ExperienceState extends State<Experience> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 50.0),
+              padding: EdgeInsets.only(top: 65.0),
               child: RotatedBox(
                 quarterTurns: isFarsiLocale(context) ? 3 : 1,
                 child: Text(
@@ -130,7 +130,7 @@ class _ExperienceState extends State<Experience> {
         ),
         RaisedButton(
           shape: StadiumBorder(),
-          child: Text(localizations.downloadApplication),
+          child: Text(localizations.applicationPage),
           onPressed: () async {
             if (await canLaunch(applicationUrl)) {
               await launch(

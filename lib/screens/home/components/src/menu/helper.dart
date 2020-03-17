@@ -37,7 +37,7 @@ class Helper {
   }
 
   static Widget getDownloadIcon() {
-    return Icon(Icons.file_download);
+    return Icon(Icons.get_app);
   }
 
   static void onLocalChanged(BuildContext context) {

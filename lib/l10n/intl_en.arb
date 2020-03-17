@@ -45,6 +45,10 @@
   "@experienceTitle": {
     "description": "Experience Title."
   },
+  "awardsTitle": "AWARDS",
+  "@awardsTitle": {
+    "description": "Awards Title."
+  },
   "amirkabirTitle": "Amirkabir University of Technology",
   "@amirkabirTitle": {
     "description": "Amirkabir University of Technology Title."
@@ -125,16 +129,58 @@
   "@tarafdariDuty3": {
     "description": "Tarafdari Duty."
   },
-  "downloadApplication": "Download Application",
-  "@downloadApplication": {
-    "description": "Download Application Title."
+  "applicationPage": "Application Page",
+  "@applicationPage": {
+    "description": "Application Page Title."
+  },
+  "olympiadDate": "July 2013",
+  "@olympiadDate": {
+    "description": "olympiadDate."
+  },
+  "olympiadDescription": "Qualified for the Second Round of the Iranian Physics Olympiad and Mathematical Olympiad",
+  "@olympiadDescription": {
+    "description": "olympiadDescription."
+  },
+  "examDate": "July 2015",
+  "@examDate": {
+    "description": "examDate."
+  },
+  "examDescription": "Ranked in top 0.2% among more than 180K participants in Nation-Wide University Entrance Exam among all Iranian Student of Physics and Mathematics",
+  "@examDescription": {
+    "description": "examDescription."
+  },
+  "bestAppDate": "February 2020",
+  "@bestAppDate": {
+    "description": "bestAppDate."
+  },
+  "bestAppDescription": "First Place in the 12th Iran Web and Mobile Festival({value}) for the best Sport Mobile Application among 7k applications",
+  "@bestAppDescription": {
+    "description": "bestAppDescription.",
+    "placeholders": {
+      "value": {
+        "example": "IWMF"
+      }
+    }
+  },
+  "bestAppLink": "IWMF",
+  "@bestAppLink": {
+    "description": "bestAppLink."
   },
   "madeWith": "Made with",
   "@madeWith": {
     "description": "Made With Title."
   },
-  "byFlutter": "by Flutter",
-  "@byFlutter": {
-    "description": "By Flutter Title."
+  "byTitle": "by {value}",
+  "@byTitle": {
+    "description": "By Title.",
+    "placeholders": {
+      "value": {
+        "example": "Flutter"
+      }
+    }
+  },
+  "flutterTitle": "Flutter",
+  "@flutterTitle": {
+    "description": "Flutter Title."
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
-import 'package:my_site/data/icons.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
 
@@ -13,10 +12,20 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  bool _onFlutterTitleHover = false;
+
+  void _onFlutterTitleHovered(bool value) =>
+      setState(() => _onFlutterTitleHover = value);
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final localizations = MySiteLocalizations.of(context);
+
+    final flutterText = localizations.flutterTitle;
+    final byTitle = localizations.byTitle(flutterText);
+    final flutterIndex = byTitle.indexOf(flutterText);
+    final byText = byTitle.substring(0, flutterIndex);
 
     return AdaptiveSize(
       large: DecoratedBox(
@@ -29,28 +38,34 @@ class _MenuState extends State<Menu> {
           children: <Widget>[
             SizedBox(width: 10.0),
             Expanded(
-              child: Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      style: theme.textTheme.subtitle1,
-                      text: localizations.madeWith,
+              child: Wrap(
+                children: [
+                  Text(
+                    localizations.madeWith,
+                    style: theme.textTheme.subtitle1,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 5.0, left: 5.0),
+                    child: Icon(
+                      Icons.favorite,
+                      size: 20.0,
                     ),
-                    TextSpan(
-                      style: theme.textTheme.subtitle1.copyWith(
-                        fontFamily: MySiteIcons.heart.fontFamily,
-                      ),
-                      //It's not working on Linux
-                      //'Made with \u2665 by Flutter',
-                      text:
-                          ' ${String.fromCharCode(MySiteIcons.heart.codePoint)} ',
+                  ),
+                  Text(
+                    byText,
+                    style: theme.textTheme.subtitle1,
+                  ),
+                  Text(
+                    flutterText,
+                    style: theme.textTheme.subtitle1.copyWith(
+                      fontWeight: FontWeight.bold,
+                      decoration: _onFlutterTitleHover
+                          ? TextDecoration.underline
+                          : null,
                     ),
-                    TextSpan(
-                      style: theme.textTheme.subtitle1,
-                      text: localizations.byFlutter,
-                    ),
-                  ],
-                ),
+                  ).showCursorOnHover(CursorType.pointer,
+                      onHovered: _onFlutterTitleHovered),
+                ],
               ),
             ),
             IconButton(

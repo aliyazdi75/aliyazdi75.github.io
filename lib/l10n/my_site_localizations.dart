@@ -129,6 +129,9 @@ abstract class MySiteLocalizations {
   // Experience Title.
   String get experienceTitle;
 
+  // Awards Title.
+  String get awardsTitle;
+
   // Amirkabir University of Technology Title.
   String get amirkabirTitle;
 
@@ -189,14 +192,38 @@ abstract class MySiteLocalizations {
   // Tarafdari Duty.
   String get tarafdariDuty3;
 
-  // Download Application Title.
-  String get downloadApplication;
+  // Application Page Title.
+  String get applicationPage;
+
+  // olympiadDate.
+  String get olympiadDate;
+
+  // olympiadDescription.
+  String get olympiadDescription;
+
+  // examDate.
+  String get examDate;
+
+  // examDescription.
+  String get examDescription;
+
+  // bestAppDate.
+  String get bestAppDate;
+
+  // bestAppDescription.
+  String bestAppDescription(Object value);
+
+  // bestAppLink.
+  String get bestAppLink;
 
   // Made With Title.
   String get madeWith;
 
-  // By Flutter Title.
-  String get byFlutter;
+  // By Title.
+  String byTitle(Object value);
+
+  // Flutter Title.
+  String get flutterTitle;
 }
 
 class _MySiteLocalizationsDelegate
@@ -252,6 +279,9 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
 
   @override
   String get experienceTitle => 'EXPERIENCE';
+
+  @override
+  String get awardsTitle => 'AWARDS';
 
   @override
   String get amirkabirTitle => 'Amirkabir University of Technology';
@@ -318,13 +348,43 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
       'Developing Tarafdari\'s client application and requirement plugins in flutter, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.';
 
   @override
-  String get downloadApplication => 'Download Application';
+  String get applicationPage => 'Application Page';
+
+  @override
+  String get olympiadDate => 'July 2013';
+
+  @override
+  String get olympiadDescription =>
+      'Qualified for the Second Round of the Iranian Physics Olympiad and Mathematical Olympiad';
+
+  @override
+  String get examDate => 'July 2015';
+
+  @override
+  String get examDescription =>
+      'Ranked in top 0.2% among more than 180K participants in Nation-Wide University Entrance Exam among all Iranian Student of Physics and Mathematics';
+
+  @override
+  String get bestAppDate => 'February 2020';
+
+  @override
+  String bestAppDescription(Object value) {
+    return 'First Place in the 12th Iran Web and Mobile Festival(${value}) for the best Sport Mobile Application among 7k applications';
+  }
+
+  @override
+  String get bestAppLink => 'IWMF';
 
   @override
   String get madeWith => 'Made with';
 
   @override
-  String get byFlutter => 'by Flutter';
+  String byTitle(Object value) {
+    return 'by ${value}';
+  }
+
+  @override
+  String get flutterTitle => 'Flutter';
 }
 
 /// The translations for Persian (`fa`).
@@ -364,6 +424,9 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
   String get experienceTitle => 'تجربه کاری';
 
   @override
+  String get awardsTitle => 'افتخارات';
+
+  @override
   String get amirkabirTitle => 'دانشگاه صنعتی امیرکبیر';
 
   @override
@@ -389,7 +452,7 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
   String get schoolCity => 'ایران، تهران';
 
   @override
-  String get schoolStudyStart => 'مهر ۱۳۹۰ ';
+  String get schoolStudyStart => 'مهر ۱۳۹۰';
 
   @override
   String get schoolStudyEnd => 'خرداد ۱۳۹۳';
@@ -427,13 +490,43 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
       'توسعه اپلیکیشن طرفداری و پلاگین‌های موردنیاز با فلاتر، که این برنامه شامل محتوای چند رسانه‌ای، نتایج زنده بازی‌های ورزشی، استریمینگ پخش زنده بازی‌های ورزشی روی سوکت است.';
 
   @override
-  String get downloadApplication => 'دانلود برنامه';
+  String get applicationPage => 'صفحه برنامه';
+
+  @override
+  String get olympiadDate => 'تیر ۱۳۹۳';
+
+  @override
+  String get olympiadDescription =>
+      'پذیرش برای مرحله دوم المپیاد فیزیک و المپیاد ریاضی';
+
+  @override
+  String get examDate => 'تیر ۱۳۹۴';
+
+  @override
+  String get examDescription =>
+      'رتبه بالاترین ۰/۲٪ در میان بیش از ۱۸۰ هزار نفر شرکت‌کننده در کنکور سراسری ریاضی و فیزیک';
+
+  @override
+  String get bestAppDate => 'بهمن ۱۳۹۸';
+
+  @override
+  String bestAppDescription(Object value) {
+    return 'مقام اول در دوازدهمین جشنواره وب و موبایل(${value}) برای بهترین برنامه ورزشی در میان ۷ هزار برنامه';
+  }
+
+  @override
+  String get bestAppLink => 'IWMF';
 
   @override
   String get madeWith => 'ساخته شده با';
 
   @override
-  String get byFlutter => 'توسط فلاتر';
+  String byTitle(Object value) {
+    return 'توسط ${value}';
+  }
+
+  @override
+  String get flutterTitle => 'فلاتر';
 }
 
 MySiteLocalizations _lookupMySiteLocalizations(Locale locale) {
