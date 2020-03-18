@@ -7,7 +7,7 @@ const cvUrl = 'https://github.com/aliyazdi75/Resume/raw/master/CV.pdf';
 
 const downloadPage =
     'https://github.com/aliyazdi75/aliyazdi75.github.io/releases';
-const flutterPage = 'https://flutter.dev';
+const flutterWebsite = 'https://flutter.dev';
 
 const topRankUniversity = 'https://ur.isc.gov.ir/#Technology';
 

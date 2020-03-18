@@ -63,7 +63,7 @@ class MySite extends StatelessWidget {
                 }
                 return isSupported ? locale : supportedLocales.first;
               },
-              builder: (context, route) {
+              builder: (context, child) {
                 return ApplyTextOptions(
                   child: AnnotatedRegion<SystemUiOverlayStyle>(
                     value: SystemUiOverlayStyle(
@@ -74,10 +74,11 @@ class MySite extends StatelessWidget {
                               ? Brightness.dark
                               : Brightness.light,
                     ),
-                    child: HomePage(),
+                    child: child,
                   ),
                 );
               },
+              home: HomePage(),
             ),
             cupertino: CupertinoApp(
               title: mySiteTitle,
@@ -94,10 +95,20 @@ class MySite extends StatelessWidget {
               supportedLocales: MySiteLocalizations.supportedLocales,
               locale: MySiteOptions.of(context).locale,
               localeResolutionCallback: (locale, supportedLocales) {
-                deviceLocale = locale;
-                return locale;
+                final isSupported = supportedLocales.contains(
+                  supportedLocales.singleWhere(
+                    (element) => element.languageCode == locale?.languageCode,
+                    orElse: () => null,
+                  ),
+                );
+                if (isSupported) {
+                  deviceLocale = locale;
+                } else {
+                  deviceLocale = supportedLocales.first;
+                }
+                return isSupported ? locale : supportedLocales.first;
               },
-              builder: (context, route) {
+              builder: (context, child) {
                 return ApplyTextOptions(
                   child: AnnotatedRegion<SystemUiOverlayStyle>(
                     value: SystemUiOverlayStyle(
@@ -108,10 +119,11 @@ class MySite extends StatelessWidget {
                               ? Brightness.dark
                               : Brightness.light,
                     ),
-                    child: HomePage(),
+                    child: child,
                   ),
                 );
               },
+              home: HomePage(),
             ),
           );
         },

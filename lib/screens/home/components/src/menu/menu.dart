@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'fab.dart';
 import 'helper.dart';
@@ -55,16 +57,28 @@ class _MenuState extends State<Menu> {
                     byText,
                     style: theme.textTheme.subtitle1,
                   ),
-                  Text(
-                    flutterText,
-                    style: theme.textTheme.subtitle1.copyWith(
-                      fontWeight: FontWeight.bold,
-                      decoration: _onFlutterTitleHover
-                          ? TextDecoration.underline
-                          : null,
+                  GestureDetector(
+                    child: Text(
+                      flutterText,
+                      style: theme.textTheme.subtitle1.copyWith(
+                        fontWeight: FontWeight.bold,
+                        decoration: _onFlutterTitleHover
+                            ? TextDecoration.underline
+                            : null,
+                      ),
+                    ).showCursorOnHover(
+                      CursorType.pointer,
+                      onHovered: _onFlutterTitleHovered,
                     ),
-                  ).showCursorOnHover(CursorType.pointer,
-                      onHovered: _onFlutterTitleHovered),
+                    onTap: () async {
+                      if (await canLaunch(flutterWebsite)) {
+                        await launch(
+                          tarafdariWebsite,
+                          forceWebView: true,
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
             ),

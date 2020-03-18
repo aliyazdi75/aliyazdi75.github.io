@@ -5,8 +5,8 @@ import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const kAwardsLargeHeightFactor = 5e5;
-const kAwardsMediumHeightFactor = 2e5;
+const kAwardsLargeHeightFactor = 55e4;
+const kAwardsMediumHeightFactor = 28e4;
 
 class Awards extends StatefulWidget {
   @override
@@ -14,11 +14,6 @@ class Awards extends StatefulWidget {
 }
 
 class _AwardsState extends State<Awards> {
-  bool _onTarafdariTitleHover = false;
-
-  void _onTarafdariTitleHovered(bool value) =>
-      setState(() => _onTarafdariTitleHover = value);
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -56,10 +51,10 @@ class _AwardsState extends State<Awards> {
       );
     }
 
-    Widget _items(List<Widget> children) {
+    Widget _items(CrossAxisAlignment alignment, List<Widget> children) {
       return _constraint(
         Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: alignment,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: children,
         ),
@@ -69,6 +64,7 @@ class _AwardsState extends State<Awards> {
     Widget _dateText(String text) {
       return Text(
         text,
+        textAlign: TextAlign.end,
         style: theme.textTheme.bodyText1,
         textScaleFactor: 1.5,
       );
@@ -77,21 +73,24 @@ class _AwardsState extends State<Awards> {
     Widget _descriptionText(String text) {
       return Text(
         text,
-        style: theme.textTheme.bodyText2,
+        style: theme.textTheme.subtitle1,
       );
     }
 
     return _alignment(
       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _items(
-            [
-              _dateText(localizations.bestAppDate),
-              _dateText(localizations.examDate),
-              _dateText(localizations.olympiadDate),
-            ],
+          Flexible(
+            flex: 2,
+            child: _items(
+              CrossAxisAlignment.end,
+              [
+                _dateText(localizations.bestAppDate),
+                _dateText(localizations.examDate),
+                _dateText(localizations.olympiadDate),
+              ],
+            ),
           ),
           SizedBox(width: 10.0),
           _constraint(
@@ -115,18 +114,21 @@ class _AwardsState extends State<Awards> {
           ),
           SizedBox(width: 10.0),
           Expanded(
+            flex: 5,
             child: _items(
+              CrossAxisAlignment.start,
               [
                 Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
-                        style: theme.textTheme.bodyText2,
+                        style: theme.textTheme.subtitle1,
                         text: bestAppDescriptionFirst,
                       ),
                       TextSpan(
-                        style: theme.textTheme.bodyText2
-                            .copyWith(color: theme.primaryColor),
+                        style: theme.textTheme.subtitle1.copyWith(
+                          color: theme.primaryColor,
+                        ),
                         text: bestAppLink,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
@@ -139,13 +141,15 @@ class _AwardsState extends State<Awards> {
                           },
                       ),
                       TextSpan(
-                        style: theme.textTheme.bodyText2,
+                        style: theme.textTheme.subtitle1,
                         text: bestAppDescriptionSecond,
                       ),
                     ],
                   ),
                 ),
+                Divider(color: theme.primaryColor),
                 _descriptionText(localizations.examDescription),
+                Divider(color: theme.primaryColor),
                 _descriptionText(localizations.olympiadDescription),
               ],
             ),

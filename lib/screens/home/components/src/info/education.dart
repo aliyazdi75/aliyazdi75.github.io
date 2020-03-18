@@ -57,8 +57,10 @@ class _EducationState extends State<Education> {
                               ? TextDecoration.underline
                               : null,
                         ),
-                      ).showCursorOnHover(CursorType.pointer,
-                          onHovered: _onAmirkabirTitleHovered),
+                      ).showCursorOnHover(
+                        CursorType.pointer,
+                        onHovered: _onAmirkabirTitleHovered,
+                      ),
                       onTap: () async {
                         if (await canLaunch(amirkabirWebsite)) {
                           await launch(
@@ -127,8 +129,10 @@ class _EducationState extends State<Education> {
                               ? TextDecoration.underline
                               : null,
                         ),
-                      ).showCursorOnHover(CursorType.pointer,
-                          onHovered: _onSchoolTitleHovered),
+                      ).showCursorOnHover(
+                        CursorType.pointer,
+                        onHovered: _onSchoolTitleHovered,
+                      ),
                       onTap: () async {
                         if (await canLaunch(schoolWebsite)) {
                           await launch(

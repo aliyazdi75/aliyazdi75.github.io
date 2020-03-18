@@ -116,7 +116,7 @@
   <string
     name="tarafdariDescription"
     description="Tarafdari Description."
-    >Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of the national and international matches.</string>
+    >Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of national and international matches.</string>
   <string
     name="tarafdariDuty1"
     description="Tarafdari Duty."
@@ -128,7 +128,7 @@
   <string
     name="tarafdariDuty3"
     description="Tarafdari Duty."
-    >Developing Tarafdari&apos;s client application and requirement plugins in flutter, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.</string>
+    >Developing Tarafdari&apos;s client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket.</string>
   <string
     name="applicationPage"
     description="Application Page Title."
@@ -156,7 +156,7 @@
   <string
     name="bestAppDescription"
     description="bestAppDescription."
-    >First Place in the 12th Iran Web and Mobile Festival({value}) for the best Sport Mobile Application among 7k applications</string>
+    >First Place in the 12th Iran Web and Mobile Festival({value}) for the Best Sport Mobile Application among 7k applications</string>
   <string
     name="bestAppLink"
     description="bestAppLink."

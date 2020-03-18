@@ -3,4 +3,5 @@ class CursorType {
   static final String defaults = 'default';
   static final String grab = 'grab';
   static final String pointer = 'pointer';
+  static final String text = 'text';
 }

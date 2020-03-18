@@ -77,8 +77,10 @@ class _ExperienceState extends State<Experience> {
                                   ? TextDecoration.underline
                                   : null,
                             ),
-                          ).showCursorOnHover(CursorType.pointer,
-                              onHovered: _onTarafdariTitleHovered),
+                          ).showCursorOnHover(
+                            CursorType.pointer,
+                            onHovered: _onTarafdariTitleHovered,
+                          ),
                           onTap: () async {
                             if (await canLaunch(tarafdariWebsite)) {
                               await launch(

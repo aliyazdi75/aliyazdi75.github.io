@@ -25,7 +25,7 @@
       }
     }
   },
-  "aboutUniversityRank": "ranked second in IT",
+          "aboutUniversityRank": "ranked second in IT",
   "@aboutUniversityRank": {
     "description": "University rank in Iran."
   },
@@ -113,7 +113,7 @@
   "@tarafdariTechnologies": {
     "description": "Tarafdari Technologies."
   },
-  "tarafdariDescription": "Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of the national and international matches.",
+  "tarafdariDescription": "Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of national and international matches.",
   "@tarafdariDescription": {
     "description": "Tarafdari Description."
   },
@@ -125,7 +125,7 @@
   "@tarafdariDuty2": {
     "description": "Tarafdari Duty."
   },
-  "tarafdariDuty3": "Developing Tarafdari's client application and requirement plugins in flutter, that is including multimedia content, live score matches, sport TV streaming with live chat on socket.",
+  "tarafdariDuty3": "Developing Tarafdari's client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket.",
   "@tarafdariDuty3": {
     "description": "Tarafdari Duty."
   },
@@ -153,7 +153,7 @@
   "@bestAppDate": {
     "description": "bestAppDate."
   },
-  "bestAppDescription": "First Place in the 12th Iran Web and Mobile Festival({value}) for the best Sport Mobile Application among 7k applications",
+  "bestAppDescription": "First Place in the 12th Iran Web and Mobile Festival({value}) for the Best Sport Mobile Application among 7k applications",
   "@bestAppDescription": {
     "description": "bestAppDescription.",
     "placeholders": {
