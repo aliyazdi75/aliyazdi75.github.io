@@ -73,7 +73,7 @@ class _MenuState extends State<Menu> {
                     onTap: () async {
                       if (await canLaunch(flutterWebsite)) {
                         await launch(
-                          tarafdariWebsite,
+                          flutterWebsite,
                           forceWebView: true,
                         );
                       }
