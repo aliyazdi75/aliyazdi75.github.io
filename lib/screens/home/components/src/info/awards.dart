@@ -134,8 +134,7 @@ class _AwardsState extends State<Awards> {
                           ..onTap = () async {
                             if (await canLaunch(iwmfWebsite)) {
                               await launch(
-                                iwmfWebsite,
-                                forceWebView: true,
+                                iwmfWebsite
                               );
                             }
                           },

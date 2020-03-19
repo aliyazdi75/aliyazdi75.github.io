@@ -67,7 +67,7 @@ class Helper {
 
   static Future<void> onPressedDownload() async {
     if (await canLaunch(downloadPage)) {
-      await launch(downloadPage, forceWebView: true);
+      await launch(downloadPage);
     }
   }
 }

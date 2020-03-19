@@ -52,8 +52,7 @@ class _AboutState extends State<About> {
                   ..onTap = () async {
                     if (await canLaunch(topRankUniversity)) {
                       await launch(
-                        topRankUniversity,
-                        forceWebView: true,
+                        topRankUniversity
                       );
                     }
                   },

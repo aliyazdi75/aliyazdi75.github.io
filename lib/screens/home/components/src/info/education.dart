@@ -63,10 +63,7 @@ class _EducationState extends State<Education> {
                       ),
                       onTap: () async {
                         if (await canLaunch(amirkabirWebsite)) {
-                          await launch(
-                            amirkabirWebsite,
-                            forceWebView: true,
-                          );
+                          await launch(amirkabirWebsite);
                         }
                       },
                     ),
@@ -135,10 +132,7 @@ class _EducationState extends State<Education> {
                       ),
                       onTap: () async {
                         if (await canLaunch(schoolWebsite)) {
-                          await launch(
-                            schoolWebsite,
-                            forceWebView: true,
-                          );
+                          await launch(schoolWebsite);
                         }
                       },
                     ),

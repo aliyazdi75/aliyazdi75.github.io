@@ -62,14 +62,7 @@ class Socials extends StatelessWidget {
 
   Future<void> _onPressed(String url) async {
     if (await canLaunch(url)) {
-      if (url.contains('mailto:')) {
-        await launch(url);
-      } else {
-        await launch(
-          url,
-          forceWebView: true,
-        );
-      }
+      await launch(url);
     }
   }
 }

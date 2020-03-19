@@ -83,10 +83,7 @@ class _ExperienceState extends State<Experience> {
                           ),
                           onTap: () async {
                             if (await canLaunch(tarafdariWebsite)) {
-                              await launch(
-                                tarafdariWebsite,
-                                forceWebView: true,
-                              );
+                              await launch(tarafdariWebsite);
                             }
                           },
                         ),
