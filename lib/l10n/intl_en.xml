@@ -128,7 +128,7 @@
   <string
     name="tarafdariDuty3"
     description="Tarafdari Duty."
-    >Developing Tarafdari&apos;s client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket.</string>
+    >Developing Tarafdari&apos;s client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket</string>
   <string
     name="applicationPage"
     description="Application Page Title."

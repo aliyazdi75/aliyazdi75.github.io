@@ -105,7 +105,7 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
 
   @override
   String get tarafdariDuty3 =>
-      'Developing Tarafdari\'s client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket.';
+      'Developing Tarafdari\'s client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket';
 
   @override
   String get applicationPage => 'Application Page';
