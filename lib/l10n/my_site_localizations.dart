@@ -1,15 +1,13 @@
 import 'dart:async';
 
+// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 
 import 'my_site_localizations_en.dart';
 import 'my_site_localizations_fa.dart';
-
-// ignore_for_file: unnecessary_brace_in_string_interps
 
 /// Callers can lookup localized strings with an instance of MySiteLocalizations returned
 /// by `MySiteLocalizations.of(context)`.
@@ -38,8 +36,7 @@ import 'my_site_localizations_fa.dart';
 ///   # Internationalization support.
 ///   flutter_localizations:
 ///     sdk: flutter
-///   intl: 0.16.0
-///   intl_translation: 0.17.7
+///   intl: 0.16.1
 ///
 ///   # rest of dependencies
 /// ```
@@ -248,12 +245,14 @@ class _MySiteLocalizationsDelegate
 }
 
 MySiteLocalizations _lookupMySiteLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en':
       return MySiteLocalizationsEn();
     case 'fa':
       return MySiteLocalizationsFa();
   }
+
   assert(false,
       'MySiteLocalizations.delegate failed to load unsupported locale "$locale"');
   return null;

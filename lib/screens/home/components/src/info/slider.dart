@@ -39,7 +39,7 @@ class CustomThumbShape extends SliderComponentShape {
   @override
   void paint(
     PaintingContext context,
-    Offset thumbCenter, {
+    Offset center, {
     Animation<double> activationAnimation,
     Animation<double> enableAnimation,
     bool isDiscrete,
@@ -48,6 +48,8 @@ class CustomThumbShape extends SliderComponentShape {
     SliderThemeData sliderTheme,
     TextDirection textDirection,
     double value,
+    double textScaleFactor,
+    Size sizeWithOverflow,
   }) {
     final Canvas canvas = context.canvas;
     final ColorTween colorTween = ColorTween(
@@ -55,7 +57,7 @@ class CustomThumbShape extends SliderComponentShape {
       end: sliderTheme.thumbColor,
     );
     final double size = _thumbSize * sizeTween.evaluate(enableAnimation);
-    final Path thumbPath = _downTriangle(size, thumbCenter);
+    final Path thumbPath = _downTriangle(size, center);
     canvas.drawPath(
         thumbPath, Paint()..color = colorTween.evaluate(enableAnimation));
   }
@@ -79,7 +81,7 @@ class CustomValueIndicatorShape extends SliderComponentShape {
   @override
   void paint(
     PaintingContext context,
-    Offset thumbCenter, {
+    Offset center, {
     Animation<double> activationAnimation,
     Animation<double> enableAnimation,
     bool isDiscrete,
@@ -88,6 +90,8 @@ class CustomValueIndicatorShape extends SliderComponentShape {
     SliderThemeData sliderTheme,
     TextDirection textDirection,
     double value,
+    double textScaleFactor,
+    Size sizeWithOverflow,
   }) {
     final Canvas canvas = context.canvas;
     final ColorTween enableColor = ColorTween(
@@ -101,7 +105,7 @@ class CustomValueIndicatorShape extends SliderComponentShape {
     final double size = _indicatorSize * sizeTween.evaluate(enableAnimation);
     final Offset slideUpOffset =
         Offset(0.0, -slideUpTween.evaluate(activationAnimation));
-    final Path thumbPath = _upTriangle(size, thumbCenter + slideUpOffset);
+    final Path thumbPath = _upTriangle(size, center + slideUpOffset);
     final Color paintColor = enableColor
         .evaluate(enableAnimation)
         .withAlpha((255.0 * activationAnimation.value).round());
@@ -111,8 +115,8 @@ class CustomValueIndicatorShape extends SliderComponentShape {
       Paint()..color = paintColor,
     );
     canvas.drawLine(
-      thumbCenter,
-      thumbCenter + slideUpOffset,
+      center,
+      center + slideUpOffset,
       Paint()
         ..color = paintColor
         ..style = PaintingStyle.stroke
@@ -120,7 +124,7 @@ class CustomValueIndicatorShape extends SliderComponentShape {
     );
     labelPainter.paint(
       canvas,
-      thumbCenter +
+      center +
           slideUpOffset +
           Offset(-labelPainter.width / 2.0, -labelPainter.height - 4.0),
     );
