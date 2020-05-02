@@ -34,7 +34,7 @@ class _InfoState extends State<Info> {
     _InfoItem(icon: Icons.description, info: About()),
     _InfoItem(icon: Icons.school, info: Education()),
     _InfoItem(icon: Icons.work, info: Experience()),
-    // Should be Icons.emoji_events
+    // todo: Should be Icons.emoji_events
     _InfoItem(icon: Icons.star, info: Awards()),
   ];
 
@@ -94,8 +94,9 @@ class _InfoState extends State<Info> {
               quarterTurns: isFarsiLocale(context) ? 3 : 1,
               child: SliderTheme(
                 data: SliderThemeData(
+                  trackHeight: 2.0,
                   activeTickMarkColor: theme.primaryColor,
-                  tickMarkShape: RoundSliderTickMarkShape(tickMarkRadius: 3.0),
+                  tickMarkShape: RoundSliderTickMarkShape(tickMarkRadius: 3.5),
                   thumbShape: CustomThumbShape(),
                   valueIndicatorShape: CustomValueIndicatorShape(),
                   valueIndicatorTextStyle: theme.textTheme.headline6.copyWith(

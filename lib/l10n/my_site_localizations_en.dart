@@ -87,7 +87,7 @@ class MySiteLocalizationsEn extends MySiteLocalizations {
   String get tarafdariWorkStart => 'June 2019';
 
   @override
-  String get tarafdariWorkEnd => 'Present';
+  String get tarafdariWorkEnd => 'April 2020';
 
   @override
   String get tarafdariTechnologies => 'Flutter, Drupal, Laravel, MySQL';

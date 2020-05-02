@@ -98,8 +98,9 @@ class _AwardsState extends State<Awards> {
               quarterTurns: 1,
               child: SliderTheme(
                 data: SliderThemeData(
+                  trackHeight: 0.1,
                   activeTickMarkColor: theme.primaryColor,
-                  tickMarkShape: RoundSliderTickMarkShape(tickMarkRadius: 5.0),
+                  tickMarkShape: RoundSliderTickMarkShape(tickMarkRadius: 3.0),
                   thumbShape: RoundSliderThumbShape(disabledThumbRadius: 0),
                   overlayShape: RoundSliderOverlayShape(overlayRadius: 0),
                   disabledActiveTickMarkColor: Colors.grey,
@@ -133,9 +134,7 @@ class _AwardsState extends State<Awards> {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
                             if (await canLaunch(iwmfWebsite)) {
-                              await launch(
-                                iwmfWebsite
-                              );
+                              await launch(iwmfWebsite);
                             }
                           },
                       ),

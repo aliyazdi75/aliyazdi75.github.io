@@ -25,7 +25,7 @@
       }
     }
   },
-          "aboutUniversityRank": "ranked second in IT",
+  "aboutUniversityRank": "ranked second in IT",
   "@aboutUniversityRank": {
     "description": "University rank in Iran."
   },
@@ -105,7 +105,7 @@
   "@tarafdariWorkStart": {
     "description": "Work Duration."
   },
-  "tarafdariWorkEnd": "Present",
+  "tarafdariWorkEnd": "April 2020",
   "@tarafdariWorkEnd": {
     "description": "Work Duration."
   },

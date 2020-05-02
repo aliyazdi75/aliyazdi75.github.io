@@ -87,7 +87,7 @@ class MySiteLocalizationsFa extends MySiteLocalizations {
   String get tarafdariWorkStart => 'خرداد ۱۳۹۸';
 
   @override
-  String get tarafdariWorkEnd => 'اکنون';
+  String get tarafdariWorkEnd => 'فروردین ۱۳۹۹';
 
   @override
   String get tarafdariTechnologies => 'فلاتر، دروپال، لاراول، مای‌اس‌کیو‌ال';

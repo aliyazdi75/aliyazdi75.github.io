@@ -116,7 +116,7 @@ class _ExperienceState extends State<Experience> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 65.0),
+              padding: EdgeInsets.only(top: 50.0),
               child: RotatedBox(
                 quarterTurns: isFarsiLocale(context) ? 3 : 1,
                 child: Text(
