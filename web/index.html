@@ -2,8 +2,19 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="icons/icon.png" type="image/png" sizes="30x30">
-  <title>Ali Yazdi Homepage</title>
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="My Flutter Portfolio application.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Ali Yazdi Homepage">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"/>
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"/>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135639434-1"></script>
   <script>
@@ -13,13 +24,26 @@
 
   gtag('config', 'UA-135639434-1');
   </script>
+
+  <title>Ali Yazdi Homepage</title>
   <style>
   body {
     background-color: #030303;
   }
   </style>
+  <link rel="manifest" href="manifest.json">
 </head>
-<body id="app-container">
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

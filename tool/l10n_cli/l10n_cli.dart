@@ -10,7 +10,7 @@ const _intlHeader = '''
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It was based on my_site/lib/src/l10n/intl_en.arb.
+  It is based on /lib/l10n/intl_en.arb.
 -->
 <resources>
 ''';
@@ -40,7 +40,7 @@ String _escapeXml(String xml) {
 /// already translated messages to point to the new file. Therefore, avoid doing so
 /// unless necessary.
 Future<void> englishArbsToXmls({bool isDryRun = false}) async {
-  IOSink output = isDryRun ? stdout : File('$_l10nDir/intl_en.xml').openWrite();
+  final output = isDryRun ? stdout : File('$_l10nDir/intl_en.xml').openWrite();
   await generateXmlFromArb(
     inputArb: File('$_l10nDir/intl_en.arb'),
     outputXml: output,
@@ -55,7 +55,7 @@ Future<void> generateXmlFromArb({
   IOSink outputXml,
   String xmlHeader,
 }) async {
-  final Map<String, dynamic> bundle =
+  final bundle =
       jsonDecode(await inputArb.readAsString()) as Map<String, dynamic>;
 
   String translationFor(String key) {
@@ -65,7 +65,7 @@ Future<void> generateXmlFromArb({
 
   final xml = StringBuffer(xmlHeader);
 
-  for (String key in bundle.keys) {
+  for (final key in bundle.keys) {
     if (key == '@@last_modified') {
       continue;
     }
@@ -95,7 +95,7 @@ Future<void> generateXmlFromArb({
       xml.writeln('  <plurals');
       xml.writeln('    name="$name"');
       xml.writeln('    description="$description">');
-      for (String suffix in _pluralSuffixes) {
+      for (final suffix in _pluralSuffixes) {
         final pluralKey = '$resourceId$suffix';
         if (bundle.containsKey(pluralKey)) {
           final translation =
@@ -122,7 +122,7 @@ Future<void> generateXmlFromArb({
           .map<String>((s) => s.trim())
           .toList();
       var index = 1;
-      for (String parameter in parameters) {
+      for (final parameter in parameters) {
         translation = translation.replaceAll('\$$parameter', '%$index\$s');
         description = description.replaceAll('\$$parameter', '%$index\$s');
         index += 1;

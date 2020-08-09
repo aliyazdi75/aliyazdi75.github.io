@@ -43,25 +43,27 @@ class MySite extends StatelessWidget {
                   .copyWith(platform: MySiteOptions.of(context).platform),
               darkTheme: MySiteThemeData.darkThemeData(context)
                   .copyWith(platform: MySiteOptions.of(context).platform),
-              localizationsDelegates: [
+              localizationsDelegates: const [
                 ...MySiteLocalizations.localizationsDelegates,
                 LocaleNamesLocalizationsDelegate()
               ],
               supportedLocales: MySiteLocalizations.supportedLocales,
               locale: MySiteOptions.of(context).locale,
               localeResolutionCallback: (locale, supportedLocales) {
-                final isSupported = supportedLocales.contains(
-                  supportedLocales.singleWhere(
-                    (element) => element.languageCode == locale?.languageCode,
-                    orElse: () => null,
-                  ),
-                );
-                if (isSupported) {
-                  deviceLocale = locale;
-                } else {
-                  deviceLocale = supportedLocales.first;
-                }
-                return isSupported ? locale : supportedLocales.first;
+                deviceLocale = locale;
+                return locale;
+//                final isSupported = supportedLocales.contains(
+//                  supportedLocales.singleWhere(
+//                    (element) => element.languageCode == locale?.languageCode,
+//                    orElse: () => null,
+//                  ),
+//                );
+//                if (isSupported) {
+//                  deviceLocale = locale;
+//                } else {
+//                  deviceLocale = supportedLocales.first;
+//                }
+//                return isSupported ? locale : supportedLocales.first;
               },
               builder: (context, child) {
                 return ApplyTextOptions(
@@ -88,25 +90,27 @@ class MySite extends StatelessWidget {
               theme: MaterialBasedCupertinoThemeData(
                 materialTheme: MySiteOptions.of(context).themeData(context),
               ),
-              localizationsDelegates: [
+              localizationsDelegates: const [
                 ...MySiteLocalizations.localizationsDelegates,
                 LocaleNamesLocalizationsDelegate()
               ],
               supportedLocales: MySiteLocalizations.supportedLocales,
               locale: MySiteOptions.of(context).locale,
               localeResolutionCallback: (locale, supportedLocales) {
-                final isSupported = supportedLocales.contains(
-                  supportedLocales.singleWhere(
-                    (element) => element.languageCode == locale?.languageCode,
-                    orElse: () => null,
-                  ),
-                );
-                if (isSupported) {
-                  deviceLocale = locale;
-                } else {
-                  deviceLocale = supportedLocales.first;
-                }
-                return isSupported ? locale : supportedLocales.first;
+                deviceLocale = locale;
+                return locale;
+//                final isSupported = supportedLocales.contains(
+//                  supportedLocales.singleWhere(
+//                    (element) => element.languageCode == locale?.languageCode,
+//                    orElse: () => null,
+//                  ),
+//                );
+//                if (isSupported) {
+//                  deviceLocale = locale;
+//                } else {
+//                  deviceLocale = supportedLocales.first;
+//                }
+//                return isSupported ? locale : supportedLocales.first;
               },
               builder: (context, child) {
                 return ApplyTextOptions(
