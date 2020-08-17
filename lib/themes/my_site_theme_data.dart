@@ -8,11 +8,11 @@ class MySiteThemeData {
   static const _lightFillColor = Colors.black;
   static const _darkFillColor = Colors.white;
 
-  static Color _lightFocusColor = Colors.black.withOpacity(0.12);
-  static Color _darkFocusColor = Colors.white.withOpacity(0.12);
+  static final Color _lightFocusColor = Colors.black.withOpacity(0.12);
+  static final Color _darkFocusColor = Colors.white.withOpacity(0.12);
 
-  static ThemeData _lightThemeData = ThemeData.light();
-  static ThemeData _darkThemeData = ThemeData.dark();
+  static final ThemeData _lightThemeData = ThemeData.light();
+  static final ThemeData _darkThemeData = ThemeData.dark();
 
   static ThemeData lightThemeData(BuildContext context) =>
       themeData(_lightThemeData, context, lightColorScheme, _lightFocusColor);
@@ -95,7 +95,7 @@ class MySiteThemeData {
     );
   }
 
-  static ColorScheme lightColorScheme = ColorScheme.dark().copyWith(
+  static ColorScheme lightColorScheme = const ColorScheme.dark().copyWith(
     primary: const Color(0xFFB93C5D),
     primaryVariant: const Color(0xFF117378),
     secondary: const Color(0xFFEFF3F3),
@@ -111,7 +111,7 @@ class MySiteThemeData {
     brightness: Brightness.light,
   );
 
-  static ColorScheme darkColorScheme = ColorScheme.light().copyWith(
+  static ColorScheme darkColorScheme = const ColorScheme.light().copyWith(
     primary: const Color(0xFFFF8383),
     primaryVariant: const Color(0xFF1CDEC9),
     secondary: const Color(0xFF4D1F7C),

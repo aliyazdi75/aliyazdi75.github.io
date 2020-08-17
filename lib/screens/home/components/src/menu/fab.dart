@@ -18,10 +18,10 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
   bool _isOpened = false;
 
   @override
-  initState() {
+  void initState() {
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     )..addListener(() => setState(() {}));
     _buttonColor = ColorTween(
       begin: null,
@@ -45,7 +45,7 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
   }
 
   @override
-  dispose() {
+  void dispose() {
     _animationController.dispose();
     super.dispose();
   }

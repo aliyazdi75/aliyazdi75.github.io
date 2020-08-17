@@ -8,7 +8,7 @@ class Avatar extends StatelessWidget {
 
     return CircleAvatar(
       radius: shortestSide / 5.5,
-      backgroundImage: AssetImage(avatarPath),
+      backgroundImage: const AssetImage(avatarPath),
     );
   }
 }

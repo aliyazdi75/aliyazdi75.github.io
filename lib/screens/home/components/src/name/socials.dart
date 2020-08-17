@@ -14,10 +14,10 @@ class _SocialItem {
 
 class Socials extends StatelessWidget {
   final List<_SocialItem> socialItems = <_SocialItem>[
-    _SocialItem(icon: MySiteIcons.email, url: emailUrl),
-    _SocialItem(icon: MySiteIcons.linkedin, url: linkedinUrl),
-    _SocialItem(icon: MySiteIcons.github, url: githubUrl),
-    _SocialItem(icon: MySiteIcons.twitter, url: twitterUrl),
+    const _SocialItem(icon: MySiteIcons.email, url: emailUrl),
+    const _SocialItem(icon: MySiteIcons.linkedin, url: linkedinUrl),
+    const _SocialItem(icon: MySiteIcons.github, url: githubUrl),
+    const _SocialItem(icon: MySiteIcons.twitter, url: twitterUrl),
   ];
 
   @override
@@ -47,7 +47,7 @@ class Socials extends StatelessWidget {
                 icon: Icon(socialItems[index].icon),
                 iconSize: 30.0,
                 visualDensity: VisualDensity.compact,
-                padding: EdgeInsets.all(0.0),
+                padding: const EdgeInsets.all(0.0),
                 color: theme.brightness == Brightness.light
                     ? theme.primaryColor
                     : null,

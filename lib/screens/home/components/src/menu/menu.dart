@@ -38,7 +38,7 @@ class _MenuState extends State<Menu> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             Expanded(
               child: Wrap(
                 children: [
@@ -46,7 +46,7 @@ class _MenuState extends State<Menu> {
                     localizations.madeWith,
                     style: theme.textTheme.subtitle1,
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(right: 5.0, left: 5.0),
                     child: Icon(
                       Icons.favorite,
@@ -72,9 +72,7 @@ class _MenuState extends State<Menu> {
                     ),
                     onTap: () async {
                       if (await canLaunch(flutterWebsite)) {
-                        await launch(
-                          flutterWebsite
-                        );
+                        await launch(flutterWebsite);
                       }
                     },
                   ),

@@ -35,7 +35,7 @@ class _AwardsState extends State<Awards> {
           ? Center(child: child)
           : Column(
               children: <Widget>[
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 child,
               ],
             );
@@ -92,7 +92,7 @@ class _AwardsState extends State<Awards> {
               ],
             ),
           ),
-          SizedBox(width: 10.0),
+          const SizedBox(width: 10.0),
           _constraint(
             RotatedBox(
               quarterTurns: 1,
@@ -100,12 +100,14 @@ class _AwardsState extends State<Awards> {
                 data: SliderThemeData(
                   trackHeight: 0.1,
                   activeTickMarkColor: theme.primaryColor,
-                  tickMarkShape: RoundSliderTickMarkShape(tickMarkRadius: 3.0),
-                  thumbShape: RoundSliderThumbShape(disabledThumbRadius: 0),
-                  overlayShape: RoundSliderOverlayShape(overlayRadius: 0),
+                  tickMarkShape:
+                      const RoundSliderTickMarkShape(tickMarkRadius: 3.0),
+                  thumbShape:
+                      const RoundSliderThumbShape(disabledThumbRadius: 0),
+                  overlayShape: const RoundSliderOverlayShape(overlayRadius: 0),
                   disabledActiveTickMarkColor: Colors.grey,
                 ),
-                child: Slider.adaptive(
+                child: const Slider.adaptive(
                   value: 1,
                   divisions: 2,
                   onChanged: null,
@@ -113,7 +115,7 @@ class _AwardsState extends State<Awards> {
               ),
             ),
           ),
-          SizedBox(width: 10.0),
+          const SizedBox(width: 10.0),
           Expanded(
             flex: 5,
             child: _items(

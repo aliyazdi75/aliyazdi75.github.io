@@ -24,8 +24,8 @@ class _ExperienceState extends State<Experience> {
 
     Widget _duty(String description) {
       return ListTile(
-        contentPadding: EdgeInsets.all(0.0),
-        leading: Icon(
+        contentPadding: const EdgeInsets.all(0.0),
+        leading: const Icon(
           Icons.lens,
           size: 20.0,
         ),
@@ -48,7 +48,7 @@ class _ExperienceState extends State<Experience> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 50.0),
+              padding: const EdgeInsets.only(top: 50.0),
               child: RotatedBox(
                 quarterTurns: isFarsiLocale(context) ? 1 : 3,
                 child: Text(
@@ -59,7 +59,7 @@ class _ExperienceState extends State<Experience> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -87,9 +87,9 @@ class _ExperienceState extends State<Experience> {
                             }
                           },
                         ),
-                        SizedBox(width: 5.0),
+                        const SizedBox(width: 5.0),
                         Padding(
-                          padding: EdgeInsets.only(bottom: 5.0),
+                          padding: const EdgeInsets.only(bottom: 5.0),
                           child: Text(
                             localizations.tarafdariCity,
                             style: theme.textTheme.bodyText1,
@@ -116,7 +116,7 @@ class _ExperienceState extends State<Experience> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 50.0),
+              padding: const EdgeInsets.only(top: 50.0),
               child: RotatedBox(
                 quarterTurns: isFarsiLocale(context) ? 3 : 1,
                 child: Text(
@@ -128,7 +128,7 @@ class _ExperienceState extends State<Experience> {
           ],
         ),
         RaisedButton(
-          shape: StadiumBorder(),
+          shape: const StadiumBorder(),
           child: Text(localizations.applicationPage),
           onPressed: () async {
             if (await canLaunch(applicationUrl)) {

@@ -33,12 +33,12 @@ class Name extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Avatar(),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: screenWidth / 3),
             child: name,
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           Socials(),
         ],
       ),
@@ -52,11 +52,11 @@ class Name extends StatelessWidget {
               children: <Widget>[
                 Socials(),
                 Avatar(),
-                SizedBox(width: 50.0),
+                const SizedBox(width: 50.0),
               ],
             ),
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           name,
         ],
       ),

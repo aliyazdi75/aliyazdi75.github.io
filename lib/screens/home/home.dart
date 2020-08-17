@@ -15,11 +15,11 @@ class HomePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: SafeArea(
           child: AnimatedPadding(
-            duration: Duration(milliseconds: 750),
+            duration: const Duration(milliseconds: 750),
             padding: isMediumDisplay(context)
                 ? EdgeInsets.fromLTRB(
                     contentPadding, contentPadding, contentPadding, 0)
-                : EdgeInsets.all(0),
+                : const EdgeInsets.all(0),
             child: AdaptiveSize(
               large: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

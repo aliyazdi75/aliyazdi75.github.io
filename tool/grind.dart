@@ -30,6 +30,8 @@ Future<void> generateLocalizations() async {
     'gen_l10n.dart',
   );
 
+  await pubGet(directory: l10nScriptFile);
+
   Dart.run(l10nScriptFile, arguments: [
     '--template-arb-file=intl_en.arb',
     '--output-localization-file=my_site_localizations.dart',
@@ -79,9 +81,12 @@ Future<void> _runProcess(String executable, List<String> arguments) async {
 /// Return the flutter root path from the environment variables.
 String _flutterRootPath() {
   final separator = (Platform.isWindows) ? ';' : ':';
-  final flutterBinPath =
-      Platform.environment['PATH'].split(separator).lastWhere((setting) {
-    return path.canonicalize(setting).endsWith(path.join('flutter', 'bin'));
-  });
+  print(Platform.environment['PATH']);
+  print('/////');
+  print(Platform.environment['PATH'].split(separator));
+  print('/////');
+  print(path.join('flutter', '21', 'usr', 'bin'));
+  final flutterBinPath = path.join(
+      '/home', 'aliyazdi75', 'snap', 'flutter', 'common', 'flutter', 'bin');
   return Directory(flutterBinPath).parent.path;
 }

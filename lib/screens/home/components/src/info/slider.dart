@@ -3,11 +3,11 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 Path _downTriangle(double size, Offset thumbCenter, {bool invert = false}) {
-  final Path thumbPath = Path();
-  final double height = math.sqrt(3.0) / 2.0;
-  final double centerHeight = size * height / 3.0;
-  final double halfSize = size / 2.0;
-  final double sign = invert ? -1.0 : 1.0;
+  final thumbPath = Path();
+  final height = math.sqrt(3.0) / 2.0;
+  final centerHeight = size * height / 3.0;
+  final halfSize = size / 2.0;
+  final sign = invert ? -1.0 : 1.0;
   thumbPath.moveTo(
       thumbCenter.dx - halfSize, thumbCenter.dy + sign * centerHeight);
   thumbPath.lineTo(thumbCenter.dx, thumbCenter.dy - 2.0 * sign * centerHeight);
@@ -51,13 +51,13 @@ class CustomThumbShape extends SliderComponentShape {
     double textScaleFactor,
     Size sizeWithOverflow,
   }) {
-    final Canvas canvas = context.canvas;
-    final ColorTween colorTween = ColorTween(
+    final canvas = context.canvas;
+    final colorTween = ColorTween(
       begin: sliderTheme.disabledThumbColor,
       end: sliderTheme.thumbColor,
     );
-    final double size = _thumbSize * sizeTween.evaluate(enableAnimation);
-    final Path thumbPath = _downTriangle(size, center);
+    final size = _thumbSize * sizeTween.evaluate(enableAnimation);
+    final thumbPath = _downTriangle(size, center);
     canvas.drawPath(
         thumbPath, Paint()..color = colorTween.evaluate(enableAnimation));
   }
@@ -93,20 +93,20 @@ class CustomValueIndicatorShape extends SliderComponentShape {
     double textScaleFactor,
     Size sizeWithOverflow,
   }) {
-    final Canvas canvas = context.canvas;
-    final ColorTween enableColor = ColorTween(
+    final canvas = context.canvas;
+    final enableColor = ColorTween(
       begin: sliderTheme.disabledThumbColor,
       end: sliderTheme.valueIndicatorColor,
     );
-    final Tween<double> slideUpTween = Tween<double>(
+    final slideUpTween = Tween<double>(
       begin: 0.0,
       end: _slideUpHeight,
     );
-    final double size = _indicatorSize * sizeTween.evaluate(enableAnimation);
-    final Offset slideUpOffset =
+    final size = _indicatorSize * sizeTween.evaluate(enableAnimation);
+    final slideUpOffset =
         Offset(0.0, -slideUpTween.evaluate(activationAnimation));
-    final Path thumbPath = _upTriangle(size, center + slideUpOffset);
-    final Color paintColor = enableColor
+    final thumbPath = _upTriangle(size, center + slideUpOffset);
+    final paintColor = enableColor
         .evaluate(enableAnimation)
         .withAlpha((255.0 * activationAnimation.value).round());
 

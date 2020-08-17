@@ -7,7 +7,7 @@ abstract class KeyFinder {
 
   /// returns a value based on the key
   String getKeyValue(String key) {
-    return "I am from the interface";
+    return 'I am from the interface';
   }
 
   /// stores a key value pair in the respective storage.

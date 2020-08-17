@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 class Helper {
   static Widget getLocaleIcon(BuildContext context) {
     final option = MySiteOptions.of(context);
-    final firstLocale = Icon(Icons.language);
+    final firstLocale = const Icon(Icons.language);
     final secLocale = Icon(
       Icons.language,
       color: Theme.of(context).primaryColor,
@@ -21,7 +21,7 @@ class Helper {
 
   static Widget getThemeIcon(BuildContext context) {
     final option = MySiteOptions.of(context);
-    final autoTheme = Icon(Icons.brightness_auto);
+    final autoTheme = const Icon(Icons.brightness_auto);
     final darkTheme = Icon(
       Icons.brightness_3,
       color: Theme.of(context).primaryColor,
@@ -37,15 +37,15 @@ class Helper {
   }
 
   static Widget getDownloadIcon() {
-    return Icon(Icons.get_app);
+    return const Icon(Icons.get_app);
   }
 
   static void onLocalChanged(BuildContext context) {
     final option = MySiteOptions.of(context);
-    void enLanguage() =>
-        MySiteOptions.update(context, option.copyWith(locale: Locale('en')));
-    void faLanguage() =>
-        MySiteOptions.update(context, option.copyWith(locale: Locale('fa')));
+    void enLanguage() => MySiteOptions.update(
+        context, option.copyWith(locale: const Locale('en')));
+    void faLanguage() => MySiteOptions.update(
+        context, option.copyWith(locale: const Locale('fa')));
 
     option.locale.languageCode == 'en' ? faLanguage() : enLanguage();
   }

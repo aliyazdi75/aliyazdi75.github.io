@@ -123,7 +123,7 @@ class AdaptiveDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool materialDesign = designTypeOf(context) == DesignType.material;
+    final materialDesign = designTypeOf(context) == DesignType.material;
     return materialDesign ? material : cupertino;
   }
 }

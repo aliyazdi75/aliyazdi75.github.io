@@ -51,9 +51,7 @@ class _AboutState extends State<About> {
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
                     if (await canLaunch(topRankUniversity)) {
-                      await launch(
-                        topRankUniversity
-                      );
+                      await launch(topRankUniversity);
                     }
                   },
               ),
@@ -66,9 +64,9 @@ class _AboutState extends State<About> {
           textAlign: TextAlign.justify,
           textScaleFactor: 1.5,
         ),
-        SizedBox(height: 20.0),
+        const SizedBox(height: 20.0),
         RaisedButton(
-          shape: StadiumBorder(),
+          shape: const StadiumBorder(),
           child: Text(localizations.resume),
           onPressed: () async {
             if (await canLaunch(cvUrl)) {

@@ -10,9 +10,7 @@ Locale _deviceLocale;
 Locale get deviceLocale => _deviceLocale;
 
 set deviceLocale(Locale locale) {
-  if (_deviceLocale == null) {
-    _deviceLocale = locale;
-  }
+  _deviceLocale ??= locale;
 }
 
 class MySiteOptions {
@@ -58,7 +56,7 @@ class MySiteOptions {
   Locale get locale =>
       _locale ??
       deviceLocale ??
-      (!kIsWeb && Platform.isMacOS ? Locale('en') : null);
+      (!kIsWeb && Platform.isMacOS ? const Locale('en') : null);
 
   MySiteOptions copyWith({
     ThemeMode themeMode,
@@ -68,7 +66,7 @@ class MySiteOptions {
   }) {
     return MySiteOptions(
       themeMode: themeMode ?? this.themeMode,
-      textScaleFactor: textScaleFactor ?? this._textScaleFactor,
+      textScaleFactor: textScaleFactor ?? _textScaleFactor,
       locale: locale ?? this.locale,
       platform: platform ?? this.platform,
     );
@@ -91,13 +89,13 @@ class MySiteOptions {
       );
 
   static MySiteOptions of(BuildContext context) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     return scope.modelBindingState.currentModel;
   }
 
   static void update(BuildContext context, MySiteOptions newModel) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     scope.modelBindingState.updateModel(newModel);
   }
@@ -147,6 +145,7 @@ class ModelBinding extends StatefulWidget {
   final MySiteOptions initialModel;
   final Widget child;
 
+  @override
   _ModelBindingState createState() => _ModelBindingState();
 }
 

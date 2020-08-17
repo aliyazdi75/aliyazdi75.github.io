@@ -74,7 +74,7 @@ class _InfoState extends State<Info> {
             ),
             child: PageView(
               controller: _pageController,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               allowImplicitScrolling: true,
               onPageChanged: (page) {
@@ -96,7 +96,8 @@ class _InfoState extends State<Info> {
                 data: SliderThemeData(
                   trackHeight: 2.0,
                   activeTickMarkColor: theme.primaryColor,
-                  tickMarkShape: RoundSliderTickMarkShape(tickMarkRadius: 3.5),
+                  tickMarkShape:
+                      const RoundSliderTickMarkShape(tickMarkRadius: 3.5),
                   thumbShape: CustomThumbShape(),
                   valueIndicatorShape: CustomValueIndicatorShape(),
                   valueIndicatorTextStyle: theme.textTheme.headline6.copyWith(
@@ -146,7 +147,7 @@ class _InfoState extends State<Info> {
               constraints: BoxConstraints(
                   maxHeight: kInfoMediumScreenHeightFactor / screenWidth),
               child: TabBarView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: infoItems.map<Widget>((item) {
                   return item.info;
                 }).toList(),
