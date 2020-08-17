@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
@@ -58,7 +59,7 @@ class _EducationState extends State<Education> {
                               : null,
                         ),
                       ).showCursorOnHover(
-                        CursorType.pointer,
+                        SystemMouseCursors.click,
                         onHovered: _onAmirkabirTitleHovered,
                       ),
                       onTap: () async {
@@ -127,7 +128,7 @@ class _EducationState extends State<Education> {
                               : null,
                         ),
                       ).showCursorOnHover(
-                        CursorType.pointer,
+                        SystemMouseCursors.click,
                         onHovered: _onSchoolTitleHovered,
                       ),
                       onTap: () async {

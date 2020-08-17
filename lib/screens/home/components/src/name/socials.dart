@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/data/icons.dart';
@@ -34,7 +35,7 @@ class Socials extends StatelessWidget {
             return OutlineButton(
               child: Icon(socialItems[index].icon),
               onPressed: () async => _onPressed(socialItems[index].url),
-            ).showCursorOnHover(CursorType.pointer);
+            ).showCursorOnHover(SystemMouseCursors.click);
           }),
         ),
         medium: Column(
@@ -52,7 +53,7 @@ class Socials extends StatelessWidget {
                     ? theme.primaryColor
                     : null,
                 onPressed: () async => _onPressed(socialItems[index].url),
-              ).showCursorOnHover(CursorType.pointer),
+              ).showCursorOnHover(SystemMouseCursors.click),
             );
           }),
         ),

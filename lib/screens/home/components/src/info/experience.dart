@@ -78,7 +78,7 @@ class _ExperienceState extends State<Experience> {
                                   : null,
                             ),
                           ).showCursorOnHover(
-                            CursorType.pointer,
+                            SystemMouseCursors.click,
                             onHovered: _onTarafdariTitleHovered,
                           ),
                           onTap: () async {
@@ -138,7 +138,7 @@ class _ExperienceState extends State<Experience> {
               );
             }
           },
-        ).showCursorOnHover(CursorType.pointer),
+        ).showCursorOnHover(SystemMouseCursors.click),
       ],
     );
   }

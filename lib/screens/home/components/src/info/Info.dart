@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
@@ -34,8 +35,7 @@ class _InfoState extends State<Info> {
     _InfoItem(icon: Icons.description, info: About()),
     _InfoItem(icon: Icons.school, info: Education()),
     _InfoItem(icon: Icons.work, info: Experience()),
-    // todo: Should be Icons.emoji_events
-    _InfoItem(icon: Icons.star, info: Awards()),
+    _InfoItem(icon: Icons.emoji_events, info: Awards()),
   ];
 
   PageController _pageController;
@@ -85,7 +85,7 @@ class _InfoState extends State<Info> {
               children: List.generate(infoItems.length, (index) {
                 return infoItems[index].info;
               }),
-            ).showCursorOnHover(CursorType.grab),
+            ).showCursorOnHover(SystemMouseCursors.grab),
           ),
           Container(
             constraints: BoxConstraints(
@@ -126,7 +126,7 @@ class _InfoState extends State<Info> {
                       );
                     });
                   },
-                ).showCursorOnHover(CursorType.grab),
+                ).showCursorOnHover(SystemMouseCursors.grab),
               ),
             ),
           ),
@@ -142,7 +142,7 @@ class _InfoState extends State<Info> {
               tabs: infoItems.map<Tab>((item) {
                 return Tab(text: item.title, icon: Icon(item.icon, size: 30.0));
               }).toList(),
-            ).showCursorOnHover(CursorType.pointer),
+            ).showCursorOnHover(SystemMouseCursors.click),
             Container(
               constraints: BoxConstraints(
                   maxHeight: kInfoMediumScreenHeightFactor / screenWidth),

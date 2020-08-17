@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
@@ -67,7 +68,7 @@ class _MenuState extends State<Menu> {
                             : null,
                       ),
                     ).showCursorOnHover(
-                      CursorType.pointer,
+                      SystemMouseCursors.click,
                       onHovered: _onFlutterTitleHovered,
                     ),
                     onTap: () async {
@@ -82,15 +83,15 @@ class _MenuState extends State<Menu> {
             IconButton(
               icon: Helper.getDownloadIcon(),
               onPressed: () => Helper.onPressedDownload(),
-            ).showCursorOnHover(CursorType.pointer),
+            ).showCursorOnHover(SystemMouseCursors.click),
             IconButton(
               icon: Helper.getThemeIcon(context),
               onPressed: () => setState(() => Helper.onThemeChanged(context)),
-            ).showCursorOnHover(CursorType.pointer),
+            ).showCursorOnHover(SystemMouseCursors.click),
             IconButton(
               icon: Helper.getLocaleIcon(context),
               onPressed: () => setState(() => Helper.onLocalChanged(context)),
-            ).showCursorOnHover(CursorType.pointer),
+            ).showCursorOnHover(SystemMouseCursors.click),
           ],
         ),
       ),

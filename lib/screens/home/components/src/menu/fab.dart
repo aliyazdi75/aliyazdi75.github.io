@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 
 import 'helper.dart';
@@ -72,7 +73,7 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
             elevation: 0.0,
             child: Helper.getLocaleIcon(context),
             onPressed: () => setState(() => Helper.onLocalChanged(context)),
-          ).showCursorOnHover(CursorType.pointer),
+          ).showCursorOnHover(SystemMouseCursors.click),
         ),
         _fabIcon(
           2.0,
@@ -80,7 +81,7 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
             elevation: 0.0,
             child: Helper.getThemeIcon(context),
             onPressed: () => setState(() => Helper.onThemeChanged(context)),
-          ).showCursorOnHover(CursorType.pointer),
+          ).showCursorOnHover(SystemMouseCursors.click),
         ),
         _fabIcon(
           1.0,
@@ -88,7 +89,7 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
             elevation: 0.0,
             child: Helper.getDownloadIcon(),
             onPressed: () => Helper.onPressedDownload(),
-          ).showCursorOnHover(CursorType.pointer),
+          ).showCursorOnHover(SystemMouseCursors.click),
         ),
         FloatingActionButton(
           backgroundColor: _buttonColor?.value,
@@ -104,7 +105,7 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
             }
             _isOpened = !_isOpened;
           },
-        ).showCursorOnHover(CursorType.pointer),
+        ).showCursorOnHover(SystemMouseCursors.click),
       ],
     );
   }

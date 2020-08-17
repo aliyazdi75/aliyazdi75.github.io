@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/cursor_hover/index.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
@@ -76,7 +77,7 @@ class _AboutState extends State<About> {
               );
             }
           },
-        ).showCursorOnHover(CursorType.pointer),
+        ).showCursorOnHover(SystemMouseCursors.click),
       ],
     );
   }
