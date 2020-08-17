@@ -138,7 +138,7 @@ class _ExperienceState extends State<Experience> {
               );
             }
           },
-        ).showCursorOnHover(SystemMouseCursors.click),
+        ),
       ],
     );
   }

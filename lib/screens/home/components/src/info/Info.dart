@@ -142,7 +142,7 @@ class _InfoState extends State<Info> {
               tabs: infoItems.map<Tab>((item) {
                 return Tab(text: item.title, icon: Icon(item.icon, size: 30.0));
               }).toList(),
-            ).showCursorOnHover(SystemMouseCursors.click),
+            ),
             Container(
               constraints: BoxConstraints(
                   maxHeight: kInfoMediumScreenHeightFactor / screenWidth),

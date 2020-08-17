@@ -83,15 +83,15 @@ class _MenuState extends State<Menu> {
             IconButton(
               icon: Helper.getDownloadIcon(),
               onPressed: () => Helper.onPressedDownload(),
-            ).showCursorOnHover(SystemMouseCursors.click),
+            ),
             IconButton(
               icon: Helper.getThemeIcon(context),
               onPressed: () => setState(() => Helper.onThemeChanged(context)),
-            ).showCursorOnHover(SystemMouseCursors.click),
+            ),
             IconButton(
               icon: Helper.getLocaleIcon(context),
               onPressed: () => setState(() => Helper.onLocalChanged(context)),
-            ).showCursorOnHover(SystemMouseCursors.click),
+            ),
           ],
         ),
       ),
