@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_site/layout/adaptive.dart';
@@ -51,6 +50,8 @@ class MySiteThemeData {
         textTheme: ButtonTextTheme.primary,
         colorScheme: colorScheme,
       ),
+      floatingActionButtonTheme: themeData.floatingActionButtonTheme
+          .copyWith(foregroundColor: colorScheme.primary),
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
       canvasColor: colorScheme.background,
       cursorColor: colorScheme.primary,
@@ -74,12 +75,6 @@ class MySiteThemeData {
             : _textTheme(themeData.textTheme, colorScheme.onPrimary)
                 .subtitle1
                 .apply(color: _darkFillColor),
-      ),
-      typography: Typography.material2018(
-        platform: defaultTargetPlatform,
-        englishLike: Typography.englishLike2018,
-        dense: Typography.dense2018,
-        tall: Typography.tall2018,
       ),
     );
   }

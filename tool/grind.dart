@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:grinder/grinder.dart';
@@ -19,30 +20,7 @@ Future<void> format({String path = '.'}) async {
   await _runProcess('flutter', ['format', path]);
 }
 
-@Task('Generate localizations files')
-Future<void> generateLocalizations() async {
-  final l10nScriptFile = path.join(
-    _flutterRootPath(),
-    'dev',
-    'tools',
-    'localization',
-    'bin',
-    'gen_l10n.dart',
-  );
-
-  await pubGet(directory: l10nScriptFile);
-
-  Dart.run(l10nScriptFile, arguments: [
-    '--template-arb-file=intl_en.arb',
-    '--output-localization-file=my_site_localizations.dart',
-    '--output-class=MySiteLocalizations',
-    '--preferred-supported-locales=["en"]'
-  ]);
-  await format(path: path.join('lib', 'l10n'));
-}
-
 @Task('Transform arb to xml for English')
-@Depends(generateLocalizations)
 Future<void> l10n() async {
   final l10nPath =
       path.join(Directory.current.path, 'tool', 'l10n_cli', 'main.dart');
@@ -78,15 +56,28 @@ Future<void> _runProcess(String executable, List<String> arguments) async {
   stderr.write(result.stderr);
 }
 
-/// Return the flutter root path from the environment variables.
-String _flutterRootPath() {
-  final separator = (Platform.isWindows) ? ';' : ':';
-  print(Platform.environment['PATH']);
-  print('/////');
-  print(Platform.environment['PATH'].split(separator));
-  print('/////');
-  print(path.join('flutter', '21', 'usr', 'bin'));
-  final flutterBinPath = path.join(
-      '/home', 'aliyazdi75', 'snap', 'flutter', 'common', 'flutter', 'bin');
-  return Directory(flutterBinPath).parent.path;
+// Function to make sure we capture all of the stdout.
+// Reference: https://github.com/dart-lang/sdk/issues/31666
+Future<String> _startProcess(String executable,
+    {List<String> arguments = const [], String input}) async {
+  final output = <int>[];
+  final completer = Completer<int>();
+  final process = await Process.start(executable, arguments);
+  process.stdin.writeln(input);
+  process.stdout.listen(
+    (event) {
+      output.addAll(event);
+    },
+    onDone: () async => completer.complete(await process.exitCode),
+  );
+  await process.stdin.close();
+
+  final exitCode = await completer.future;
+  if (exitCode != 0) {
+    stderr.write(
+      'Running "$executable ${arguments.join(' ')}" failed with $exitCode.\n',
+    );
+    exit(exitCode);
+  }
+  return Future<String>.value(utf8.decoder.convert(output));
 }

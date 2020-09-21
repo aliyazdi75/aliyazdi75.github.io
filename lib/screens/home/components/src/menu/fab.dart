@@ -23,13 +23,6 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
       vsync: this,
       duration: const Duration(milliseconds: 500),
     )..addListener(() => setState(() {}));
-    _buttonColor = ColorTween(
-      begin: null,
-      end: Colors.red,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeIn,
-    ));
     _animateIcon = Tween<double>(
       begin: 0.0,
       end: 1.0,
@@ -41,6 +34,15 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
       parent: _animationController,
       curve: Curves.easeInOutBack,
     ));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _buttonColor = ColorTween(
+        begin: null,
+        end: Theme.of(context).primaryColor,
+      ).animate(CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeIn,
+      ));
+    });
     super.initState();
   }
 
@@ -93,6 +95,7 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
         FloatingActionButton(
           backgroundColor: _buttonColor?.value,
           child: AnimatedIcon(
+            color: _isOpened ? Colors.white : null,
             icon: AnimatedIcons.menu_close,
             progress: _animateIcon,
           ),

@@ -7,6 +7,7 @@ import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/data/my_site_options.dart';
 import 'package:my_site/l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
+import 'package:my_site/routes.dart';
 import 'package:my_site/screens/home/home.dart';
 import 'package:my_site/themes/my_site_theme_data.dart';
 
@@ -17,18 +18,29 @@ void main() {
     //if (kReleaseMode)
     //  exit(1);
   };
-  runApp(MySite());
+  runApp(const MySite());
 }
 
 class MySite extends StatelessWidget {
+  const MySite({
+    Key key,
+    this.initialRoute,
+    this.isTestMode = false,
+  }) : super(key: key);
+
+  final bool isTestMode;
+  final String initialRoute;
+
   @override
   Widget build(BuildContext context) {
     return ModelBinding(
       initialModel: MySiteOptions(
         themeMode: ThemeMode.system,
         textScaleFactor: systemTextScaleFactorOption,
-//        locale: Locale('fa'),
+        // locale: Locale('fa'),
+        // locale: null,
         platform: defaultTargetPlatform,
+        isTestMode: isTestMode,
       ),
       child: Builder(
         builder: (context) {
@@ -47,40 +59,14 @@ class MySite extends StatelessWidget {
                 ...MySiteLocalizations.localizationsDelegates,
                 LocaleNamesLocalizationsDelegate()
               ],
+              initialRoute: initialRoute,
               supportedLocales: MySiteLocalizations.supportedLocales,
               locale: MySiteOptions.of(context).locale,
               localeResolutionCallback: (locale, supportedLocales) {
                 deviceLocale = locale;
                 return locale;
-//                final isSupported = supportedLocales.contains(
-//                  supportedLocales.singleWhere(
-//                    (element) => element.languageCode == locale?.languageCode,
-//                    orElse: () => null,
-//                  ),
-//                );
-//                if (isSupported) {
-//                  deviceLocale = locale;
-//                } else {
-//                  deviceLocale = supportedLocales.first;
-//                }
-//                return isSupported ? locale : supportedLocales.first;
               },
-              builder: (context, child) {
-                return ApplyTextOptions(
-                  child: AnnotatedRegion<SystemUiOverlayStyle>(
-                    value: SystemUiOverlayStyle(
-                      systemNavigationBarColor:
-                          Theme.of(context).scaffoldBackgroundColor,
-                      systemNavigationBarIconBrightness:
-                          Theme.of(context).brightness == Brightness.light
-                              ? Brightness.dark
-                              : Brightness.light,
-                    ),
-                    child: child,
-                  ),
-                );
-              },
-              home: HomePage(),
+              onGenerateRoute: RouteConfiguration.onGenerateRoute,
             ),
             cupertino: CupertinoApp(
               title: mySiteTitle,
@@ -99,38 +85,27 @@ class MySite extends StatelessWidget {
               localeResolutionCallback: (locale, supportedLocales) {
                 deviceLocale = locale;
                 return locale;
-//                final isSupported = supportedLocales.contains(
-//                  supportedLocales.singleWhere(
-//                    (element) => element.languageCode == locale?.languageCode,
-//                    orElse: () => null,
-//                  ),
-//                );
-//                if (isSupported) {
-//                  deviceLocale = locale;
-//                } else {
-//                  deviceLocale = supportedLocales.first;
-//                }
-//                return isSupported ? locale : supportedLocales.first;
               },
-              builder: (context, child) {
-                return ApplyTextOptions(
-                  child: AnnotatedRegion<SystemUiOverlayStyle>(
-                    value: SystemUiOverlayStyle(
-                      systemNavigationBarColor:
-                          Theme.of(context).scaffoldBackgroundColor,
-                      systemNavigationBarIconBrightness:
-                          Theme.of(context).brightness == Brightness.light
-                              ? Brightness.dark
-                              : Brightness.light,
-                    ),
-                    child: child,
-                  ),
-                );
-              },
-              home: HomePage(),
+              onGenerateRoute: RouteConfiguration.onGenerateRoute,
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class RootPage extends StatelessWidget {
+  const RootPage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ApplyTextOptions(
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: MySiteOptions.of(context).resolvedSystemUiOverlayStyle(context),
+        child: HomePage(),
       ),
     );
   }

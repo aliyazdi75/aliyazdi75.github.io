@@ -1,0 +1,6 @@
+template-arb-file: intl_en.arb
+output-localization-file: my_site_localizations.dart
+output-class: MySiteLocalizations
+preferred-supported-locales:
+  - en
+use-deferred-loading: true

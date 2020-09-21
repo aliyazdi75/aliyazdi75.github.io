@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:meta/meta.dart';
 
-const _l10nDir = '../my_site/lib/l10n';
+const _l10nDir = 'lib/l10n';
 const _intlHeader = '''
 <?xml version="1.0" encoding="utf-8"?>
 <!--
