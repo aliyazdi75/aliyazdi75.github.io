@@ -1,5 +1,8 @@
 name: my_site
 description: My Flutter Portfolio application.
+repository: https://gitlab.com/aliyazdi75/my_site
+issue_tracker: https://gitlab.com/aliyazdi75/my_site/issues
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -10,13 +13,11 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
-  intl: any
   flutter_localized_locales: any
 
   cupertino_icons: ^1.0.0
   google_fonts: ^1.1.0
-  shared_preferences: ^0.5.10
+  shared_preferences: '>=0.5.10 <2.0.0'
   url_launcher: ^5.6.0
 
 dev_dependencies:
@@ -24,9 +25,6 @@ dev_dependencies:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-  test: any
-  intl_translation: any
-  grinder: ^0.8.5
   flutter_launcher_icons: ^0.8.0
 
 flutter_icons:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:my_site/l10n/my_site_localizations.dart';
+import 'package:flutter_gen/gen_l10n/my_site_localizations.dart';
 import 'package:my_site/layout/adaptive.dart';
 
 import 'avatar.dart';

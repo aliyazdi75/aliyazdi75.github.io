@@ -10,7 +10,7 @@ const _intlHeader = '''
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It is based on /lib/l10n/intl_en.arb.
+  It is based on lib/l10n/intl_en.arb.
 -->
 <resources>
 ''';
@@ -35,12 +35,13 @@ String _escapeXml(String xml) {
 
 /// Processes the XML files.
 ///
-/// Note that the filename for `intl_en.xml` is used by the internal
+/// Note that the filename for `intl_en_US.xml` is used by the internal
 /// translation console and changing the filename may require manually updating
 /// already translated messages to point to the new file. Therefore, avoid doing so
 /// unless necessary.
 Future<void> englishArbsToXmls({bool isDryRun = false}) async {
-  final output = isDryRun ? stdout : File('$_l10nDir/intl_en.xml').openWrite();
+  final output =
+      isDryRun ? stdout : File('$_l10nDir/intl_en_US.xml').openWrite();
   await generateXmlFromArb(
     inputArb: File('$_l10nDir/intl_en.arb'),
     outputXml: output,
