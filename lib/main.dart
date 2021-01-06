@@ -3,11 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/my_site_localizations.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:my_site/core/constants/index.dart';
+import 'package:my_site/core/routes.dart';
+import 'package:my_site/core/url_strategy/index.dart';
 import 'package:my_site/data/my_site_options.dart';
 import 'package:my_site/layout/adaptive.dart';
-import 'package:my_site/routes.dart';
 import 'package:my_site/screens/home/home.dart';
 import 'package:my_site/themes/my_site_theme_data.dart';
 
@@ -18,6 +18,7 @@ void main() {
     //if (kReleaseMode)
     //  exit(1);
   };
+  UrlStrategy.configure();
   runApp(const MySite());
 }
 
@@ -55,10 +56,8 @@ class MySite extends StatelessWidget {
                   .copyWith(platform: MySiteOptions.of(context).platform),
               darkTheme: MySiteThemeData.darkThemeData(context)
                   .copyWith(platform: MySiteOptions.of(context).platform),
-              localizationsDelegates: const [
-                ...MySiteLocalizations.localizationsDelegates,
-                LocaleNamesLocalizationsDelegate()
-              ],
+              localizationsDelegates:
+                  MySiteLocalizations.localizationsDelegates,
               initialRoute: initialRoute,
               supportedLocales: MySiteLocalizations.supportedLocales,
               locale: MySiteOptions.of(context).locale,
@@ -76,10 +75,8 @@ class MySite extends StatelessWidget {
               theme: MaterialBasedCupertinoThemeData(
                 materialTheme: MySiteOptions.of(context).themeData(context),
               ),
-              localizationsDelegates: const [
-                ...MySiteLocalizations.localizationsDelegates,
-                LocaleNamesLocalizationsDelegate()
-              ],
+              localizationsDelegates:
+                  MySiteLocalizations.localizationsDelegates,
               supportedLocales: MySiteLocalizations.supportedLocales,
               locale: MySiteOptions.of(context).locale,
               localeResolutionCallback: (locale, supportedLocales) {

@@ -1,6 +1,6 @@
 # my_site
 
-My Flutter Portfolio application.
+My Flutter Portfolio application
 
 ## Structure
 
