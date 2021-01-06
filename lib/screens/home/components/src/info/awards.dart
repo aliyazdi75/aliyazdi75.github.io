@@ -5,7 +5,7 @@ import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const kAwardsLargeHeightFactor = 55e4;
+const kAwardsLargeHeightFactor = 60e4;
 const kAwardsMediumHeightFactor = 28e4;
 
 class Awards extends StatefulWidget {
@@ -19,16 +19,6 @@ class _AwardsState extends State<Awards> {
     final theme = Theme.of(context);
     final localizations = MySiteLocalizations.of(context);
     final screenWidth = MediaQuery.of(context).size.width;
-
-    final bestAppLink = localizations.bestAppLink;
-    final bestAppDescription = localizations.bestAppDescription(bestAppLink);
-    final bestAppDescriptionIndex = bestAppDescription.indexOf(bestAppLink);
-    final bestAppDescriptionIndexEnd =
-        bestAppDescriptionIndex + bestAppLink.length;
-    final bestAppDescriptionFirst =
-        bestAppDescription.substring(0, bestAppDescriptionIndex);
-    final bestAppDescriptionSecond =
-        bestAppDescription.substring(bestAppDescriptionIndexEnd);
 
     Widget _alignment(Widget child) {
       return isLargeDisplay(context)
@@ -77,16 +67,87 @@ class _AwardsState extends State<Awards> {
       );
     }
 
+    List<TextSpan> _bestApp() {
+      final bestAppLink = localizations.bestAppLink;
+      final bestAppDescription = localizations.bestAppDescription(bestAppLink);
+      final bestAppDescriptionIndex = bestAppDescription.indexOf(bestAppLink);
+      final bestAppDescriptionIndexEnd =
+          bestAppDescriptionIndex + bestAppLink.length;
+      final bestAppDescriptionFirst =
+          bestAppDescription.substring(0, bestAppDescriptionIndex);
+      final bestAppDescriptionSecond =
+          bestAppDescription.substring(bestAppDescriptionIndexEnd);
+      return [
+        TextSpan(
+          style: theme.textTheme.subtitle1,
+          text: bestAppDescriptionFirst,
+        ),
+        TextSpan(
+          style: theme.textTheme.subtitle1.copyWith(
+            color: theme.primaryColor,
+          ),
+          text: bestAppLink,
+          recognizer: TapGestureRecognizer()
+            ..onTap = () async {
+              if (await canLaunch(iwmfWebsite)) {
+                await launch(iwmfWebsite);
+              }
+            },
+        ),
+        TextSpan(
+          style: theme.textTheme.subtitle1,
+          text: bestAppDescriptionSecond,
+        ),
+      ];
+    }
+
+    List<TextSpan> _mostDownloadApp() {
+      final mostDownloadAppLink = localizations.mostDownloadAppLink;
+      final mostDownloadAppDescription =
+          localizations.mostDownloadAppDescription(mostDownloadAppLink);
+      final mostDownloadDescriptionIndex =
+          mostDownloadAppDescription.indexOf(mostDownloadAppLink);
+      final mostDownloadDescriptionIndexEnd =
+          mostDownloadDescriptionIndex + mostDownloadAppLink.length;
+      final mostDownloadDescriptionFirst =
+          mostDownloadAppDescription.substring(0, mostDownloadDescriptionIndex);
+      final mostDownloadDescriptionSecond =
+          mostDownloadAppDescription.substring(mostDownloadDescriptionIndexEnd);
+      return [
+        TextSpan(
+          style: theme.textTheme.subtitle1,
+          text: mostDownloadDescriptionFirst,
+        ),
+        TextSpan(
+          style: theme.textTheme.subtitle1.copyWith(
+            color: theme.primaryColor,
+          ),
+          text: mostDownloadAppLink,
+          recognizer: TapGestureRecognizer()
+            ..onTap = () async {
+              if (await canLaunch(applicationUrl)) {
+                await launch(applicationUrl);
+              }
+            },
+        ),
+        TextSpan(
+          style: theme.textTheme.subtitle1,
+          text: mostDownloadDescriptionSecond,
+        ),
+      ];
+    }
+
     return _alignment(
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Flexible(
-            flex: 2,
+            flex: 3,
             child: _items(
               CrossAxisAlignment.end,
               [
                 _dateText(localizations.bestAppDate),
+                _dateText(localizations.mostDownloadAppDate),
                 _dateText(localizations.examDate),
                 _dateText(localizations.olympiadDate),
               ],
@@ -109,7 +170,7 @@ class _AwardsState extends State<Awards> {
                 ),
                 child: const Slider.adaptive(
                   value: 1,
-                  divisions: 2,
+                  divisions: 3,
                   onChanged: null,
                 ),
               ),
@@ -121,32 +182,9 @@ class _AwardsState extends State<Awards> {
             child: _items(
               CrossAxisAlignment.start,
               [
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        style: theme.textTheme.subtitle1,
-                        text: bestAppDescriptionFirst,
-                      ),
-                      TextSpan(
-                        style: theme.textTheme.subtitle1.copyWith(
-                          color: theme.primaryColor,
-                        ),
-                        text: bestAppLink,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () async {
-                            if (await canLaunch(iwmfWebsite)) {
-                              await launch(iwmfWebsite);
-                            }
-                          },
-                      ),
-                      TextSpan(
-                        style: theme.textTheme.subtitle1,
-                        text: bestAppDescriptionSecond,
-                      ),
-                    ],
-                  ),
-                ),
+                Text.rich(TextSpan(children: _bestApp())),
+                Divider(color: theme.primaryColor),
+                Text.rich(TextSpan(children: _mostDownloadApp())),
                 Divider(color: theme.primaryColor),
                 _descriptionText(localizations.examDescription),
                 Divider(color: theme.primaryColor),

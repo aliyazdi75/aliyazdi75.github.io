@@ -33,8 +33,8 @@ class _InfoState extends State<Info> {
   final materialFont = 'MaterialIcons';
   final List<_InfoItem> infoItems = <_InfoItem>[
     _InfoItem(icon: Icons.description, info: About()),
-    _InfoItem(icon: Icons.school, info: Education()),
     _InfoItem(icon: Icons.work, info: Experience()),
+    _InfoItem(icon: Icons.school, info: Education()),
     _InfoItem(icon: Icons.emoji_events, info: Awards()),
   ];
 

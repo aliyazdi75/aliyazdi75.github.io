@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/my_site_localizations.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/core/routes.dart';
-import 'package:my_site/core/url_strategy/index.dart';
 import 'package:my_site/data/my_site_options.dart';
 import 'package:my_site/layout/adaptive.dart';
 import 'package:my_site/screens/home/home.dart';
@@ -18,7 +17,8 @@ void main() {
     //if (kReleaseMode)
     //  exit(1);
   };
-  UrlStrategy.configure();
+  //todo: should fix this
+  // UrlStrategy.configure();
   runApp(const MySite());
 }
 

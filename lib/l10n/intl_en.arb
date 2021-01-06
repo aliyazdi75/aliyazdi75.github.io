@@ -101,11 +101,11 @@
   "@tarafdariCity": {
     "description": "Work City."
   },
-  "tarafdariWorkStart": "June 2019",
+  "tarafdariWorkStart": "March 2019",
   "@tarafdariWorkStart": {
     "description": "Work Duration."
   },
-  "tarafdariWorkEnd": "April 2020",
+  "tarafdariWorkEnd": "May 2020",
   "@tarafdariWorkEnd": {
     "description": "Work Duration."
   },
@@ -132,6 +132,30 @@
   "applicationPage": "Application Page",
   "@applicationPage": {
     "description": "Application Page Title."
+  },
+  "mateMachineTitle": "Mate Machine Inc.",
+  "@mateMachineTitle": {
+    "description": "mateMachineT Title."
+  },
+  "mateMachineCity": "Vancouver, BC, Canada",
+  "@mateMachineCity": {
+    "description": "mateMachine City."
+  },
+  "mateMachineWorkStart": "June 2019",
+  "@mateMachineWorkStart": {
+    "description": "mateMachine Duration."
+  },
+  "mateMachineWorkEnd": "Present",
+  "@mateMachineWorkEnd": {
+    "description": "mateMachine Duration."
+  },
+  "mateMachineTechnologies": "Flutter",
+  "@mateMachineTechnologies": {
+    "description": "mateMachine Technologies."
+  },
+  "mateMachineDescription": "Preparing the Flutter application for the first launch.",
+  "@mateMachineDescription": {
+    "description": "mateMachine Description."
   },
   "olympiadDate": "July 2013",
   "@olympiadDate": {
@@ -182,5 +206,22 @@
   "flutterTitle": "Flutter",
   "@flutterTitle": {
     "description": "Flutter Title."
+  },
+  "mostDownloadAppDate": "February 2020",
+  "@mostDownloadAppDate": {
+    "description": "mostDownloadAppDate."
+  },
+  "mostDownloadAppDescription": "Most installed sport application in Iran, we could reach more than 200k active users on the {value} after migrating to the flutter",
+  "@mostDownloadAppDescription": {
+    "description": "mostDownloadAppDescription.",
+    "placeholders": {
+      "value": {
+        "example": "Google Play Store"
+      }
+    }
+  },
+  "mostDownloadAppLink": "Google Play Store",
+  "@mostDownloadAppLink": {
+    "description": "mostDownloadAppLink."
   }
 }

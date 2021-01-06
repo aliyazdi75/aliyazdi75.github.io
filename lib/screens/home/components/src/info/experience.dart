@@ -52,6 +52,90 @@ class _ExperienceState extends State<Experience> {
               child: RotatedBox(
                 quarterTurns: isFarsiLocale(context) ? 1 : 3,
                 child: Text(
+                  localizations.mateMachineWorkStart,
+                  style: theme.textTheme.bodyText2,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.end,
+                      children: [
+                        GestureDetector(
+                          child: Text(
+                            localizations.mateMachineTitle,
+                            textScaleFactor: 2.0,
+                            style: theme.textTheme.caption.copyWith(
+                              color: theme.primaryColor,
+                              decoration: _onTarafdariTitleHover
+                                  ? TextDecoration.underline
+                                  : null,
+                            ),
+                          ).showCursorOnHover(
+                            SystemMouseCursors.click,
+                            onHovered: _onTarafdariTitleHovered,
+                          ),
+                          onTap: () async {
+                            if (await canLaunch(tarafdariWebsite)) {
+                              await launch(tarafdariWebsite);
+                            }
+                          },
+                        ),
+                        const SizedBox(width: 5.0),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5.0),
+                          child: Text(
+                            localizations.mateMachineCity,
+                            style: theme.textTheme.bodyText1,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      localizations.mateMachineTechnologies,
+                      style: theme.textTheme.bodyText1,
+                    ),
+                    Text(
+                      localizations.mateMachineDescription,
+                      style: theme.textTheme.bodyText1,
+                      textScaleFactor: 1.5,
+                      textAlign: TextAlign.justify,
+                    ),
+                    // Divider(color: theme.primaryColor),
+                    // _duty(localizations.tarafdariDuty1),
+                    // _duty(localizations.tarafdariDuty2),
+                    // _duty(localizations.tarafdariDuty3),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: RotatedBox(
+                quarterTurns: isFarsiLocale(context) ? 3 : 1,
+                child: Text(
+                  localizations.mateMachineWorkEnd,
+                  style: theme.textTheme.bodyText2,
+                ),
+              ),
+            ),
+          ],
+        ),
+        Divider(color: theme.primaryColor),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: RotatedBox(
+                quarterTurns: isFarsiLocale(context) ? 1 : 3,
+                child: Text(
                   localizations.tarafdariWorkStart,
                   style: theme.textTheme.bodyText2,
                 ),
@@ -63,9 +147,8 @@ class _ExperienceState extends State<Experience> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                    Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.end,
                       children: [
                         GestureDetector(
                           child: Text(
@@ -107,10 +190,10 @@ class _ExperienceState extends State<Experience> {
                       textScaleFactor: 1.5,
                       textAlign: TextAlign.justify,
                     ),
-                    Divider(color: theme.primaryColor),
-                    _duty(localizations.tarafdariDuty1),
-                    _duty(localizations.tarafdariDuty2),
-                    _duty(localizations.tarafdariDuty3),
+                    // Divider(color: theme.primaryColor),
+                    // _duty(localizations.tarafdariDuty1),
+                    // _duty(localizations.tarafdariDuty2),
+                    // _duty(localizations.tarafdariDuty3),
                   ],
                 ),
               ),
