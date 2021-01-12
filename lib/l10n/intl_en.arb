@@ -16,18 +16,9 @@
   "@welcomeTitle": {
     "description": "Welcome title."
   },
-  "aboutMe": "I am a Software Engineering graduate from Amirkabir University of Technology, which is one of the most prestigious universities in Iran, {value}. And a Developer, who loves programming in Flutter. I am also interested in Artificial Intelligence, Machine Learning and Software Engineering.",
+  "aboutMe": "I have been working as a Flutter developer and mobile team leader for two years. I am a CS graduate who interests in using Artificial Intelligence and Software Engineering in my work. I am an open-source advocate who helps developers to solve their problems in development. I am finding a better opportunity and willing to relocate to the new country. ",
   "@aboutMe": {
-    "description": "About me.",
-    "placeholders": {
-      "value": {
-        "example": "University rank in Iran link"
-      }
-    }
-  },
-  "aboutUniversityRank": "ranked second in IT",
-  "@aboutUniversityRank": {
-    "description": "University rank in Iran."
+    "description": "About me."
   },
   "resume": "Resume",
   "@resume": {

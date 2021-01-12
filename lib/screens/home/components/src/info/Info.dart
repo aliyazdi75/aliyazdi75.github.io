@@ -60,8 +60,8 @@ class _InfoState extends State<Info> {
     final localizations = MySiteLocalizations.of(context);
 
     infoItems[0].title = localizations.aboutTitle;
-    infoItems[1].title = localizations.educationTitle;
-    infoItems[2].title = localizations.experienceTitle;
+    infoItems[1].title = localizations.experienceTitle;
+    infoItems[2].title = localizations.educationTitle;
     infoItems[3].title = localizations.awardsTitle;
 
     return AdaptiveSize(

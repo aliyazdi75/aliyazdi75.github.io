@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/my_site_localizations.dart';
@@ -17,14 +16,6 @@ class _AboutState extends State<About> {
     final theme = Theme.of(context);
     final localizations = MySiteLocalizations.of(context);
 
-    final aboutUniversityRank = localizations.aboutUniversityRank;
-    final aboutMe = localizations.aboutMe(aboutUniversityRank);
-    final aboutUniversityRankIndex = aboutMe.indexOf(aboutUniversityRank);
-    final aboutUniversityRankIndexEnd =
-        aboutUniversityRankIndex + aboutUniversityRank.length;
-    final aboutMeFirst = aboutMe.substring(0, aboutUniversityRankIndex);
-    final aboutMeSecond = aboutMe.substring(aboutUniversityRankIndexEnd);
-
     return Column(
       mainAxisAlignment: isMediumDisplay(context)
           ? MainAxisAlignment.start
@@ -37,33 +28,39 @@ class _AboutState extends State<About> {
           style: theme.textTheme.caption.copyWith(color: theme.primaryColor),
         ),
         Divider(color: theme.primaryColor),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                style: theme.textTheme.bodyText2,
-                text: aboutMeFirst,
-              ),
-              TextSpan(
-                style: theme.textTheme.bodyText2
-                    .copyWith(color: theme.primaryColor),
-                text: aboutUniversityRank,
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () async {
-                    if (await canLaunch(topRankUniversity)) {
-                      await launch(topRankUniversity);
-                    }
-                  },
-              ),
-              TextSpan(
-                style: theme.textTheme.bodyText2,
-                text: aboutMeSecond,
-              ),
-            ],
-          ),
-          textAlign: TextAlign.justify,
+        Text(
+          localizations.aboutMe,
           textScaleFactor: 1.5,
+          textAlign: TextAlign.justify,
+          style: theme.textTheme.bodyText2.copyWith(),
         ),
+        // Text.rich(
+        //   TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         style: theme.textTheme.bodyText2,
+        //         text: aboutMe,
+        //       ),
+        //       TextSpan(
+        //         style: theme.textTheme.bodyText2
+        //             .copyWith(color: theme.primaryColor),
+        //         text: aboutUniversityRank,
+        //         recognizer: TapGestureRecognizer()
+        //           ..onTap = () async {
+        //             if (await canLaunch(topRankUniversity)) {
+        //               await launch(topRankUniversity);
+        //             }
+        //           },
+        //       ),
+        //       TextSpan(
+        //         style: theme.textTheme.bodyText2,
+        //         text: aboutMeSecond,
+        //       ),
+        //     ],
+        //   ),
+        //   textAlign: TextAlign.justify,
+        //   textScaleFactor: 1.5,
+        // ),
         const SizedBox(height: 20.0),
         RaisedButton(
           shape: const StadiumBorder(),

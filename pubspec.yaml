@@ -3,8 +3,8 @@ description: My Flutter Portfolio application
 homepage: https://aliyazdi75.github.io
 repository: https://github.com/aliyazdi75/aliyazdi75.github.io
 issue_tracker: https://github.com/aliyazdi75/aliyazdi75.github.io/issues
-publish_to: 'none'
-version: 1.0.0+1
+publish_to: none
+version: 1.0.1+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
