@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=aliyazdi75
+Comment=A responsive Flutter portfolio application for any platform
+Icon=${SNAP}/meta/gui/icon.png
+Exec=aliyazdi75 %U
+Terminal=false
+Type=Application
+Categories=Development;
+Keywords=Resume;
+StartupNotify=false

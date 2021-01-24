@@ -3,7 +3,7 @@ const phone = 'tel:+989120371375';
 const linkedinUrl = 'https://linkedin.com/in/aliyazdi75';
 const githubUrl = 'https://github.com/aliyazdi75';
 const twitterUrl = 'https://twitter.com/aliyazdi75';
-const cvUrl = 'https://github.com/aliyazdi75/Resume/raw/master/MAYazdiCV.pdf';
+const cvUrl = 'https://github.com/aliyazdi75/Resume/raw/main/AYazdiCV.pdf';
 
 const downloadPage =
     'https://github.com/aliyazdi75/aliyazdi75.github.io/releases';

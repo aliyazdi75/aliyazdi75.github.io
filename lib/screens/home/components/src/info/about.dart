@@ -62,9 +62,12 @@ class _AboutState extends State<About> {
         //   textScaleFactor: 1.5,
         // ),
         const SizedBox(height: 20.0),
-        RaisedButton(
-          shape: const StadiumBorder(),
-          child: Text(localizations.resume),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
+          child: Text(
+            localizations.resume,
+            style: const TextStyle(color: Colors.white),
+          ),
           onPressed: () async {
             if (await canLaunch(cvUrl)) {
               await launch(

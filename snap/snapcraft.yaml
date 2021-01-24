@@ -1,15 +1,24 @@
 name: aliyazdi75
 version: 1.0.1
-summary: A responsive Flutter portfolio application for any platforms
-description: A responsive Flutter portfolio application for any platforms
+summary: A responsive Flutter portfolio application for any platform
+description: |
+  A responsive Flutter portfolio application for any platform.
+  Check the Github repository at https://github.com/aliyazdi75/aliyazdi75.github.io
 
 confinement: strict
 base: core18
 grade: stable
 
+slots:
+  dbus-aliyazdi75:
+    interface: dbus
+    bus: session
+    name: io.github.aliyazdi75
+
 apps:
   aliyazdi75:
-    command: my_site
+    command: bin/my_site
+    slots: [dbus-aliyazdi75]
     extensions: [flutter-master]
     plugs:
       - network

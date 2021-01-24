@@ -210,9 +210,13 @@ class _ExperienceState extends State<Experience> {
             ),
           ],
         ),
-        RaisedButton(
-          shape: const StadiumBorder(),
-          child: Text(localizations.applicationPage),
+        const SizedBox(height: 10.0),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
+          child: Text(
+            localizations.applicationPage,
+            style: const TextStyle(color: Colors.white),
+          ),
           onPressed: () async {
             if (await canLaunch(applicationUrl)) {
               await launch(

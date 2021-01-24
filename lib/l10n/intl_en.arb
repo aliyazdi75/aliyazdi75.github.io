@@ -16,7 +16,7 @@
   "@welcomeTitle": {
     "description": "Welcome title."
   },
-  "aboutMe": "I have been working as a Flutter developer and mobile team leader for two years. I am a CS graduate who interests in using Artificial Intelligence and Software Engineering in my work. I am an open-source advocate who helps developers to solve their problems in development. I am finding a better opportunity and willing to relocate to the new country. ",
+  "aboutMe": "I have been working as a Flutter developer and mobile team leader for two years. A Software Engineering graduate who interests in using Artificial Intelligence and Software Engineering in my work experiences. An open-source advocate who helps developers to solve their problems in development. I am looking for a better opportunity and willing to relocate anywhere.",
   "@aboutMe": {
     "description": "About me."
   },
@@ -104,20 +104,16 @@
   "@tarafdariTechnologies": {
     "description": "Tarafdari Technologies."
   },
-  "tarafdariDescription": "Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of national and international matches.",
+  "tarafdariDescription": "Working as a mobile application team leader at one of the most popular sport social media.",
   "@tarafdariDescription": {
     "description": "Tarafdari Description."
   },
-  "tarafdariDuty1": "Studying and Researching about Flutter framework",
+  "tarafdariDuty1": "R&D about Flutter framework and migrating the android application to Flutter application includes multimedia content, live score matches, and sports TV streaming with live chat on the socket.",
   "@tarafdariDuty1": {
     "description": "Tarafdari Duty."
   },
-  "tarafdariDuty2": "Developing requirement APIs",
+  "tarafdariDuty2": "We could reach more than 200k active users on the Google Play Store after migrating to the flutter.",
   "@tarafdariDuty2": {
-    "description": "Tarafdari Duty."
-  },
-  "tarafdariDuty3": "Developing Tarafdari's client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket",
-  "@tarafdariDuty3": {
     "description": "Tarafdari Duty."
   },
   "applicationPage": "Application Page",
@@ -144,7 +140,7 @@
   "@mateMachineTechnologies": {
     "description": "mateMachine Technologies."
   },
-  "mateMachineDescription": "Preparing the Flutter application for the first launch.",
+  "mateMachineDescription": "Working as a flutter developer team leader to launch the application in three months.",
   "@mateMachineDescription": {
     "description": "mateMachine Description."
   },

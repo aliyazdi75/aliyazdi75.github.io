@@ -31,7 +31,7 @@ class Socials extends StatelessWidget {
         large: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(socialItems.length, (index) {
-            return OutlineButton(
+            return OutlinedButton(
               child: Icon(socialItems[index].icon),
               onPressed: () async => _onPressed(socialItems[index].url),
             );

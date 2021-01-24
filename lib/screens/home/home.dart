@@ -61,7 +61,6 @@ class HomePage extends StatelessWidget {
       material: Scaffold(
         body: adaptiveBody,
         resizeToAvoidBottomInset: true,
-        resizeToAvoidBottomPadding: true,
         floatingActionButton: isMediumDisplay(context) ? Menu() : null,
         bottomNavigationBar: isLargeDisplay(context) ? Menu() : null,
       ),

@@ -48,7 +48,7 @@ flutter:
   fonts:
     - family: MySiteIcons
       fonts:
-        - asset: fonts/MySiteIcons.ttf
+        - asset: fonts/icons/MySiteIcons.ttf
     - family: IRANSans-Medium
       fonts:
         - asset: fonts/IRANSans-Medium.ttf

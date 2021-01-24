@@ -47,8 +47,8 @@ flutter pub run grinder l10n
 6. Publish the linux release on the Snapcraft.
    *  Create the `snap` with `snapcraft`
    *  `snapcraft login`
-   *  `snapcraft register`
-   *  `snapcraft upload --release=stable aliyazdi75_1.0.0_amd64.snap`
+   *  For the first time: `snapcraft register aliyazdi75`
+   *  `snapcraft upload --release=stable aliyazdi75_*_amd64.snap`
 
 7. Go to [Releases](https://github.com/aliyazdi75/aliyazdi75.github.io/releases) and see
    the latest draft.

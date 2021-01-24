@@ -54,7 +54,8 @@ class MySiteThemeData {
           .copyWith(foregroundColor: colorScheme.primary),
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
       canvasColor: colorScheme.background,
-      cursorColor: colorScheme.primary,
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: colorScheme.primary),
       toggleableActiveColor: colorScheme.primary,
       indicatorColor: colorScheme.onPrimary,
       primaryColor: colorScheme.primary,
