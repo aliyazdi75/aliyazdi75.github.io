@@ -1,5 +1,5 @@
-name: aliyazdi75
-version: 1.0.1
+name: aliyazdi
+version: 1.0.2
 summary: A responsive Flutter portfolio application for any platform
 description: |
   A responsive Flutter portfolio application for any platform.
@@ -10,14 +10,14 @@ base: core18
 grade: stable
 
 apps:
-  aliyazdi75:
+  aliyazdi:
     command: bin/my_site
     extensions: [flutter-master]
     plugs:
       - network
 
 parts:
-  aliyazdi75:
+  aliyazdi:
     source: .
     plugin: flutter
     flutter-target: lib/main.dart

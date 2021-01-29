@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=aliyazdi75
+Name=aliyazdi
 Comment=A responsive Flutter portfolio application for any platform
 Icon=${SNAP}/meta/gui/icon.png
-Exec=aliyazdi75 %U
+Exec=aliyazdi %U
 Terminal=false
 Type=Application
 Categories=Development;
