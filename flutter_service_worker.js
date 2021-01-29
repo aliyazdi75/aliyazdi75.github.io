@@ -3,10 +3,10 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "5905926336c98d60f6f627abf7a498b3",
-"/": "5905926336c98d60f6f627abf7a498b3",
+  "index.html": "a1e850f2bb537c9c4accac576aee06db",
+"/": "a1e850f2bb537c9c4accac576aee06db",
 "manifest.json": "befe9547e6bcc6181122d651d6b75b2e",
-"main.dart.js_3.part.js": "2227fcc41f6b12d6b68724b60fa86f72",
+"main.dart.js_3.part.js": "135e7f44761c92b48e0d9892573a7f5f",
 "assets/assets/images/avatar.jpg": "28a5f4aa6bdb56f65ee6902324a73076",
 "assets/AssetManifest.json": "bc2c6f87e8b5ec939d3fc7f42f01c856",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
@@ -21,7 +21,7 @@ const RESOURCES = {
 "assets/fonts/IRANSans-Medium.ttf": "77506786a80fdbc188d33c16726f6924",
 "assets/fonts/IRANSans-SemiBold.ttf": "904b8ac65b457fe5f22d4dc8fe152fed",
 "assets/fonts/IRANSans-Bold.ttf": "2b1fab0906a9cdb19e7ecfb779e50b78",
-"assets/NOTICES": "707f0598ada0ee649e16acdec032075f",
+"assets/NOTICES": "19adaaeca55effa1eb03fabda5c8b993",
 "assets/packages/flutter_localized_locales/data/kk.json": "836780ef5836e4acf454bb5e4d0fdf20",
 "assets/packages/flutter_localized_locales/data/en_GM.json": "bf74d66b5e8e980eedf36a517daf8a7f",
 "assets/packages/flutter_localized_locales/data/ks_Arab_IN.json": "332dc5172ab3f99f592ab72517f280d3",
@@ -591,11 +591,11 @@ const RESOURCES = {
 "README.md": "d2c399aa42f69575a56a7cf418e4d49b",
 "icons/Icon-192.png": "8f2f10a9c7e4c16811662d81003e1ed0",
 "favicon-32x32.png": "69e00eabcdc89166f489e28f0745af91",
-"main.dart.js": "e0328d146206a5b3d30da984e28e32a2",
-"version.json": "2dca22796439a1d30ca068cbc53ecef1",
+"main.dart.js": "9403b8e2b14ef04dfd8b672c5d0f2545",
+"version.json": "661f328a683510ceb4aca7683a76c663",
 "favicon.ico": "9f909b457131cb3ef264465446eab1a8",
-"main.dart.js_2.part.js": "4dbe7805188b15414cf8fe47bae5b221",
-"main.dart.js_1.part.js": "821bd74694b91f49e8738699a0e44c3d",
+"main.dart.js_2.part.js": "611a508d78890aea1edcfb901e0196db",
+"main.dart.js_1.part.js": "2b260bef907852ad4494c930a231d763",
 "404.html": "d730a91a722af16c228746c77e7975bb"
 };
 
