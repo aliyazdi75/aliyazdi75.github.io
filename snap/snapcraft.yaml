@@ -9,16 +9,9 @@ confinement: strict
 base: core18
 grade: stable
 
-slots:
-  dbus-aliyazdi75:
-    interface: dbus
-    bus: session
-    name: io.github.aliyazdi75
-
 apps:
   aliyazdi75:
     command: bin/my_site
-    slots: [dbus-aliyazdi75]
     extensions: [flutter-master]
     plugs:
       - network
