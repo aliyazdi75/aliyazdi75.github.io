@@ -4,6 +4,8 @@ import 'package:flutter/rendering.dart';
 import 'helper.dart';
 
 class Fab extends StatefulWidget {
+  const Fab({Key? key}) : super(key: key);
+
   @override
   _FabState createState() => _FabState();
 }
@@ -11,10 +13,10 @@ class Fab extends StatefulWidget {
 class _FabState extends State<Fab> with TickerProviderStateMixin {
   final double fabHeight = 56.0;
 
-  AnimationController _animationController;
-  Animation<Color> _buttonColor;
-  Animation<double> _animateIcon;
-  Animation<double> _translateButton;
+  late AnimationController _animationController;
+  Animation<Color?>? _buttonColor;
+  late Animation<double> _animateIcon;
+  late Animation<double> _translateButton;
   bool _isOpened = false;
 
   @override
@@ -34,7 +36,7 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
       parent: _animationController,
       curve: Curves.easeInOutBack,
     ));
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _buttonColor = ColorTween(
         begin: null,
         end: Theme.of(context).primaryColor,
@@ -72,33 +74,28 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
           3.0,
           FloatingActionButton(
             elevation: 0.0,
-            child: Helper.getLocaleIcon(context),
             onPressed: () => setState(() => Helper.onLocalChanged(context)),
+            child: Helper.getLocaleIcon(context),
           ),
         ),
         _fabIcon(
           2.0,
           FloatingActionButton(
             elevation: 0.0,
-            child: Helper.getThemeIcon(context),
             onPressed: () => setState(() => Helper.onThemeChanged(context)),
+            child: Helper.getThemeIcon(context),
           ),
         ),
         _fabIcon(
           1.0,
           FloatingActionButton(
             elevation: 0.0,
-            child: Helper.getDownloadIcon(),
             onPressed: () => Helper.onPressedDownload(),
+            child: Helper.getDownloadIcon(),
           ),
         ),
         FloatingActionButton(
           backgroundColor: _buttonColor?.value,
-          child: AnimatedIcon(
-            color: _isOpened ? Colors.white : null,
-            icon: AnimatedIcons.menu_close,
-            progress: _animateIcon,
-          ),
           onPressed: () {
             if (_isOpened) {
               _animationController.reverse();
@@ -107,6 +104,11 @@ class _FabState extends State<Fab> with TickerProviderStateMixin {
             }
             _isOpened = !_isOpened;
           },
+          child: AnimatedIcon(
+            color: _isOpened ? Colors.white : null,
+            icon: AnimatedIcons.menu_close,
+            progress: _animateIcon,
+          ),
         ),
       ],
     );

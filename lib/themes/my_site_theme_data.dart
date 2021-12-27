@@ -71,10 +71,10 @@ class MySiteThemeData {
         ),
         contentTextStyle: isFarsiLocale(context)
             ? _faTextTheme(themeData.textTheme, colorScheme.onPrimary)
-                .subtitle1
+                .subtitle1!
                 .apply(color: _darkFillColor)
             : _textTheme(themeData.textTheme, colorScheme.onPrimary)
-                .subtitle1
+                .subtitle1!
                 .apply(color: _darkFillColor),
       ),
     );
@@ -188,52 +188,52 @@ class MySiteThemeData {
   static TextTheme _faTextTheme(TextTheme textTheme, Color color) {
     return textTheme
         .copyWith(
-          bodyText1: textTheme.bodyText1.copyWith(
+          bodyText1: textTheme.bodyText1!.copyWith(
             fontWeight: _regular,
             fontSize: 14.0,
             fontFamily: 'IRANSans-Regular',
           ),
-          bodyText2: textTheme.bodyText2.copyWith(
+          bodyText2: textTheme.bodyText2!.copyWith(
             fontWeight: _regular,
             fontSize: 15.0,
             fontFamily: 'IRANSans-Regular',
           ),
-          headline4: textTheme.headline4.copyWith(
+          headline4: textTheme.headline4!.copyWith(
             fontWeight: _bold,
             fontSize: 20.0,
             fontFamily: 'IRANSans-Bold',
           ),
-          headline5: textTheme.headline5.copyWith(
+          headline5: textTheme.headline5!.copyWith(
             fontWeight: _medium,
             fontSize: 16.0,
             fontFamily: 'IRANSans-Medium',
           ),
-          headline6: textTheme.headline6.copyWith(
+          headline6: textTheme.headline6!.copyWith(
             fontWeight: _bold,
             fontSize: 16.0,
             fontFamily: 'IRANSans-Bold',
           ),
-          subtitle1: textTheme.subtitle1.copyWith(
+          subtitle1: textTheme.subtitle1!.copyWith(
             fontWeight: _medium,
             fontSize: 16.0,
             fontFamily: 'IRANSans-Medium',
           ),
-          subtitle2: textTheme.subtitle2.copyWith(
+          subtitle2: textTheme.subtitle2!.copyWith(
             fontWeight: _medium,
             fontSize: 14.0,
             fontFamily: 'IRANSans-Medium',
           ),
-          caption: textTheme.caption.copyWith(
+          caption: textTheme.caption!.copyWith(
             fontWeight: _semiBold,
             fontSize: 16.0,
             fontFamily: 'IRANSans-SemiBold',
           ),
-          overline: textTheme.overline.copyWith(
+          overline: textTheme.overline!.copyWith(
             fontWeight: _medium,
             fontSize: 12.0,
             fontFamily: 'IRANSans-Medium',
           ),
-          button: textTheme.button.copyWith(
+          button: textTheme.button!.copyWith(
             fontWeight: _semiBold,
             fontSize: 14.0,
             fontFamily: 'IRANSans-Medium',

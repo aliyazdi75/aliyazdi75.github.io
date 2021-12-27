@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_site/data/my_site_options.dart';
 
-double _textScaleFactor(BuildContext context) {
-  return MySiteOptions.of(context).textScaleFactor(context);
+double? _textScaleFactor(BuildContext context) {
+  return MySiteOptions.of(context)!.textScaleFactor(context);
 }
 
 // When text is larger, this factor becomes larger, but at half the rate.
@@ -17,7 +17,7 @@ double _textScaleFactor(BuildContext context) {
 // | Huge         |               3.0 |                       2.0 |
 
 double reducedTextScale(BuildContext context) {
-  var textScaleFactor = _textScaleFactor(context);
+  var textScaleFactor = _textScaleFactor(context)!;
   return textScaleFactor >= 1 ? (1 + textScaleFactor) / 2 : 1;
 }
 
@@ -32,6 +32,6 @@ double reducedTextScale(BuildContext context) {
 // | Huge         |               3.0 |                       3.0 |
 
 double cappedTextScale(BuildContext context) {
-  var textScaleFactor = _textScaleFactor(context);
+  var textScaleFactor = _textScaleFactor(context)!;
   return max(textScaleFactor, 1);
 }

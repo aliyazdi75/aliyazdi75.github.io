@@ -10,6 +10,8 @@ import 'fab.dart';
 import 'helper.dart';
 
 class Menu extends StatefulWidget {
+  const Menu({Key? key}) : super(key: key);
+
   @override
   _MenuState createState() => _MenuState();
 }
@@ -23,7 +25,7 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final localizations = MySiteLocalizations.of(context);
+    final localizations = MySiteLocalizations.of(context)!;
 
     final flutterText = localizations.flutterTitle;
     final byTitle = localizations.byTitle(flutterText);
@@ -59,9 +61,14 @@ class _MenuState extends State<Menu> {
                     style: theme.textTheme.subtitle1,
                   ),
                   GestureDetector(
+                    onTap: () async {
+                      if (await canLaunch(flutterWebsite)) {
+                        await launch(flutterWebsite);
+                      }
+                    },
                     child: Text(
                       flutterText,
-                      style: theme.textTheme.subtitle1.copyWith(
+                      style: theme.textTheme.subtitle1!.copyWith(
                         fontWeight: FontWeight.bold,
                         decoration: _onFlutterTitleHover
                             ? TextDecoration.underline
@@ -71,11 +78,6 @@ class _MenuState extends State<Menu> {
                       SystemMouseCursors.click,
                       onHovered: _onFlutterTitleHovered,
                     ),
-                    onTap: () async {
-                      if (await canLaunch(flutterWebsite)) {
-                        await launch(flutterWebsite);
-                      }
-                    },
                   ),
                 ],
               ),
@@ -95,7 +97,7 @@ class _MenuState extends State<Menu> {
           ],
         ),
       ),
-      medium: Fab(),
+      medium: const Fab(),
     );
   }
 }

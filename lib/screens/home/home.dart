@@ -6,6 +6,8 @@ import 'package:my_site/screens/home/components/src/menu/menu.dart';
 import 'components/index.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final shortestSide = MediaQuery.of(context).size.shortestSide;
@@ -15,44 +17,45 @@ class HomePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: SafeArea(
           child: AnimatedPadding(
-            duration: const Duration(milliseconds: 750),
-            padding: isMediumDisplay(context)
-                ? EdgeInsets.fromLTRB(
-                    contentPadding, contentPadding, contentPadding, 0)
-                : const EdgeInsets.all(0),
-            child: AdaptiveSize(
-              large: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Name(),
-                  Container(
-                    height: 200,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          left:
-                              BorderSide(color: Theme.of(context).dividerColor),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Info(),
-                ],
+              duration: const Duration(milliseconds: 750),
+              padding: isMediumDisplay(context)
+                  ? EdgeInsets.fromLTRB(
+                      contentPadding, contentPadding, contentPadding, 0)
+                  : const EdgeInsets.all(0),
+              child: const Name()
+              // child: AdaptiveSize(
+              //         large: Row(
+              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //           children: <Widget>[
+              //             const Name(),
+              //             SizedBox(
+              //               height: 200,
+              //               child: DecoratedBox(
+              //                 decoration: BoxDecoration(
+              //                   border: Border(
+              //                     left: BorderSide(
+              //                         color: Theme.of(context).dividerColor),
+              //                   ),
+              //                 ),
+              //               ),
+              //             ),
+              //             const Info(),
+              //           ],
+              //         ),
+              //         medium: Column(
+              //           children: const <Widget>[
+              //             Name(),
+              //             Info(),
+              //           ],
+              //         ),
+              //         small: Row(
+              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //           children: const <Widget>[
+              //             Avatar(),
+              //           ],
+              //         ),
+              //       ),
               ),
-              medium: Column(
-                children: <Widget>[
-                  Name(),
-                  Info(),
-                ],
-              ),
-              small: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Avatar(),
-                ],
-              ),
-            ),
-          ),
         ),
       ),
     );
@@ -61,8 +64,8 @@ class HomePage extends StatelessWidget {
       material: Scaffold(
         body: adaptiveBody,
         resizeToAvoidBottomInset: true,
-        floatingActionButton: isMediumDisplay(context) ? Menu() : null,
-        bottomNavigationBar: isLargeDisplay(context) ? Menu() : null,
+        floatingActionButton: isMediumDisplay(context) ? const Menu() : null,
+        bottomNavigationBar: isLargeDisplay(context) ? const Menu() : null,
       ),
       cupertino: CupertinoPageScaffold(
         child: adaptiveBody,

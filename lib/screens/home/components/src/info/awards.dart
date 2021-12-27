@@ -9,6 +9,8 @@ const kAwardsLargeHeightFactor = 60e4;
 const kAwardsMediumHeightFactor = 28e4;
 
 class Awards extends StatefulWidget {
+  const Awards({Key? key}) : super(key: key);
+
   @override
   _AwardsState createState() => _AwardsState();
 }
@@ -17,7 +19,7 @@ class _AwardsState extends State<Awards> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final localizations = MySiteLocalizations.of(context);
+    final localizations = MySiteLocalizations.of(context)!;
     final screenWidth = MediaQuery.of(context).size.width;
 
     Widget _alignment(Widget child) {
@@ -83,7 +85,7 @@ class _AwardsState extends State<Awards> {
           text: bestAppDescriptionFirst,
         ),
         TextSpan(
-          style: theme.textTheme.subtitle1.copyWith(
+          style: theme.textTheme.subtitle1!.copyWith(
             color: theme.primaryColor,
           ),
           text: bestAppLink,
@@ -119,7 +121,7 @@ class _AwardsState extends State<Awards> {
           text: mostDownloadDescriptionFirst,
         ),
         TextSpan(
-          style: theme.textTheme.subtitle1.copyWith(
+          style: theme.textTheme.subtitle1!.copyWith(
             color: theme.primaryColor,
           ),
           text: mostDownloadAppLink,

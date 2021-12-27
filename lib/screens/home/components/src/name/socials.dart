@@ -6,18 +6,26 @@ import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class _SocialItem {
-  const _SocialItem({this.icon, this.url});
+  const _SocialItem({required this.icon, required this.url});
 
   final IconData icon;
   final String url;
 }
 
 class Socials extends StatelessWidget {
+  Socials({Key? key}) : super(key: key);
+
   final List<_SocialItem> socialItems = <_SocialItem>[
     const _SocialItem(icon: MySiteIcons.email, url: emailUrl),
     const _SocialItem(icon: MySiteIcons.linkedin, url: linkedinUrl),
     const _SocialItem(icon: MySiteIcons.github, url: githubUrl),
     const _SocialItem(icon: MySiteIcons.twitter, url: twitterUrl),
+    const _SocialItem(icon: MySiteIcons.discord, url: discordUrl),
+    const _SocialItem(icon: MySiteIcons.telegram, url: telegramUrl),
+    const _SocialItem(icon: MySiteIcons.instagram, url: instagramUrl),
+    const _SocialItem(icon: MySiteIcons.blogger, url: bloggerUrl),
+    const _SocialItem(icon: MySiteIcons.youtube, url: youtubeUrl),
+    const _SocialItem(icon: MySiteIcons.twitch, url: twitchUrl),
   ];
 
   @override
@@ -32,8 +40,8 @@ class Socials extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(socialItems.length, (index) {
             return OutlinedButton(
-              child: Icon(socialItems[index].icon),
               onPressed: () async => _onPressed(socialItems[index].url),
+              child: Icon(socialItems[index].icon),
             );
           }),
         ),

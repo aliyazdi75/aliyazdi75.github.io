@@ -7,6 +7,8 @@ import 'avatar.dart';
 import 'socials.dart';
 
 class Name extends StatelessWidget {
+  const Name({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme.caption;
@@ -15,13 +17,13 @@ class Name extends StatelessWidget {
     final name = Column(
       children: <Widget>[
         Text(
-          MySiteLocalizations.of(context).myName,
+          MySiteLocalizations.of(context)!.myName,
           style: textTheme,
           textAlign: TextAlign.center,
           textScaleFactor: 1.5,
         ),
         Text(
-          MySiteLocalizations.of(context).myTitle,
+          MySiteLocalizations.of(context)!.myTitle,
           style: textTheme,
           textAlign: TextAlign.center,
           textScaleFactor: 1.5,
@@ -32,7 +34,7 @@ class Name extends StatelessWidget {
       large: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Avatar(),
+          const Avatar(),
           const SizedBox(height: 15.0),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: screenWidth / 3),
@@ -51,7 +53,7 @@ class Name extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Socials(),
-                Avatar(),
+                const Avatar(),
                 const SizedBox(width: 50.0),
               ],
             ),

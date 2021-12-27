@@ -7,6 +7,8 @@ import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Experience extends StatefulWidget {
+  const Experience({Key? key}) : super(key: key);
+
   @override
   _ExperienceState createState() => _ExperienceState();
 }
@@ -20,22 +22,22 @@ class _ExperienceState extends State<Experience> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final localizations = MySiteLocalizations.of(context);
+    final localizations = MySiteLocalizations.of(context)!;
 
-    Widget _duty(String description) {
-      return ListTile(
-        contentPadding: const EdgeInsets.all(0.0),
-        leading: const Icon(
-          Icons.lens,
-          size: 20.0,
-        ),
-        title: Text(
-          description,
-          style: theme.textTheme.bodyText1,
-          textScaleFactor: 1.5,
-        ),
-      );
-    }
+    // Widget _duty(String description) {
+    //   return ListTile(
+    //     contentPadding: const EdgeInsets.all(0.0),
+    //     leading: const Icon(
+    //       Icons.lens,
+    //       size: 20.0,
+    //     ),
+    //     title: Text(
+    //       description,
+    //       style: theme.textTheme.bodyText1,
+    //       textScaleFactor: 1.5,
+    //     ),
+    //   );
+    // }
 
     return Column(
       mainAxisAlignment: isMediumDisplay(context)
@@ -67,10 +69,15 @@ class _ExperienceState extends State<Experience> {
                       crossAxisAlignment: WrapCrossAlignment.end,
                       children: [
                         GestureDetector(
+                          onTap: () async {
+                            if (await canLaunch(tarafdariWebsite)) {
+                              await launch(tarafdariWebsite);
+                            }
+                          },
                           child: Text(
                             localizations.mateMachineTitle,
                             textScaleFactor: 2.0,
-                            style: theme.textTheme.caption.copyWith(
+                            style: theme.textTheme.caption!.copyWith(
                               color: theme.primaryColor,
                               decoration: _onTarafdariTitleHover
                                   ? TextDecoration.underline
@@ -80,11 +87,6 @@ class _ExperienceState extends State<Experience> {
                             SystemMouseCursors.click,
                             onHovered: _onTarafdariTitleHovered,
                           ),
-                          onTap: () async {
-                            if (await canLaunch(tarafdariWebsite)) {
-                              await launch(tarafdariWebsite);
-                            }
-                          },
                         ),
                         const SizedBox(width: 5.0),
                         Padding(
@@ -151,10 +153,15 @@ class _ExperienceState extends State<Experience> {
                       crossAxisAlignment: WrapCrossAlignment.end,
                       children: [
                         GestureDetector(
+                          onTap: () async {
+                            if (await canLaunch(tarafdariWebsite)) {
+                              await launch(tarafdariWebsite);
+                            }
+                          },
                           child: Text(
                             localizations.tarafdariTitle,
                             textScaleFactor: 2.0,
-                            style: theme.textTheme.caption.copyWith(
+                            style: theme.textTheme.caption!.copyWith(
                               color: theme.primaryColor,
                               decoration: _onTarafdariTitleHover
                                   ? TextDecoration.underline
@@ -164,11 +171,6 @@ class _ExperienceState extends State<Experience> {
                             SystemMouseCursors.click,
                             onHovered: _onTarafdariTitleHovered,
                           ),
-                          onTap: () async {
-                            if (await canLaunch(tarafdariWebsite)) {
-                              await launch(tarafdariWebsite);
-                            }
-                          },
                         ),
                         const SizedBox(width: 5.0),
                         Padding(
@@ -213,10 +215,6 @@ class _ExperienceState extends State<Experience> {
         const SizedBox(height: 10.0),
         ElevatedButton(
           style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
-          child: Text(
-            localizations.applicationPage,
-            style: const TextStyle(color: Colors.white),
-          ),
           onPressed: () async {
             if (await canLaunch(applicationUrl)) {
               await launch(
@@ -225,6 +223,10 @@ class _ExperienceState extends State<Experience> {
               );
             }
           },
+          child: Text(
+            localizations.applicationPage,
+            style: const TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );

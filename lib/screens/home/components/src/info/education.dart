@@ -7,6 +7,8 @@ import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Education extends StatefulWidget {
+  const Education({Key? key}) : super(key: key);
+
   @override
   _EducationState createState() => _EducationState();
 }
@@ -23,9 +25,9 @@ class _EducationState extends State<Education> {
 
   @override
   Widget build(BuildContext context) {
-    final itemPadding = 20.0;
+    const itemPadding = 20.0;
     final theme = Theme.of(context);
-    final localizations = MySiteLocalizations.of(context);
+    final localizations = MySiteLocalizations.of(context)!;
 
     return Column(
       mainAxisAlignment: isMediumDisplay(context)
@@ -44,15 +46,20 @@ class _EducationState extends State<Education> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(itemPadding),
+                padding: const EdgeInsets.all(itemPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     GestureDetector(
+                      onTap: () async {
+                        if (await canLaunch(amirkabirWebsite)) {
+                          await launch(amirkabirWebsite);
+                        }
+                      },
                       child: Text(
                         localizations.amirkabirTitle,
                         textScaleFactor: 2.0,
-                        style: theme.textTheme.caption.copyWith(
+                        style: theme.textTheme.caption!.copyWith(
                           color: theme.primaryColor,
                           decoration: _onAmirkabirTitleHover
                               ? TextDecoration.underline
@@ -62,11 +69,6 @@ class _EducationState extends State<Education> {
                         SystemMouseCursors.click,
                         onHovered: _onAmirkabirTitleHovered,
                       ),
-                      onTap: () async {
-                        if (await canLaunch(amirkabirWebsite)) {
-                          await launch(amirkabirWebsite);
-                        }
-                      },
                     ),
                     Text.rich(
                       TextSpan(
@@ -113,15 +115,20 @@ class _EducationState extends State<Education> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(itemPadding),
+                padding: const EdgeInsets.all(itemPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     GestureDetector(
+                      onTap: () async {
+                        if (await canLaunch(schoolWebsite)) {
+                          await launch(schoolWebsite);
+                        }
+                      },
                       child: Text(
                         localizations.schoolTitle,
                         textScaleFactor: 2.0,
-                        style: theme.textTheme.caption.copyWith(
+                        style: theme.textTheme.caption!.copyWith(
                           color: theme.primaryColor,
                           decoration: _onSchoolTitleHover
                               ? TextDecoration.underline
@@ -131,11 +138,6 @@ class _EducationState extends State<Education> {
                         SystemMouseCursors.click,
                         onHovered: _onSchoolTitleHovered,
                       ),
-                      onTap: () async {
-                        if (await canLaunch(schoolWebsite)) {
-                          await launch(schoolWebsite);
-                        }
-                      },
                     ),
                     Text(
                       localizations.schoolCity,

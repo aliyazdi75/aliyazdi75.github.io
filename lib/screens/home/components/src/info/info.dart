@@ -16,15 +16,17 @@ const kInfoMediumScreenHeightFactor = 39e4;
 const kPageAnimationDuration = Duration(milliseconds: 200);
 
 class _InfoItem {
-  _InfoItem({this.icon, this.info});
+  _InfoItem({required this.icon, required this.info});
 
   final IconData icon;
   final Widget info;
 
-  String title;
+  String? title;
 }
 
 class Info extends StatefulWidget {
+  const Info({Key? key}) : super(key: key);
+
   @override
   _InfoState createState() => _InfoState();
 }
@@ -32,13 +34,13 @@ class Info extends StatefulWidget {
 class _InfoState extends State<Info> {
   final materialFont = 'MaterialIcons';
   final List<_InfoItem> infoItems = <_InfoItem>[
-    _InfoItem(icon: Icons.description, info: About()),
-    _InfoItem(icon: Icons.work, info: Experience()),
-    _InfoItem(icon: Icons.school, info: Education()),
-    _InfoItem(icon: Icons.emoji_events, info: Awards()),
+    _InfoItem(icon: Icons.description, info: const About()),
+    _InfoItem(icon: Icons.work, info: const Experience()),
+    _InfoItem(icon: Icons.school, info: const Education()),
+    _InfoItem(icon: Icons.emoji_events, info: const Awards()),
   ];
 
-  PageController _pageController;
+  late PageController _pageController;
   double _discreteSliderValue = 0;
 
   @override
@@ -57,7 +59,7 @@ class _InfoState extends State<Info> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final theme = Theme.of(context);
-    final localizations = MySiteLocalizations.of(context);
+    final localizations = MySiteLocalizations.of(context)!;
 
     infoItems[0].title = localizations.aboutTitle;
     infoItems[1].title = localizations.experienceTitle;
@@ -100,7 +102,7 @@ class _InfoState extends State<Info> {
                       const RoundSliderTickMarkShape(tickMarkRadius: 3.5),
                   thumbShape: CustomThumbShape(),
                   valueIndicatorShape: CustomValueIndicatorShape(),
-                  valueIndicatorTextStyle: theme.textTheme.headline6.copyWith(
+                  valueIndicatorTextStyle: theme.textTheme.headline6!.copyWith(
                     fontSize: 30.0,
                     color: theme.primaryColor,
                     fontFamily: materialFont,

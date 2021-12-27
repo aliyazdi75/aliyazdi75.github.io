@@ -1,9 +1,15 @@
-const emailUrl = 'mailto:ma.yazdi75@gmail.com';
-const phone = 'tel:+989120371375';
-const linkedinUrl = 'https://linkedin.com/in/aliyazdi75';
-const githubUrl = 'https://github.com/aliyazdi75';
-const twitterUrl = 'https://twitter.com/aliyazdi75';
-const cvUrl = 'https://github.com/aliyazdi75/Resume/raw/main/AYazdiCV.pdf';
+const webAddress = 'yazdi.dev';
+const emailUrl = 'mailto:contact@yazdi.dev';
+const linkedinUrl = 'https://linkedin.$webAddress';
+const githubUrl = 'https://git.$webAddress';
+const twitterUrl = 'https://twitter.$webAddress';
+const discordUrl = 'https://discord.$webAddress';
+const telegramUrl = 'https://telegram.$webAddress';
+const instagramUrl = 'https://instagram.$webAddress';
+const bloggerUrl = 'https://blog.$webAddress';
+const youtubeUrl = 'https://youtube.$webAddress';
+const twitchUrl = 'https://twitch.$webAddress';
+const cvUrl = 'https://cv.$webAddress';
 
 const downloadPage =
     'https://github.com/aliyazdi75/aliyazdi75.github.io/releases';

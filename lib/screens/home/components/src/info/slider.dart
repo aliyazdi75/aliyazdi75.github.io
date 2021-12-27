@@ -40,16 +40,16 @@ class CustomThumbShape extends SliderComponentShape {
   void paint(
     PaintingContext context,
     Offset center, {
-    Animation<double> activationAnimation,
-    Animation<double> enableAnimation,
-    bool isDiscrete,
-    TextPainter labelPainter,
-    RenderBox parentBox,
-    SliderThemeData sliderTheme,
-    TextDirection textDirection,
-    double value,
-    double textScaleFactor,
-    Size sizeWithOverflow,
+    Animation<double>? activationAnimation,
+    required Animation<double> enableAnimation,
+    bool? isDiscrete,
+    TextPainter? labelPainter,
+    RenderBox? parentBox,
+    required SliderThemeData sliderTheme,
+    TextDirection? textDirection,
+    double? value,
+    double? textScaleFactor,
+    Size? sizeWithOverflow,
   }) {
     final canvas = context.canvas;
     final colorTween = ColorTween(
@@ -59,7 +59,7 @@ class CustomThumbShape extends SliderComponentShape {
     final size = _thumbSize * sizeTween.evaluate(enableAnimation);
     final thumbPath = _downTriangle(size, center);
     canvas.drawPath(
-        thumbPath, Paint()..color = colorTween.evaluate(enableAnimation));
+        thumbPath, Paint()..color = colorTween.evaluate(enableAnimation)!);
   }
 }
 
@@ -82,16 +82,16 @@ class CustomValueIndicatorShape extends SliderComponentShape {
   void paint(
     PaintingContext context,
     Offset center, {
-    Animation<double> activationAnimation,
-    Animation<double> enableAnimation,
-    bool isDiscrete,
-    TextPainter labelPainter,
-    RenderBox parentBox,
-    SliderThemeData sliderTheme,
-    TextDirection textDirection,
-    double value,
-    double textScaleFactor,
-    Size sizeWithOverflow,
+    required Animation<double> activationAnimation,
+    required Animation<double> enableAnimation,
+    bool? isDiscrete,
+    required TextPainter labelPainter,
+    RenderBox? parentBox,
+    required SliderThemeData sliderTheme,
+    TextDirection? textDirection,
+    double? value,
+    double? textScaleFactor,
+    Size? sizeWithOverflow,
   }) {
     final canvas = context.canvas;
     final enableColor = ColorTween(
@@ -107,7 +107,7 @@ class CustomValueIndicatorShape extends SliderComponentShape {
         Offset(0.0, -slideUpTween.evaluate(activationAnimation));
     final thumbPath = _upTriangle(size, center + slideUpOffset);
     final paintColor = enableColor
-        .evaluate(enableAnimation)
+        .evaluate(enableAnimation)!
         .withAlpha((255.0 * activationAnimation.value).round());
 
     canvas.drawPath(

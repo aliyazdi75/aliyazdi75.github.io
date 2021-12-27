@@ -1,3 +1,4 @@
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 import 'package:my_site/core/constants/index.dart';
@@ -7,10 +8,10 @@ import 'cursor_type.dart';
 
 class WebHover implements CursorHover {
   WebHover() {
-    appContainer = html.window.document.getElementById(mySiteWebBodyId);
+    appContainer = html.window.document.getElementById(mySiteWebBodyId)!;
   }
 
-  html.Element appContainer;
+  late html.Element appContainer;
 
   @override
   void onHover(String cursorType) => appContainer.style.cursor = cursorType;

@@ -24,13 +24,13 @@ void main() {
 
 class MySite extends StatelessWidget {
   const MySite({
-    Key key,
+    Key? key,
     this.initialRoute,
     this.isTestMode = false,
   }) : super(key: key);
 
   final bool isTestMode;
-  final String initialRoute;
+  final String? initialRoute;
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +49,18 @@ class MySite extends StatelessWidget {
             material: MaterialApp(
               title: mySiteTitle,
               onGenerateTitle: (context) =>
-                  MySiteLocalizations.of(context).mySiteTitle,
+                  MySiteLocalizations.of(context)!.mySiteTitle,
               debugShowCheckedModeBanner: false,
-              themeMode: MySiteOptions.of(context).themeMode,
+              themeMode: MySiteOptions.of(context)!.themeMode,
               theme: MySiteThemeData.lightThemeData(context)
-                  .copyWith(platform: MySiteOptions.of(context).platform),
+                  .copyWith(platform: MySiteOptions.of(context)!.platform),
               darkTheme: MySiteThemeData.darkThemeData(context)
-                  .copyWith(platform: MySiteOptions.of(context).platform),
+                  .copyWith(platform: MySiteOptions.of(context)!.platform),
               localizationsDelegates:
                   MySiteLocalizations.localizationsDelegates,
               initialRoute: initialRoute,
               supportedLocales: MySiteLocalizations.supportedLocales,
-              locale: MySiteOptions.of(context).locale,
+              locale: MySiteOptions.of(context)!.locale,
               localeResolutionCallback: (locale, supportedLocales) {
                 deviceLocale = locale;
                 return locale;
@@ -70,15 +70,15 @@ class MySite extends StatelessWidget {
             cupertino: CupertinoApp(
               title: mySiteTitle,
               onGenerateTitle: (context) =>
-                  MySiteLocalizations.of(context).mySiteTitle,
+                  MySiteLocalizations.of(context)!.mySiteTitle,
               debugShowCheckedModeBanner: false,
               theme: MaterialBasedCupertinoThemeData(
-                materialTheme: MySiteOptions.of(context).themeData(context),
+                materialTheme: MySiteOptions.of(context)!.themeData(context),
               ),
               localizationsDelegates:
                   MySiteLocalizations.localizationsDelegates,
               supportedLocales: MySiteLocalizations.supportedLocales,
-              locale: MySiteOptions.of(context).locale,
+              locale: MySiteOptions.of(context)!.locale,
               localeResolutionCallback: (locale, supportedLocales) {
                 deviceLocale = locale;
                 return locale;
@@ -93,16 +93,14 @@ class MySite extends StatelessWidget {
 }
 
 class RootPage extends StatelessWidget {
-  const RootPage({
-    Key key,
-  }) : super(key: key);
+  const RootPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ApplyTextOptions(
       child: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: MySiteOptions.of(context).resolvedSystemUiOverlayStyle(context),
-        child: HomePage(),
+        value: MySiteOptions.of(context)!.resolvedSystemUiOverlayStyle(context),
+        child: const HomePage(),
       ),
     );
   }

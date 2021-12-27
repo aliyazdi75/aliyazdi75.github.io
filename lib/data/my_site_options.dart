@@ -6,34 +6,34 @@ import 'package:my_site/themes/my_site_theme_data.dart';
 
 const systemLocaleOption = Locale('system');
 
-Locale _deviceLocale;
+Locale? _deviceLocale;
 
-Locale get deviceLocale => _deviceLocale;
+Locale? get deviceLocale => _deviceLocale;
 
-set deviceLocale(Locale locale) {
+set deviceLocale(Locale? locale) {
   _deviceLocale ??= locale;
 }
 
 class MySiteOptions {
   const MySiteOptions({
     this.themeMode,
-    double textScaleFactor,
-    Locale locale,
+    double? textScaleFactor,
+    Locale? locale,
     this.platform,
     this.isTestMode,
   })  : _textScaleFactor = textScaleFactor,
         _locale = locale;
 
-  final ThemeMode themeMode;
-  final double _textScaleFactor;
-  final Locale _locale;
-  final TargetPlatform platform;
-  final bool isTestMode; // True for integration tests.
+  final ThemeMode? themeMode;
+  final double? _textScaleFactor;
+  final Locale? _locale;
+  final TargetPlatform? platform;
+  final bool? isTestMode; // True for integration tests.
 
   // We use a sentinel value to indicate the system text scale option. By
   // default, return the actual text scale factor, otherwise return the
   // sentinel value.
-  double textScaleFactor(BuildContext context, {bool useSentinel = false}) {
+  double? textScaleFactor(BuildContext context, {bool useSentinel = false}) {
     if (_textScaleFactor == systemTextScaleFactorOption) {
       return useSentinel
           ? systemTextScaleFactorOption
@@ -43,7 +43,7 @@ class MySiteOptions {
     }
   }
 
-  Locale get locale => _locale ?? deviceLocale;
+  Locale? get locale => _locale ?? deviceLocale;
 
   /// Returns a [SystemUiOverlayStyle] based on the [ThemeMode] setting.
   /// In other words, if the theme is dark, returns light; if the theme is
@@ -58,7 +58,7 @@ class MySiteOptions {
         brightness = Brightness.dark;
         break;
       default:
-        brightness = WidgetsBinding.instance.window.platformBrightness;
+        brightness = WidgetsBinding.instance!.window.platformBrightness;
     }
 
     final scaffoldBackgroundColor = Theme.of(context).scaffoldBackgroundColor;
@@ -75,24 +75,24 @@ class MySiteOptions {
     if (themeMode == ThemeMode.system) {
       return MediaQuery.platformBrightnessOf(context) == Brightness.light
           ? MySiteThemeData.lightThemeData(context)
-              .copyWith(platform: MySiteOptions.of(context).platform)
+              .copyWith(platform: MySiteOptions.of(context)!.platform)
           : MySiteThemeData.darkThemeData(context)
-              .copyWith(platform: MySiteOptions.of(context).platform);
+              .copyWith(platform: MySiteOptions.of(context)!.platform);
     } else {
       return themeMode == ThemeMode.light
           ? MySiteThemeData.lightThemeData(context)
-              .copyWith(platform: MySiteOptions.of(context).platform)
+              .copyWith(platform: MySiteOptions.of(context)!.platform)
           : MySiteThemeData.darkThemeData(context)
-              .copyWith(platform: MySiteOptions.of(context).platform);
+              .copyWith(platform: MySiteOptions.of(context)!.platform);
     }
   }
 
   MySiteOptions copyWith({
-    ThemeMode themeMode,
-    double textScaleFactor,
-    Locale locale,
-    TargetPlatform platform,
-    bool isTestMode,
+    ThemeMode? themeMode,
+    double? textScaleFactor,
+    Locale? locale,
+    TargetPlatform? platform,
+    bool? isTestMode,
   }) {
     return MySiteOptions(
       themeMode: themeMode ?? this.themeMode,
@@ -121,28 +121,28 @@ class MySiteOptions {
         isTestMode,
       );
 
-  static MySiteOptions of(BuildContext context) {
+  static MySiteOptions? of(BuildContext context) {
     final scope =
-        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
+        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>()!;
     return scope.modelBindingState.currentModel;
   }
 
   static void update(BuildContext context, MySiteOptions newModel) {
     final scope =
-        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
+        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>()!;
     scope.modelBindingState.updateModel(newModel);
   }
 }
 
 // Applies text GalleryOptions to a widget
 class ApplyTextOptions extends StatelessWidget {
-  const ApplyTextOptions({@required this.child});
+  const ApplyTextOptions({Key? key, required this.child}) : super(key: key);
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final options = MySiteOptions.of(context);
+    final options = MySiteOptions.of(context)!;
     final textScaleFactor = options.textScaleFactor(context);
 
     return MediaQuery(
@@ -155,12 +155,11 @@ class ApplyTextOptions extends StatelessWidget {
 }
 
 class _ModelBindingScope extends InheritedWidget {
-  _ModelBindingScope({
-    Key key,
-    @required this.modelBindingState,
-    Widget child,
-  })  : assert(modelBindingState != null),
-        super(key: key, child: child);
+  const _ModelBindingScope({
+    Key? key,
+    required this.modelBindingState,
+    required Widget child,
+  }) : super(key: key, child: child);
 
   final _ModelBindingState modelBindingState;
 
@@ -169,12 +168,11 @@ class _ModelBindingScope extends InheritedWidget {
 }
 
 class ModelBinding extends StatefulWidget {
-  ModelBinding({
-    Key key,
+  const ModelBinding({
+    Key? key,
     this.initialModel = const MySiteOptions(),
-    this.child,
-  })  : assert(initialModel != null),
-        super(key: key);
+    required this.child,
+  }) : super(key: key);
 
   final MySiteOptions initialModel;
   final Widget child;
@@ -184,7 +182,7 @@ class ModelBinding extends StatefulWidget {
 }
 
 class _ModelBindingState extends State<ModelBinding> {
-  MySiteOptions currentModel;
+  late MySiteOptions currentModel;
 
   @override
   void initState() {

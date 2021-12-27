@@ -86,13 +86,13 @@ bool isSmallDisplay(BuildContext context) {
 }
 
 bool isFarsiLocale(BuildContext context) {
-  return MySiteOptions.of(context).locale?.languageCode == 'fa' ?? false;
+  return (MySiteOptions.of(context)!.locale?.languageCode ?? false) == 'fa';
 }
 
 class AdaptiveSize extends StatelessWidget {
   const AdaptiveSize({
-    Key key,
-    @required this.large,
+    Key? key,
+    required this.large,
     this.medium,
     this.small,
   })  : assert(medium != null || small != null,
@@ -100,22 +100,26 @@ class AdaptiveSize extends StatelessWidget {
         super(key: key);
 
   final Widget large;
-  final Widget medium;
-  final Widget small;
+  final Widget? medium;
+  final Widget? small;
 
   @override
   Widget build(BuildContext context) {
     final isMedium = isMediumDisplay(context);
     final isSmall = isSmallDisplay(context);
-    return isSmall ? small ?? large : isMedium ? medium ?? large : large;
+    return isSmall
+        ? small ?? large
+        : isMedium
+            ? medium ?? large
+            : large;
   }
 }
 
 class AdaptiveDesign extends StatelessWidget {
   const AdaptiveDesign({
-    Key key,
-    @required this.material,
-    @required this.cupertino,
+    Key? key,
+    required this.material,
+    required this.cupertino,
   }) : super(key: key);
 
   final Widget material;

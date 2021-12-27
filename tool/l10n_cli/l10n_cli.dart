@@ -52,9 +52,9 @@ Future<void> englishArbsToXmls({bool isDryRun = false}) async {
 
 @visibleForTesting
 Future<void> generateXmlFromArb({
-  File inputArb,
-  IOSink outputXml,
-  String xmlHeader,
+  required File inputArb,
+  IOSink? outputXml,
+  required String xmlHeader,
 }) async {
   final bundle =
       jsonDecode(await inputArb.readAsString()) as Map<String, dynamic>;
@@ -77,9 +77,9 @@ Future<void> generateXmlFromArb({
 
     final resourceId = key.substring(1);
     final name = _escapeXml(resourceId);
-    final metaInfo = bundle[key] as Map<String, dynamic>;
+    final metaInfo = bundle[key] as Map<String, dynamic>?;
     assert(metaInfo != null && metaInfo['description'] != null);
-    var description = _escapeXml(metaInfo['description'] as String);
+    var description = _escapeXml(metaInfo!['description'] as String);
 
     if (metaInfo.containsKey('plural')) {
       // Generate a plurals resource element formatted like this:
@@ -146,5 +146,5 @@ Future<void> generateXmlFromArb({
     }
   }
   xml.writeln('</resources>');
-  outputXml.write(xml.toString());
+  outputXml!.write(xml.toString());
 }

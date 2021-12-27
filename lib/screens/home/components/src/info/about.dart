@@ -6,6 +6,8 @@ import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
+  const About({Key? key}) : super(key: key);
+
   @override
   _AboutState createState() => _AboutState();
 }
@@ -14,7 +16,7 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final localizations = MySiteLocalizations.of(context);
+    final localizations = MySiteLocalizations.of(context)!;
 
     return Column(
       mainAxisAlignment: isMediumDisplay(context)
@@ -25,14 +27,14 @@ class _AboutState extends State<About> {
         Text(
           localizations.welcomeTitle,
           textScaleFactor: 4.0,
-          style: theme.textTheme.caption.copyWith(color: theme.primaryColor),
+          style: theme.textTheme.caption!.copyWith(color: theme.primaryColor),
         ),
         Divider(color: theme.primaryColor),
         Text(
           localizations.aboutMe,
           textScaleFactor: 1.5,
           textAlign: TextAlign.justify,
-          style: theme.textTheme.bodyText2.copyWith(),
+          style: theme.textTheme.bodyText2!.copyWith(),
         ),
         // Text.rich(
         //   TextSpan(
@@ -64,10 +66,6 @@ class _AboutState extends State<About> {
         const SizedBox(height: 20.0),
         ElevatedButton(
           style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
-          child: Text(
-            localizations.resume,
-            style: const TextStyle(color: Colors.white),
-          ),
           onPressed: () async {
             if (await canLaunch(cvUrl)) {
               await launch(
@@ -76,6 +74,10 @@ class _AboutState extends State<About> {
               );
             }
           },
+          child: Text(
+            localizations.resume,
+            style: const TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );
