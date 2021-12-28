@@ -33,10 +33,11 @@ flutter pub run grinder l10n
 	* `git tag v1.0.0`
 	* `git push --tags`
 
-3. Publish the web release (using the [peanut package](https://pub.dev/packages/peanut)).
+3. Publish the web release (using the [peanut package](https://pub.dev/packages/peanut))
+   (Note: if you have a custom domain, first copy the `CNAME` file into web folder).
     * `flutter pub global activate peanut`
     * `flutter pub global run peanut:peanut`
-   *  `git push origin gh-pages:gh-pages`
+    *  `git push origin gh-pages:gh-pages`
 
 4. Write some release notes about what changes have been done since the
    last release.

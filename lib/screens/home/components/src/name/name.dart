@@ -36,7 +36,7 @@ class Name extends StatelessWidget {
         const SizedBox(height: 15.0),
         name,
         const SizedBox(height: 15.0),
-        Socials(),
+        const Socials(),
         const SizedBox(height: 15.0),
         Text(
           MySiteLocalizations.of(context)!.support,
@@ -45,7 +45,7 @@ class Name extends StatelessWidget {
           textScaleFactor: 1.5,
         ),
         const SizedBox(height: 15.0),
-        Donates(),
+        const Donates(),
       ],
     );
     // return AdaptiveSize(
