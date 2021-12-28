@@ -10,33 +10,60 @@ class _DonateItem {
   const _DonateItem({
     this.shouldCopy = false,
     required this.icon,
+    required this.name,
     required this.url,
   });
 
   final bool shouldCopy;
   final IconData icon;
+  final String name;
   final String url;
 }
 
 class Donates extends StatelessWidget {
-  Donates({Key? key}) : super(key: key);
+  const Donates({Key? key}) : super(key: key);
 
-  final List<_DonateItem> donateItems = <_DonateItem>[
-    const _DonateItem(icon: MySiteIcons.money, url: idpayUrl),
-    const _DonateItem(icon: MySiteIcons.paypal, url: paypalUrl),
-    const _DonateItem(icon: MySiteIcons.binance, url: binanceUrl),
-    const _DonateItem(
-        shouldCopy: true, icon: MySiteIcons.bitcoin, url: bitcoinAddress),
-    const _DonateItem(
-        shouldCopy: true, icon: MySiteIcons.tether, url: tetherAddress),
-    const _DonateItem(
-        shouldCopy: true, icon: MySiteIcons.ethereum, url: ethereumAddress),
-  ];
+  List<_DonateItem> donateItems(BuildContext context) => <_DonateItem>[
+        _DonateItem(
+          name: MySiteLocalizations.of(context)!.idPay,
+          icon: MySiteIcons.money,
+          url: idpayUrl,
+        ),
+        _DonateItem(
+          name: MySiteLocalizations.of(context)!.paypal,
+          icon: MySiteIcons.paypal,
+          url: paypalUrl,
+        ),
+        _DonateItem(
+          name: MySiteLocalizations.of(context)!.binance,
+          icon: MySiteIcons.binance,
+          url: binanceUrl,
+        ),
+        _DonateItem(
+          name: MySiteLocalizations.of(context)!.bitcoin,
+          shouldCopy: true,
+          icon: MySiteIcons.bitcoin,
+          url: bitcoinAddress,
+        ),
+        _DonateItem(
+          name: MySiteLocalizations.of(context)!.tether,
+          shouldCopy: true,
+          icon: MySiteIcons.tether,
+          url: tetherAddress,
+        ),
+        _DonateItem(
+          name: MySiteLocalizations.of(context)!.ethereum,
+          shouldCopy: true,
+          icon: MySiteIcons.ethereum,
+          url: ethereumAddress,
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
     // final screenWidth = MediaQuery.of(context).size.width;
     // final theme = Theme.of(context);
+    final items = donateItems(context);
 
     return Container(
       padding: const EdgeInsets.all(10.0),
@@ -51,11 +78,18 @@ class Donates extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: 5.0,
         runSpacing: 5.0,
-        children: List.generate(donateItems.length, (index) {
-          return OutlinedButton(
-            onPressed: () async => _onPressed(
-                context, donateItems[index].shouldCopy, donateItems[index].url),
-            child: Icon(donateItems[index].icon),
+        children: List.generate(items.length, (index) {
+          return Tooltip(
+            message: items[index].name,
+            child: OutlinedButton(
+              onPressed: () async => _onPressed(
+                context,
+                items[index].shouldCopy,
+                items[index].name,
+                items[index].url,
+              ),
+              child: Icon(items[index].icon),
+            ),
           );
         }),
       ),
@@ -63,7 +97,11 @@ class Donates extends StatelessWidget {
   }
 
   Future<void> _onPressed(
-      BuildContext context, bool shouldCopy, String url) async {
+    BuildContext context,
+    bool shouldCopy,
+    String name,
+    String url,
+  ) async {
     if (!shouldCopy && await canLaunch(url)) {
       await launch(url);
     } else if (shouldCopy) {
@@ -73,7 +111,8 @@ class Donates extends StatelessWidget {
         ..showSnackBar(
           SnackBar(
             duration: const Duration(seconds: 1),
-            content: Text(MySiteLocalizations.of(context)!.addressCopied),
+            content: Text(
+                name + ' ' + MySiteLocalizations.of(context)!.addressCopied),
           ),
         );
     }

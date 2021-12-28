@@ -50,5 +50,22 @@
   "mostDownloadAppDescription": "بیشترین دانلود برنامه ورزشی در ایران، ما توانستیم به بیش از ۲۰۰ هزار نصب فعال در {value} برسیم",
   "mostDownloadAppLink": "فروشگاه گوگل پلی",
   "addressCopied": "!آدرس کپی شد",
-  "support": "مرسی از حمایتتان"
+  "support": "مرسی از حمایتتان",
+  "email": "ایمیل",
+  "linkedin": "لینکدین",
+  "github": "گیتهاب",
+  "twitter": "تویتر",
+  "youtube": "یوتیوب",
+  "twitch": "تویتچ",
+  "telegram": "تلگرام",
+  "instagram": "اینستاگرام",
+  "blogger": "بلاگر",
+  "paypal": "پی پل",
+  "idPay": "آی دی پی",
+  "bitcoin": "بیتکوین",
+  "discord": "دیسکورد",
+  "medium": "مدیوم",
+  "binance": "دعوت بایننس",
+  "tether": "تتر",
+  "ethereum": "اتریوم"
 }

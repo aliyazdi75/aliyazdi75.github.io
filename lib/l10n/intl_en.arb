@@ -218,5 +218,73 @@
   "support": "Thanks for your Support",
   "@support": {
     "description": "support."
+  },
+  "email": "Email",
+  "@email": {
+    "description": "email."
+  },
+  "linkedin": "Linkedin",
+  "@linkedin": {
+    "description": "linkedin."
+  },
+  "github": "Github",
+  "@github": {
+    "description": "github."
+  },
+  "twitter": "Twitter",
+  "@twitter": {
+    "description": "twitter."
+  },
+  "youtube": "Youtube",
+  "@youtube": {
+    "description": "youtube."
+  },
+  "twitch": "Twitch",
+  "@twitch": {
+    "description": "twitch."
+  },
+  "telegram": "Telegram",
+  "@telegram": {
+    "description": "telegram."
+  },
+  "instagram": "Instagram",
+  "@instagram": {
+    "description": "instagram."
+  },
+  "blogger": "Blogger",
+  "@blogger": {
+    "description": "blogger."
+  },
+  "paypal": "Paypal",
+  "@paypal": {
+    "description": "paypal."
+  },
+  "idPay": "IdPay",
+  "@idPay": {
+    "description": "idPay."
+  },
+  "bitcoin": "Bitcoin",
+  "@bitcoin": {
+    "description": "bitcoin."
+  },
+  "discord": "Discord",
+  "@discord": {
+    "description": "discord."
+  },
+  "medium": "Medium",
+  "@medium": {
+    "description": "medium."
+  },
+  "binance": "Binance Referral",
+  "@binance": {
+    "description": "binance."
+  },
+  "tether": "Tether",
+  "@tether": {
+    "description": "tether."
+  },
+  "ethereum": "Ethereum",
+  "@ethereum": {
+    "description": "ethereum."
   }
 }
