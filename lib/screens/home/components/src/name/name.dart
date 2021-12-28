@@ -12,7 +12,6 @@ class Name extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme.caption;
-    final screenWidth = MediaQuery.of(context).size.width;
 
     final name = Column(
       children: <Widget>[
@@ -35,21 +34,15 @@ class Name extends StatelessWidget {
       children: <Widget>[
         const Avatar(),
         const SizedBox(height: 15.0),
-        ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: screenWidth / 3),
-          child: name,
-        ),
+        name,
         const SizedBox(height: 15.0),
         Socials(),
         const SizedBox(height: 15.0),
-        ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: screenWidth / 3),
-          child: Text(
-            MySiteLocalizations.of(context)!.support,
-            style: textTheme,
-            textAlign: TextAlign.center,
-            textScaleFactor: 1.5,
-          ),
+        Text(
+          MySiteLocalizations.of(context)!.support,
+          style: textTheme,
+          textAlign: TextAlign.center,
+          textScaleFactor: 1.5,
         ),
         const SizedBox(height: 15.0),
         Donates(),
