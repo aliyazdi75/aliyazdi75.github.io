@@ -36,7 +36,7 @@ class MySite extends StatelessWidget {
   Widget build(BuildContext context) {
     return ModelBinding(
       initialModel: MySiteOptions(
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.dark,
         textScaleFactor: systemTextScaleFactorOption,
         // locale: Locale('fa'),
         // locale: null,

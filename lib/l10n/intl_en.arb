@@ -210,5 +210,13 @@
   "mostDownloadAppLink": "Google Play Store",
   "@mostDownloadAppLink": {
     "description": "mostDownloadAppLink."
+  },
+  "addressCopied": "Address copied!",
+  "@addressCopied": {
+    "description": "addressCopied."
+  },
+  "support": "Thanks for your Support",
+  "@support": {
+    "description": "support."
   }
 }

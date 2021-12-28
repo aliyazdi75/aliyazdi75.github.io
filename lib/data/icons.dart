@@ -12,7 +12,14 @@ class MySiteIcons {
 
   static const String _fontFamily = 'MySiteIcons';
 
+  static const IconData ethereum = IconData(0xe90e, fontFamily: _fontFamily);
+  static const IconData tether = IconData(0xe914, fontFamily: _fontFamily);
+  static const IconData binance = IconData(0xe915, fontFamily: _fontFamily);
+  static const IconData medium = IconData(0xe90b, fontFamily: _fontFamily);
   static const IconData discord = IconData(0xe900, fontFamily: _fontFamily);
+  static const IconData bitcoin = IconData(0xe90a, fontFamily: _fontFamily);
+  static const IconData money = IconData(0xe90c, fontFamily: _fontFamily);
+  static const IconData paypal = IconData(0xe90d, fontFamily: _fontFamily);
   static const IconData blogger = IconData(0xe909, fontFamily: _fontFamily);
   static const IconData instagram = IconData(0xe901, fontFamily: _fontFamily);
   static const IconData telegram = IconData(0xe902, fontFamily: _fontFamily);

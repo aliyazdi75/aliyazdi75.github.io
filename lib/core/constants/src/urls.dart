@@ -10,6 +10,13 @@ const bloggerUrl = 'https://blog.$webAddress';
 const youtubeUrl = 'https://youtube.$webAddress';
 const twitchUrl = 'https://twitch.$webAddress';
 const cvUrl = 'https://cv.$webAddress';
+const mediumUrl = 'https://medium.$webAddress';
+const idpayUrl = 'https://idpay.$webAddress';
+const paypalUrl = 'https://paypal.$webAddress';
+const binanceUrl = 'https://binance.$webAddress';
+const bitcoinAddress = '1JQLEHLzy8nH8ewzS2gVsEgD4RGNBCZNkZ';
+const tetherAddress = 'TXzzkVeEm76Bb8jDZMcVsPv1WjWxzUJWbc';
+const ethereumAddress = '0xbbd94d930348bb0b215258d16f3641161a629950';
 
 const downloadPage =
     'https://github.com/aliyazdi75/aliyazdi75.github.io/releases';

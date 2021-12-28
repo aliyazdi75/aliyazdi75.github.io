@@ -48,5 +48,7 @@
   "flutterTitle": "فلاتر",
   "mostDownloadAppDate": "بهمن ۱۳۹۸",
   "mostDownloadAppDescription": "بیشترین دانلود برنامه ورزشی در ایران، ما توانستیم به بیش از ۲۰۰ هزار نصب فعال در {value} برسیم",
-  "mostDownloadAppLink": "فروشگاه گوگل پلی"
+  "mostDownloadAppLink": "فروشگاه گوگل پلی",
+  "addressCopied": "!آدرس کپی شد",
+  "support": "مرسی از حمایتتان"
 }

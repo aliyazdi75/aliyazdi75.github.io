@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:my_site/core/constants/index.dart';
 import 'package:my_site/data/icons.dart';
-import 'package:my_site/layout/adaptive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class _SocialItem {
@@ -24,48 +23,70 @@ class Socials extends StatelessWidget {
     const _SocialItem(icon: MySiteIcons.telegram, url: telegramUrl),
     const _SocialItem(icon: MySiteIcons.instagram, url: instagramUrl),
     const _SocialItem(icon: MySiteIcons.blogger, url: bloggerUrl),
+    const _SocialItem(icon: MySiteIcons.medium, url: mediumUrl),
     const _SocialItem(icon: MySiteIcons.youtube, url: youtubeUrl),
     const _SocialItem(icon: MySiteIcons.twitch, url: twitchUrl),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final theme = Theme.of(context);
+    // final screenWidth = MediaQuery.of(context).size.width;
+    // final theme = Theme.of(context);
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: AdaptiveSize(
-        large: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(socialItems.length, (index) {
-            return OutlinedButton(
-              onPressed: () async => _onPressed(socialItems[index].url),
-              child: Icon(socialItems[index].icon),
-            );
-          }),
-        ),
-        medium: Column(
-          children: List.generate(socialItems.length, (index) {
-            return Padding(
-              padding: EdgeInsets.all(
-                screenWidth / 100.0,
-              ),
-              child: IconButton(
-                icon: Icon(socialItems[index].icon),
-                iconSize: 30.0,
-                visualDensity: VisualDensity.compact,
-                padding: const EdgeInsets.all(0.0),
-                color: theme.brightness == Brightness.light
-                    ? theme.primaryColor
-                    : null,
-                onPressed: () async => _onPressed(socialItems[index].url),
-              ),
-            );
-          }),
-        ),
+    return Container(
+      padding: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        border: Border.all(style: BorderStyle.none),
+        color: Theme.of(context).splashColor.withOpacity(0.03),
+        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+      ),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        runAlignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: 5.0,
+        runSpacing: 5.0,
+        children: List.generate(socialItems.length, (index) {
+          return OutlinedButton(
+            onPressed: () async => _onPressed(socialItems[index].url),
+            child: Icon(socialItems[index].icon),
+          );
+        }),
       ),
     );
+    // return SingleChildScrollView(
+    //   scrollDirection: Axis.horizontal,
+    // child: AdaptiveSize(
+    //   large: Row(
+    //     mainAxisAlignment: MainAxisAlignment.center,
+    //     children: List.generate(socialItems.length, (index) {
+    //       return OutlinedButton(
+    //         onPressed: () async => _onPressed(socialItems[index].url),
+    //         child: Icon(socialItems[index].icon),
+    //       );
+    //     }),
+    //   ),
+    // medium: Column(
+    //   children: List.generate(socialItems.length, (index) {
+    //     return Padding(
+    //       padding: EdgeInsets.all(
+    //         screenWidth / 100.0,
+    //       ),
+    //       child: IconButton(
+    //         icon: Icon(socialItems[index].icon),
+    //         iconSize: 30.0,
+    //         visualDensity: VisualDensity.compact,
+    //         padding: const EdgeInsets.all(0.0),
+    //         color: theme.brightness == Brightness.light
+    //             ? theme.primaryColor
+    //             : null,
+    //         onPressed: () async => _onPressed(socialItems[index].url),
+    //       ),
+    //     );
+    //   }),
+    // ),
+    // ),
+    // );
   }
 
   Future<void> _onPressed(String url) async {

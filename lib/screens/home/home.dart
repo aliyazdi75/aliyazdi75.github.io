@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_site/layout/adaptive.dart';
-import 'package:my_site/screens/home/components/src/menu/menu.dart';
 
 import 'components/index.dart';
 
@@ -64,8 +63,8 @@ class HomePage extends StatelessWidget {
       material: Scaffold(
         body: adaptiveBody,
         resizeToAvoidBottomInset: true,
-        floatingActionButton: isMediumDisplay(context) ? const Menu() : null,
-        bottomNavigationBar: isLargeDisplay(context) ? const Menu() : null,
+        // floatingActionButton: isMediumDisplay(context) ? const Menu() : null,
+        // bottomNavigationBar: isLargeDisplay(context) ? const Menu() : null,
       ),
       cupertino: CupertinoPageScaffold(
         child: adaptiveBody,
