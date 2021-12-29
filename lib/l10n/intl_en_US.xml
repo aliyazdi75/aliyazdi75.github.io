@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  This file was automatically generated.
+  Please do not edit it manually.
+  It is based on lib/l10n/intl_en.arb.
+-->
+<resources>
+  <string
+    name="mySiteTitle"
+    description="Title for app."
+    >Ali Yazdi Homepage</string>
+  <string
+    name="myName"
+    description="My name."
+    >ALI YAZDI</string>
+  <string
+    name="myTitle"
+    description="My title."
+    >CE GRADUATED @ TEHRAN POLYTECHNIC</string>
+  <string
+    name="welcomeTitle"
+    description="Welcome title."
+    >Hi there, welcome to my page</string>
+  <string
+    name="aboutMe"
+    description="About me."
+    >I am a Software Engineering graduate from Amirkabir University of Technology, which is one of the most prestigious universities in Iran, {value}. And a Developer, who loves programming in Flutter. I am also interested in Artificial Intelligence, Machine Learning and Software Engineering.</string>
+  <string
+    name="aboutUniversityRank"
+    description="University rank in Iran."
+    >ranked second in IT</string>
+  <string
+    name="resume"
+    description="Resume."
+    >Resume</string>
+  <string
+    name="aboutTitle"
+    description="About Title."
+    >ABOUT</string>
+  <string
+    name="educationTitle"
+    description="Education Title."
+    >EDUCATION</string>
+  <string
+    name="experienceTitle"
+    description="Experience Title."
+    >EXPERIENCE</string>
+  <string
+    name="awardsTitle"
+    description="Awards Title."
+    >AWARDS</string>
+  <string
+    name="amirkabirTitle"
+    description="Amirkabir University of Technology Title."
+    >Amirkabir University of Technology</string>
+  <string
+    name="polytechnicTitle"
+    description="Tehran Polytechnic Title."
+    >(Tehran Polytechnic)</string>
+  <string
+    name="amirkabirCity"
+    description="Amirkabir City."
+    >, Tehran, Iran</string>
+  <string
+    name="amirkabirStudyFieldTitle"
+    description="Study Field Title."
+    >B.Sc., Computer Engineering, Software</string>
+  <string
+    name="amirkabirStudyStart"
+    description="Study Duration."
+    >September 2015</string>
+  <string
+    name="amirkabirStudyEnd"
+    description="Study Duration."
+    >January 2020</string>
+  <string
+    name="schoolTitle"
+    description="Adab High School Title."
+    >Adab High School</string>
+  <string
+    name="schoolCity"
+    description="School City."
+    >Tehran, Iran</string>
+  <string
+    name="schoolStudyStart"
+    description="Study Duration."
+    >September 2011</string>
+  <string
+    name="schoolStudyEnd"
+    description="Study Duration."
+    >June 2014</string>
+  <string
+    name="schoolStudyFieldTitle"
+    description="Study Field Title."
+    >Diploma in Physics and Mathematics</string>
+  <string
+    name="tarafdariTitle"
+    description="Tarafdari Title."
+    >Tarafdari</string>
+  <string
+    name="tarafdariCity"
+    description="Work City."
+    >Tehran, Iran</string>
+  <string
+    name="tarafdariWorkStart"
+    description="Work Duration."
+    >June 2019</string>
+  <string
+    name="tarafdariWorkEnd"
+    description="Work Duration."
+    >April 2020</string>
+  <string
+    name="tarafdariTechnologies"
+    description="Tarafdari Technologies."
+    >Flutter, Drupal, Laravel, MySQL</string>
+  <string
+    name="tarafdariDescription"
+    description="Tarafdari Description."
+    >Tarafdari is the first and most popular sports social media network in Iran, providing official news and live scores of national and international matches.</string>
+  <string
+    name="tarafdariDuty1"
+    description="Tarafdari Duty."
+    >Studying and Researching about Flutter framework</string>
+  <string
+    name="tarafdariDuty2"
+    description="Tarafdari Duty."
+    >Developing requirement APIs</string>
+  <string
+    name="tarafdariDuty3"
+    description="Tarafdari Duty."
+    >Developing Tarafdari&apos;s client application and requirement plugins in Flutter, that is including multimedia content, live score matches, sports TV streaming with live chat on the socket</string>
+  <string
+    name="applicationPage"
+    description="Application Page Title."
+    >Application Page</string>
+  <string
+    name="olympiadDate"
+    description="olympiadDate."
+    >July 2013</string>
+  <string
+    name="olympiadDescription"
+    description="olympiadDescription."
+    >Qualified for the Second Round of the Iranian Physics Olympiad and Mathematical Olympiad</string>
+  <string
+    name="examDate"
+    description="examDate."
+    >July 2015</string>
+  <string
+    name="examDescription"
+    description="examDescription."
+    >Ranked in top 0.2% among more than 180K participants in Nation-Wide University Entrance Exam among all Iranian Student of Physics and Mathematics</string>
+  <string
+    name="bestAppDate"
+    description="bestAppDate."
+    >February 2020</string>
+  <string
+    name="bestAppDescription"
+    description="bestAppDescription."
+    >First Place in the 12th Iran Web and Mobile Festival({value}) for the Best Sport Mobile Application among 7k applications</string>
+  <string
+    name="bestAppLink"
+    description="bestAppLink."
+    >IWMF</string>
+  <string
+    name="madeWith"
+    description="Made With Title."
+    >Made with</string>
+  <string
+    name="byTitle"
+    description="By Title."
+    >by {value}</string>
+  <string
+    name="flutterTitle"
+    description="Flutter Title."
+    >Flutter</string>
+</resources>

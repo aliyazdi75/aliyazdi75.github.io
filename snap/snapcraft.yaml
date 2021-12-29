@@ -1,0 +1,23 @@
+name: aliyazdi
+version: 1.0.2
+summary: A responsive Flutter portfolio application for any platform
+description: |
+  A responsive Flutter portfolio application for any platform.
+  Check the Github repository at https://github.com/aliyazdi75/aliyazdi75.github.io
+
+confinement: strict
+base: core18
+grade: stable
+
+apps:
+  aliyazdi:
+    command: bin/my_site
+    extensions: [flutter-master]
+    plugs:
+      - network
+
+parts:
+  aliyazdi:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart
