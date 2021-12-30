@@ -1,4 +1,4 @@
-name: Deploy to Github Pages
+name: Deploy to Github & Firebase Hosting
 
 on:
   push:
@@ -23,6 +23,8 @@ jobs:
 
       # Build and deploy.
       - run: flutter build -v web --release
+
+      # Deploy to github pages.
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
@@ -30,3 +32,12 @@ jobs:
           publish_dir: ./build/web
           enable_jekyll: true
           cname: github.yazdi.dev
+
+      # Deploy to firebase hosting.
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_YAZDIDEV }}"
+          channelId: live
+          projectId: yazdidev
