@@ -6,5 +6,5 @@ B=c[0]
 A.eO.prototype={}
 var z=a.updateTypes([]);(function inheritance(){var y=a.inherit
 y(A.eO,B.v)})()
-B.a6V(b.typeUniverse,JSON.parse("{}"))}
-$__dart_deferred_initializers__["kP1SRXRlZvsE/CNdU3dXi5aGGUU="] = $__dart_deferred_initializers__.current
+B.a6W(b.typeUniverse,JSON.parse("{}"))}
+$__dart_deferred_initializers__["CZstuKGMw0BUH3asW0Ppj9M8hq0="] = $__dart_deferred_initializers__.current
